@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dr. Reddy's Dental & Eye Care Centre | Karaikal — Super Speciality</title>
+<meta name="description" content="Dr. Reddy's Dental & Eye Care Centre Karaikal. 30+ years experience. Advanced Dental Implants, Cataract Surgery, Orthodontics, Retina Care. 24/7 Emergency.">
+<link rel="icon" href="images/logo_original.jpeg" type="image/jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   DR. REDDY'S — DARK LUXURY MEDICAL THEME
+   Color System: Deep Navy × Dental Orange × Eye Cyan × Gold
+   ═══════════════════════════════════════════════════════════ */
+:root{
+--bg1:#06101E;--bg2:#0A1828;--bg3:#0E2040;
+--dental:#FF6534;--dental-lt:#FF8A60;--dental-dk:#D94A18;
+--eye:#00C8FF;--eye-lt:#4DD9FF;--eye-dk:#009BBF;
+--gold:#FFD060;--gold-dk:#E8A800;
+--white:#FFFFFF;--text:#C2D0E8;--text-dim:#6B7FA0;
+--border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.14);
+--glass:rgba(255,255,255,0.04);--glass2:rgba(255,255,255,0.08);
+--shadow:0 20px 60px rgba(0,0,0,0.5);
+--fh:'Playfair Display',serif;--fb:'DM Sans',sans-serif;
+--r:12px;--rl:20px;--rxl:32px;
+--ease:cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--fb);background:var(--bg1);color:var(--text);overflow-x:hidden;cursor:none;line-height:1.6}
+body.locked{overflow:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+ul{list-style:none}
+
+/* ─ SCROLLBAR ─ */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--dental);border-radius:2px}
+
+/* ─ CURSOR ─ */
+#cur,#cur2{position:fixed;border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
+#cur{width:8px;height:8px;background:var(--dental);top:0;left:0;transition:width .2s,height .2s,background .2s}
+#cur2{width:32px;height:32px;border:1.5px solid rgba(255,101,52,0.5);top:0;left:0;transition:all .12s ease}
+#cur.hovering{width:40px;height:40px;background:rgba(255,101,52,0.18);border-radius:50%}
+#cur.eye-hover{background:var(--eye)}
+#cur2.eye-hover{border-color:rgba(0,200,255,0.5)}
+
+/* ─ PRELOADER ─ */
+#preloader{position:fixed;inset:0;background:var(--bg1);z-index:99990;display:flex;align-items:center;justify-content:center;transition:opacity .7s,visibility .7s}
+#preloader.out{opacity:0;visibility:hidden;pointer-events:none}
+.pl-inner{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.pl-logo-ring{position:relative;width:120px;height:120px;margin:0 auto}
+.pl-logo-ring img{width:100%;height:100%;object-fit:contain;border-radius:50%;background:#fff;padding:14px;animation:plSpin 3s ease-in-out infinite alternate}
+.pl-ring1,.pl-ring2{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border-style:solid;animation:plRing 2s ease-in-out infinite}
+.pl-ring1{width:140px;height:140px;border-width:2px;border-color:rgba(255,101,52,0.4);animation-delay:0s}
+.pl-ring2{width:168px;height:168px;border-width:1px;border-color:rgba(0,200,255,0.25);animation-delay:-.6s}
+@keyframes plSpin{0%{transform:scale(0.9) rotate(-5deg)}100%{transform:scale(1.08) rotate(5deg)}}
+@keyframes plRing{0%,100%{opacity:0.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.06)}}
+.pl-name{font-family:var(--fh);font-size:1.9rem;color:var(--white);animation:fadeUp .6s .3s both}
+.pl-sub{font-size:.8rem;color:var(--text-dim);animation:fadeUp .6s .5s both;letter-spacing:2px;text-transform:uppercase}
+.pl-bar{width:200px;height:3px;background:rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+.pl-fill{height:100%;background:linear-gradient(90deg,var(--dental),var(--eye));border-radius:2px;animation:plFill 2.4s ease forwards}
+@keyframes plFill{from{width:0}to{width:100%}}
+.pl-dots{display:flex;gap:6px;align-items:center;justify-content:center}
+.pl-dots span{width:6px;height:6px;border-radius:50%;background:var(--text-dim);animation:plDot 1.4s ease-in-out infinite}
+.pl-dots span:nth-child(1){background:var(--dental);animation-delay:0s}
+.pl-dots span:nth-child(2){background:var(--eye);animation-delay:.2s}
+.pl-dots span:nth-child(3){background:var(--gold);animation-delay:.4s}
+@keyframes plDot{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.6);opacity:1}}
+
+/* ─ POPUP ─ */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.82);backdrop-filter:blur(12px);z-index:9000;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;transition:all .4s var(--ease)}
+.overlay.open{opacity:1;visibility:visible}
+.popup-box{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rxl);max-width:500px;width:100%;position:relative;overflow:hidden;transform:scale(.85) translateY(30px);transition:transform .45s cubic-bezier(.34,1.56,.64,1);box-shadow:0 30px 80px rgba(0,0,0,0.7)}
+.overlay.open .popup-box{transform:scale(1) translateY(0)}
+.popup-stripe{height:4px;background:linear-gradient(90deg,var(--dental),var(--eye),var(--gold))}
+.popup-content{padding:32px}
+.pop-close{position:absolute;top:12px;right:12px;background:rgba(255,255,255,0.08);border:none;color:var(--text);width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;z-index:2}
+.pop-close:hover{background:var(--dental);color:#fff}
+.pop-logo{width:60px;height:60px;border-radius:50%;background:#fff;padding:8px;margin:0 auto 14px;overflow:hidden}
+.pop-logo img{width:100%;height:100%;object-fit:contain}
+.popup-content h3{font-family:var(--fh);font-size:1.55rem;color:var(--white);text-align:center;margin-bottom:4px}
+.popup-content .pop-tag{text-align:center;color:var(--text-dim);font-size:.84rem;margin-bottom:20px}
+.step-bar{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:22px}
+.s-dot{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.1);color:var(--text-dim);font-size:.76rem;font-weight:700;display:flex;align-items:center;justify-content:center;transition:.3s}
+.s-dot.on{background:var(--dental);color:#fff}
+.s-line{width:40px;height:2px;background:rgba(255,255,255,0.1)}
+.form-step{display:none}.form-step.on{display:block;animation:fadeUp .3s ease}
+.fld{margin-bottom:14px}
+.fld label{display:block;font-size:.78rem;font-weight:600;color:var(--text-dim);margin-bottom:5px;letter-spacing:.5px;text-transform:uppercase}
+.fld input,.fld select,.fld textarea{width:100%;padding:11px 14px;background:rgba(255,255,255,0.05);border:1.5px solid var(--border2);border-radius:var(--r);color:var(--white);font-family:var(--fb);font-size:.9rem;outline:none;transition:.3s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--dental);box-shadow:0 0 0 3px rgba(255,101,52,0.12);background:rgba(255,255,255,0.08)}
+.fld select option{background:var(--bg2);color:var(--white)}
+.btn-next,.btn-sub{width:100%;padding:13px;background:linear-gradient(135deg,var(--dental),var(--dental-dk));color:#fff;border:none;border-radius:var(--r);font-family:var(--fb);font-size:.95rem;font-weight:700;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.3px}
+.btn-next:hover,.btn-sub:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,101,52,0.4)}
+.btn-back{padding:13px;background:rgba(255,255,255,0.06);color:var(--text);border:1px solid var(--border2);border-radius:var(--r);font-family:var(--fb);font-size:.9rem;font-weight:600;cursor:pointer;transition:.3s}
+.btn-back:hover{background:rgba(255,255,255,0.12)}
+.pop-2row{display:grid;grid-template-columns:1fr 2fr;gap:10px}
+.pop-em{display:flex;align-items:center;gap:10px;margin-top:18px;padding:10px 14px;background:rgba(255,101,52,0.1);border:1px solid rgba(255,101,52,0.2);border-radius:var(--r);font-size:.82rem;color:var(--dental-lt)}
+.pop-em a{color:var(--dental);font-weight:700}
+
+/* ─ SERVICE MODAL (3-col) ─ */
+.modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rxl);width:100%;max-width:1100px;max-height:92vh;overflow:hidden;position:relative;transform:scale(.9);transition:transform .45s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column;box-shadow:0 40px 100px rgba(0,0,0,0.7)}
+.overlay.open .modal-box{transform:scale(1)}
+.svc-modal-box{max-width:1100px}
+.doc-modal-box{max-width:720px}
+.m-close{position:absolute;top:14px;right:14px;background:rgba(255,255,255,0.07);border:none;color:var(--text);width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;z-index:10}
+.m-close:hover{background:var(--dental);color:#fff}
+.svc-m-hero{padding:28px 32px;color:#fff;position:relative;overflow:hidden;flex-shrink:0}
+.svc-m-hero h2{font-family:var(--fh);font-size:1.7rem;margin-bottom:4px}
+.svc-m-hero p{opacity:.8;font-size:.92rem}
+.svc-m-hero .hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);padding:4px 12px;border-radius:20px;font-size:.76rem;font-weight:600;margin-bottom:12px}
+.svc-m-hero-bg{position:absolute;right:-40px;top:-40px;width:200px;height:200px;border-radius:50%;opacity:0.15;filter:blur(40px)}
+/* Mobile tabs for modal */
+.m-tabs{display:none;background:rgba(0,0,0,0.3);border-bottom:1px solid var(--border)}
+.m-tab{flex:1;padding:12px;background:none;border:none;color:var(--text-dim);font-family:var(--fb);font-size:.8rem;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;transition:.3s}
+.m-tab.active{color:var(--white);border-bottom-color:var(--dental)}
+.svc-m-body{display:grid;grid-template-columns:1fr 1fr 1fr;overflow:hidden;flex:1}
+.svc-m-col{padding:28px;overflow-y:auto;max-height:calc(92vh - 140px);border-right:1px solid var(--border)}
+.svc-m-col:last-child{border-right:none}
+.svc-m-col h3{font-family:var(--fh);font-size:1.1rem;color:var(--white);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.svc-m-col h3 i{font-size:.9rem;opacity:.7}
+.svc-m-col p{font-size:.86rem;color:var(--text);line-height:1.75;margin-bottom:12px}
+.svc-img-wrap{border-radius:var(--r);overflow:hidden;margin-bottom:16px;height:160px}
+.svc-img-wrap img{width:100%;height:100%;object-fit:cover}
+.svc-fact{display:flex;align-items:flex-start;gap:10px;padding:10px;background:rgba(255,255,255,0.04);border-radius:var(--r);margin-bottom:8px;border:1px solid var(--border)}
+.svc-fact i{margin-top:2px;font-size:.9rem}
+.svc-fact div strong{display:block;font-size:.76rem;color:var(--text-dim);margin-bottom:1px}
+.svc-fact div span{font-size:.84rem;color:var(--white)}
+/* Timeline steps */
+.step-tl{display:flex;flex-direction:column;gap:0}
+.step-tl-item{display:flex;gap:14px;position:relative}
+.step-tl-item:not(:last-child)::before{content:'';position:absolute;left:16px;top:36px;bottom:-4px;width:2px;background:linear-gradient(to bottom,var(--dental),transparent);z-index:0}
+.step-tl-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:800;flex-shrink:0;z-index:1;position:relative}
+.step-tl-text{padding:0 0 20px 0}
+.step-tl-text strong{display:block;font-size:.88rem;color:var(--white);margin-bottom:3px}
+.step-tl-text span{font-size:.8rem;color:var(--text-dim);line-height:1.55}
+/* Before/After */
+.ba-container{position:relative;height:180px;border-radius:var(--r);overflow:hidden;margin-bottom:18px;cursor:ew-resize;user-select:none}
+.ba-b,.ba-a{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;font-weight:700}
+.ba-b{background:linear-gradient(135deg,rgba(255,50,50,0.2),rgba(100,0,0,0.3));border:1px solid rgba(255,100,100,0.15);color:#FF8A80}
+.ba-a{background:linear-gradient(135deg,rgba(0,200,100,0.2),rgba(0,80,40,0.3));border:1px solid rgba(0,200,100,0.15);color:#69F0AE;clip-path:inset(0 50% 0 0);transition:clip-path .04s}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--white);transform:translateX(-50%);z-index:2}
+.ba-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:32px;height:32px;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--bg1);box-shadow:0 2px 10px rgba(0,0,0,0.4)}
+.ba-label{font-size:.7rem;font-weight:400;opacity:.7}
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:12px 0;cursor:pointer;font-size:.86rem;font-weight:600;color:var(--white);gap:10px;transition:.3s}
+.faq-q:hover{color:var(--dental)}
+.faq-q i{font-size:.72rem;transition:transform .3s;flex-shrink:0}
+.faq-q.open i{transform:rotate(180deg)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:.82rem;color:var(--text);line-height:1.65}
+.faq-ans.open{max-height:200px;padding-bottom:12px}
+.modal-book-row{padding:20px 28px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:rgba(0,0,0,0.2);flex-wrap:wrap;gap:12px}
+.modal-book-row .em-badge{display:flex;align-items:center;gap:8px;color:var(--dental-lt);font-size:.82rem}
+.modal-book-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:linear-gradient(135deg,var(--dental),var(--dental-dk));color:#fff;border:none;border-radius:var(--r);font-family:var(--fb);font-size:.9rem;font-weight:700;cursor:pointer;transition:.3s}
+.modal-book-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,101,52,0.4)}
+
+/* Doctor Modal */
+.doc-m-head{padding:32px;display:flex;gap:20px;align-items:center;border-bottom:1px solid var(--border)}
+.doc-av{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;border:3px solid rgba(255,255,255,0.15)}
+.doc-m-info h2{font-family:var(--fh);font-size:1.4rem;color:var(--white);margin-bottom:4px}
+.doc-deg{display:inline-block;padding:3px 12px;border-radius:20px;font-size:.76rem;font-weight:700;margin-bottom:6px}
+.doc-m-info p{font-size:.84rem;color:var(--text-dim)}
+.doc-m-body{padding:28px;overflow-y:auto;max-height:calc(92vh - 200px)}
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.doc-item{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:12px;display:flex;gap:10px}
+.doc-item i{color:var(--dental);margin-top:2px;font-size:1rem}
+.doc-item strong{display:block;font-size:.72rem;color:var(--text-dim);margin-bottom:2px}
+.doc-item span{font-size:.84rem;color:var(--white)}
+.doc-about{font-size:.87rem;color:var(--text);line-height:1.8;margin-bottom:18px}
+.doc-svcs{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.doc-svc-pill{display:flex;align-items:center;gap:7px;padding:7px 10px;background:var(--glass);border-radius:8px;font-size:.8rem;color:var(--text)}
+.doc-svc-pill i{font-size:.72rem;color:var(--dental)}
+.doc-book-row{padding:20px 28px;border-top:1px solid var(--border);background:rgba(0,0,0,0.2)}
+
+/* ─ NAVBAR ─ */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s var(--ease);padding:0}
+#hdr.on{background:rgba(6,16,30,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 5%;max-width:1500px;margin:0 auto}
+.nlogo{display:flex;align-items:center;gap:10px}
+.nlogo img{width:46px;height:46px;object-fit:contain;border-radius:10px;background:#fff;padding:5px;box-shadow:0 4px 15px rgba(0,0,0,0.3)}
+.nbrand strong{display:block;font-family:var(--fh);font-size:1rem;color:var(--white);line-height:1.2}
+.nbrand span{font-size:.64rem;color:var(--text-dim)}
+.nlinks{display:flex;align-items:center;gap:4px}
+.nlinks a{padding:7px 12px;border-radius:8px;font-size:.83rem;font-weight:500;color:var(--text);transition:.3s;position:relative}
+.nlinks a::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--dental);transform:translateX(-50%);transition:width .3s}
+.nlinks a:hover{color:var(--white)}
+.nlinks a:hover::after{width:60%}
+.n-appt{background:linear-gradient(135deg,var(--dental),var(--dental-dk)) !important;color:#fff !important;border-radius:25px !important;padding:9px 18px !important;font-weight:700 !important}
+.n-appt::after{display:none}
+.n-appt:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(255,101,52,0.35)}
+.nbadge{background:rgba(255,208,96,0.15);color:var(--gold);border:1px solid rgba(255,208,96,0.25);padding:4px 10px;border-radius:20px;font-size:.7rem;font-weight:700;margin-left:4px}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+.burger span{width:22px;height:2px;background:var(--text);border-radius:2px;transition:.3s;display:block}
+.burger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* ─ HERO ─ */
+.hero{min-height:100vh;background:var(--bg1);display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 5% 80px}
+.hero-canvas{position:absolute;inset:0;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;animation:orbDrift 10s ease-in-out infinite}
+.o1{width:600px;height:600px;background:rgba(255,101,52,0.18);top:-200px;right:-150px}
+.o2{width:500px;height:500px;background:rgba(0,200,255,0.14);bottom:-150px;left:-150px;animation-delay:-4s}
+.o3{width:350px;height:350px;background:rgba(255,208,96,0.08);top:30%;left:35%;animation-delay:-7s}
+@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.04)}66%{transform:translate(-20px,15px) scale(.96)}}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:50px 50px}
+.hero-content{max-width:1500px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:center;position:relative;z-index:1}
+.h-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:7px 16px;border-radius:30px;font-size:.78rem;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:20px;letter-spacing:.5px}
+.h-badge-live{width:7px;height:7px;background:#4CAF50;border-radius:50%;animation:livePulse 1.8s infinite}
+@keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(76,175,80,.5)}70%{opacity:.6;box-shadow:0 0 0 6px rgba(76,175,80,0)}}
+.h-title{font-family:var(--fh);color:var(--white);line-height:1.12;margin-bottom:20px}
+.h-title em{display:block;font-size:clamp(2.6rem,5vw,4.5rem);opacity:.8;font-weight:400}
+.h-title .h-dual{display:block;font-size:clamp(2.8rem,6vw,5rem);font-weight:900}
+.h-dental{background:linear-gradient(135deg,var(--dental),var(--dental-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-amp{color:rgba(255,255,255,.25);margin:0 8px;font-weight:400;font-size:.75em}
+.h-eye{background:linear-gradient(135deg,var(--eye),var(--eye-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-sub{display:block;font-size:clamp(1.3rem,2.8vw,2rem);color:rgba(255,255,255,.7);font-weight:500;margin-top:6px}
+.h-desc{color:var(--text);font-size:.97rem;line-height:1.8;margin-bottom:30px;max-width:520px}
+.h-desc strong{color:var(--dental-lt)}
+.h-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:36px}
+.btn-hero-p{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;background:linear-gradient(135deg,var(--dental),var(--dental-dk));color:#fff;border:none;border-radius:40px;font-family:var(--fb);font-size:.95rem;font-weight:700;cursor:pointer;transition:.35s;box-shadow:0 8px 30px rgba(255,101,52,0.35)}
+.btn-hero-p:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 14px 40px rgba(255,101,52,0.5)}
+.btn-hero-e{display:inline-flex;align-items:center;gap:10px;padding:15px 28px;background:rgba(255,255,255,.07);color:var(--white);border:1.5px solid rgba(255,255,255,.2);border-radius:40px;font-size:.95rem;font-weight:600;transition:.35s;backdrop-filter:blur(10px)}
+.btn-hero-e:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.4)}
+.e-pulse{animation:ePulse 1.5s infinite;color:#FF5252}
+@keyframes ePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+.h-stats{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hstat{display:flex;flex-direction:column;align-items:center}
+.hstat-n{font-family:var(--fh);font-size:1.9rem;font-weight:800;color:var(--dental-lt);line-height:1}
+.hstat-n+span{font-family:var(--fh);font-size:1.2rem;color:var(--dental-lt)}
+.hstat-l{font-size:.68rem;color:var(--text-dim);margin-top:2px;text-align:center;letter-spacing:.5px;text-transform:uppercase}
+.hstat-div{width:1px;height:32px;background:var(--border2)}
+/* hero right */
+.h-right{display:flex;align-items:center;justify-content:center}
+.h-visual{position:relative;width:400px;height:400px;display:flex;align-items:center;justify-content:center}
+.h-logo-core{position:relative;z-index:2}
+.h-logo-img{width:155px;height:155px;border-radius:50%;object-fit:contain;background:#fff;padding:15px;box-shadow:0 20px 60px rgba(0,0,0,.5);animation:logoGlow 4s ease-in-out infinite}
+@keyframes logoGlow{0%,100%{box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 0 0 rgba(255,101,52,0)}50%{box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(255,101,52,.3)}}
+.h-ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);animation:hRing 4s ease-in-out infinite;border-style:solid}
+.hr1{width:195px;height:195px;border-width:2px;border-color:rgba(255,101,52,0.3)}
+.hr2{width:255px;height:255px;border-width:1px;border-color:rgba(0,200,255,0.2);animation-delay:-.8s}
+.hr3{width:320px;height:320px;border-width:1px;border-color:rgba(255,208,96,0.12);animation-delay:-1.6s}
+@keyframes hRing{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1) rotate(0)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.04) rotate(3deg)}}
+.h-float{position:absolute;background:rgba(14,32,64,0.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:11px 15px;display:flex;align-items:center;gap:10px;animation:floatCards 5s ease-in-out infinite}
+.h-float i{font-size:1.3rem}
+.h-float strong{display:block;font-size:.83rem;font-weight:700;color:var(--white)}
+.h-float small{font-size:.7rem;color:var(--text-dim)}
+.hf1{top:30px;right:-20px;animation-delay:0s}
+.hf1 i{color:var(--dental)}
+.hf2{bottom:80px;right:-40px;animation-delay:-1.5s}
+.hf2 i{color:var(--eye)}
+.hf3{bottom:10px;left:-30px;animation-delay:-3s}
+.hf3 i{color:#FF5252}
+.hf4{top:90px;left:-50px;animation-delay:-2s}
+.hf4 i{color:var(--gold)}
+@keyframes floatCards{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.h-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:var(--text-dim);font-size:.7rem;letter-spacing:1px;text-transform:uppercase;animation:hScroll 2.5s ease-in-out infinite}
+.h-scroll-icon{width:18px;height:18px;border-right:2px solid var(--text-dim);border-bottom:2px solid var(--text-dim);transform:rotate(45deg)}
+@keyframes hScroll{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+/* ─ MARQUEE BAR ─ */
+.mbar{background:linear-gradient(90deg,var(--dental-dk),var(--dental),var(--eye-dk),var(--eye),var(--dental-dk));background-size:300%;animation:mBarMove 8s linear infinite;padding:10px 0;overflow:hidden}
+@keyframes mBarMove{0%{background-position:0%}100%{background-position:300%}}
+.mtrack{display:flex;animation:marqueeScroll 38s linear infinite;white-space:nowrap}
+.mtrack span{color:rgba(255,255,255,.95);font-size:.8rem;font-weight:600;padding:0 24px;letter-spacing:.3px}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─ SECTION COMMONS ─ */
+section{padding:100px 5%}
+.s-wrap{max-width:1500px;margin:0 auto}
+.sec-hd{text-align:center;margin-bottom:60px}
+.sec-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(255,101,52,0.1);border:1px solid rgba(255,101,52,0.25);color:var(--dental);padding:5px 16px;border-radius:30px;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.sec-tag.eye-tag{background:rgba(0,200,255,0.1);border-color:rgba(0,200,255,0.25);color:var(--eye)}
+.sec-title{font-family:var(--fh);font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--white);line-height:1.25;margin-bottom:14px}
+.g-text{background:linear-gradient(135deg,var(--dental),var(--eye));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.o-text{background:linear-gradient(135deg,var(--dental),var(--dental-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.b-text{background:linear-gradient(135deg,var(--eye),var(--eye-lt));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.sec-desc{color:var(--text-dim);font-size:.94rem;max-width:560px;margin:0 auto;line-height:1.75}
+
+/* ─ SERVICES RUNNING MARQUEE ─ */
+.svc-section{background:var(--bg2);overflow:hidden}
+.svc-marquee-outer{position:relative;margin:0 -5%;overflow:hidden}
+.svc-marquee-outer::before,.svc-marquee-outer::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.svc-marquee-outer::before{left:0;background:linear-gradient(to right,var(--bg2),transparent)}
+.svc-marquee-outer::after{right:0;background:linear-gradient(to left,var(--bg2),transparent)}
+.svc-track{display:flex;gap:16px;animation:svcScroll 35s linear infinite;padding:16px 5%;width:max-content}
+.svc-track:hover{animation-play-state:paused}
+@keyframes svcScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.svc-pill{display:flex;align-items:center;gap:10px;padding:14px 20px;background:var(--glass);border:1px solid var(--border2);border-radius:40px;cursor:pointer;transition:.35s;white-space:nowrap;flex-shrink:0}
+.svc-pill:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,0.4)}
+.svc-pill.d-pill:hover{background:rgba(255,101,52,0.12);border-color:var(--dental)}
+.svc-pill.e-pill:hover{background:rgba(0,200,255,0.1);border-color:var(--eye)}
+.svc-pill i{font-size:1rem}
+.svc-pill.d-pill i{color:var(--dental)}
+.svc-pill.e-pill i{color:var(--eye)}
+.svc-pill span{font-size:.84rem;font-weight:600;color:var(--white)}
+.svc-pill-badge{background:rgba(255,255,255,.08);font-size:.66rem;padding:2px 8px;border-radius:10px;color:var(--text-dim)}
+
+/* ─ DUAL SERVICES GRID ─ */
+.dual-svc{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:50px 0 0}
+.dsvc-half{padding:40px;position:relative;overflow:hidden}
+.dsvc-half::before{content:'';position:absolute;inset:0;opacity:.03;pointer-events:none}
+.d-half{background:linear-gradient(135deg,rgba(255,101,52,0.06),rgba(255,101,52,0.02))}
+.d-half::before{background:radial-gradient(circle at 80% 20%,var(--dental),transparent 60%)}
+.e-half{background:linear-gradient(135deg,rgba(0,200,255,0.06),rgba(0,200,255,0.02))}
+.e-half::before{background:radial-gradient(circle at 20% 80%,var(--eye),transparent 60%)}
+.dsvc-heading{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.dsvc-icon{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.d-ico{background:rgba(255,101,52,0.15);color:var(--dental)}
+.e-ico{background:rgba(0,200,255,0.12);color:var(--eye)}
+.dsvc-heading h3{font-family:var(--fh);font-size:1.6rem;color:var(--white)}
+.dsvc-heading p{font-size:.8rem;color:var(--text-dim);margin-top:2px}
+.svc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sc2{background:var(--glass);border:1px solid var(--border);border-radius:var(--r);padding:16px;cursor:pointer;transition:.35s;position:relative;overflow:hidden}
+.sc2::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s}
+.d-sc::before{background:linear-gradient(135deg,var(--dental),var(--dental-dk))}
+.e-sc::before{background:linear-gradient(135deg,var(--eye-dk),var(--bg1))}
+.sc2:hover::before{opacity:1}
+.sc2:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.sc2:hover .sc2-all{color:#fff!important}
+.sc2-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.92rem;margin-bottom:8px;position:relative;z-index:1;transition:.3s}
+.d-sci{background:rgba(255,101,52,0.15);color:var(--dental)}
+.e-sci{background:rgba(0,200,255,0.12);color:var(--eye)}
+.sc2-all{position:relative;z-index:1;transition:color .3s}
+.sc2 h4{font-size:.84rem;font-weight:700;color:var(--white);margin-bottom:3px}
+.sc2 p{font-size:.74rem;color:var(--text-dim);line-height:1.4}
+.sc2-arr{position:absolute;bottom:12px;right:12px;color:var(--text-dim);font-size:.9rem;z-index:1;transition:.3s}
+.sc2:hover .sc2-arr{color:rgba(255,255,255,.7);transform:translateX(3px)}
+.dsvc-center{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg1);padding:30px 20px;position:relative}
+.dsvc-center-logo{width:70px;height:70px;border-radius:50%;background:#fff;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+.dsvc-center-logo img{width:100%;height:100%;object-fit:contain}
+.div-vline{flex:1;width:2px;background:linear-gradient(to bottom,transparent,var(--dental),transparent);min-height:50px}
+
+/* ─ PREVENTION TIPS ─ */
+.prev-section{background:var(--bg1)}
+.prev-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.prev-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;transition:.35s}
+.prev-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.prev-hd{padding:22px 26px;display:flex;align-items:center;gap:14px}
+.prev-hd-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.d-prev-ico{background:rgba(255,101,52,0.15);color:var(--dental)}
+.e-prev-ico{background:rgba(0,200,255,0.12);color:var(--eye)}
+.prev-hd h3{font-family:var(--fh);font-size:1.25rem;color:var(--white)}
+.prev-hd p{font-size:.78rem;color:var(--text-dim);margin-top:2px}
+.prev-list{padding:0 26px 26px}
+.prev-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border)}
+.prev-item:last-child{border-bottom:none}
+.prev-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0;margin-top:1px}
+.d-pn{background:rgba(255,101,52,0.15);color:var(--dental)}
+.e-pn{background:rgba(0,200,255,0.12);color:var(--eye)}
+.prev-item div strong{display:block;font-size:.85rem;color:var(--white);margin-bottom:2px}
+.prev-item div span{font-size:.79rem;color:var(--text-dim);line-height:1.55}
+
+/* ─ DOCTORS ─ */
+.doc-section{background:var(--bg2)}
+.main-docs{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1000px;margin:0 auto 52px}
+.mdoc{border-radius:var(--rxl);overflow:hidden;cursor:pointer;transition:.4s var(--ease);position:relative;border:1.5px solid var(--border2)}
+.mdoc:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(0,0,0,0.6)}
+.mdoc-banner{height:190px;display:flex;align-items:flex-end;padding:16px;position:relative}
+.d-banner{background:linear-gradient(135deg,rgba(255,101,52,0.8),rgba(200,60,10,0.9)),url('images/treating_place.webp') center/cover no-repeat;background-blend-mode:multiply}
+.e-banner{background:linear-gradient(135deg,rgba(0,150,200,0.8),rgba(10,30,80,0.9)),url('images/eye_img1.jpg') center/cover no-repeat;background-blend-mode:multiply}
+.mdoc-av{position:absolute;top:24px;left:50%;transform:translateX(-50%);width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:2.2rem;border:3px solid rgba(255,255,255,.2);backdrop-filter:blur(10px)}
+.mdoc-badge{padding:5px 14px;border-radius:20px;font-size:.72rem;font-weight:700;color:#fff;background:rgba(0,0,0,0.35);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);position:absolute;bottom:14px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.mdoc-body{padding:26px 22px 22px;background:var(--bg2)}
+.mdoc-body h3{font-family:var(--fh);font-size:1.05rem;color:var(--white);margin-bottom:5px}
+.mdoc-deg{display:inline-block;background:rgba(255,255,255,.07);color:var(--text-dim);padding:2px 10px;border-radius:20px;font-size:.72rem;font-weight:600;margin-bottom:8px}
+.mdoc-body p{font-size:.8rem;color:var(--text-dim);margin-bottom:12px}
+.mdoc-chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.chip{display:flex;align-items:center;gap:4px;font-size:.7rem;background:rgba(255,255,255,.06);padding:4px 9px;border-radius:20px;color:var(--text)}
+.chip i{font-size:.65rem;color:var(--dental)}
+.d-chip i{color:var(--dental)}.e-chip i{color:var(--eye)}
+.btn-port{background:none;border:1.5px solid var(--dental);color:var(--dental);padding:8px 16px;border-radius:20px;font-size:.78rem;font-weight:700;cursor:pointer;transition:.3s;font-family:var(--fb);display:flex;align-items:center;gap:6px}
+.btn-port.e-port{border-color:var(--eye);color:var(--eye)}
+.btn-port:hover{transform:translateY(-1px)}
+.btn-port.d-port:hover{background:var(--dental);color:#fff}
+.btn-port.e-port:hover{background:var(--eye);color:var(--bg1)}
+.cons-hdr{text-align:center;margin-bottom:28px}
+.cons-hdr h3{font-family:var(--fh);font-size:1.5rem;color:var(--white)}
+.cons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:0 auto}
+.ccard{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rl);padding:24px 16px;text-align:center;cursor:pointer;transition:.35s}
+.ccard:hover{background:rgba(255,101,52,0.08);border-color:var(--dental);transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.4)}
+.ccard-icon{width:50px;height:50px;border-radius:14px;background:rgba(255,101,52,0.12);color:var(--dental);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 12px}
+.ccard h4{font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:4px;line-height:1.35}
+.ccard .cdeg{display:block;font-size:.7rem;color:var(--text-dim);margin-bottom:4px}
+.ccard p{font-size:.78rem;color:var(--text-dim);margin-bottom:8px}
+.ccard .cexp{display:inline-block;background:rgba(255,101,52,0.1);color:var(--dental);padding:3px 9px;border-radius:20px;font-size:.7rem;font-weight:700}
+
+/* ─ WHY CHOOSE US ─ */
+.why-section{background:var(--bg1)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:32px 24px;transition:.4s var(--ease);position:relative;overflow:hidden;cursor:default}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--dental),var(--eye));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.why-card:hover::after{transform:scaleX(1)}
+.why-card:hover{transform:translateY(-6px);box-shadow:0 25px 60px rgba(0,0,0,.5);border-color:var(--border2)}
+.why-icon{width:56px;height:56px;border-radius:16px;background:rgba(255,101,52,0.1);display:flex;align-items:center;justify-content:center;font-size:1.35rem;color:var(--dental);margin-bottom:18px;transition:.4s var(--ease)}
+.why-card:hover .why-icon{background:linear-gradient(135deg,var(--dental),var(--dental-dk));color:#fff;transform:rotate(8deg) scale(1.1)}
+.why-card h4{font-size:.98rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.why-card p{font-size:.83rem;color:var(--text-dim);line-height:1.72}
+.why-card .why-badge{display:inline-block;margin-top:12px;background:rgba(255,208,96,0.1);color:var(--gold);padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;border:1px solid rgba(255,208,96,0.2)}
+
+/* ─ TECH MARQUEE ─ */
+.tech-section{background:var(--bg2);overflow:hidden}
+.tech-outer{margin:0 -5%;overflow:hidden;position:relative}
+.tech-outer::before,.tech-outer::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.tech-outer::before{left:0;background:linear-gradient(to right,var(--bg2),transparent)}
+.tech-outer::after{right:0;background:linear-gradient(to left,var(--bg2),transparent)}
+.tech-track{display:flex;gap:16px;animation:techScr 25s linear infinite;padding:16px 0;width:max-content}
+@keyframes techScr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tech-pill{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px 24px;background:var(--glass);border:1px solid var(--border);border-radius:var(--r);color:var(--white);white-space:nowrap;flex-shrink:0;transition:.35s}
+.tech-pill:hover{background:rgba(255,101,52,0.1);border-color:var(--dental);transform:translateY(-4px)}
+.tech-pill i{font-size:1.7rem;color:var(--dental)}
+.tech-pill span{font-size:.8rem;font-weight:600}
+
+/* ─ GALLERY ─ */
+.gallery-section{background:var(--bg1)}
+.gtabs{display:flex;justify-content:center;gap:10px;margin-bottom:36px;flex-wrap:wrap}
+.gtab{padding:9px 22px;border-radius:30px;border:1.5px solid var(--border2);background:transparent;font-family:var(--fb);font-size:.82rem;font-weight:700;color:var(--text-dim);cursor:pointer;transition:.3s}
+.gtab.active,.gtab:hover{background:var(--dental);border-color:var(--dental);color:#fff}
+.g-masonry{columns:4;column-gap:12px;max-width:1500px;margin:0 auto}
+.g-item{break-inside:avoid;margin-bottom:12px;border-radius:var(--r);overflow:hidden;position:relative;cursor:pointer}
+.g-item img{width:100%;display:block;transition:transform .4s ease}
+.g-item:hover img{transform:scale(1.06)}
+.g-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75),transparent);display:flex;align-items:flex-end;padding:14px;opacity:0;transition:.3s}
+.g-item:hover .g-ov{opacity:1}
+.g-ov span{color:#fff;font-size:.82rem;font-weight:600}
+.g-item.gone{display:none}
+/* Lightbox */
+.lbox{position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:99980;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:.35s}
+.lbox.open{opacity:1;visibility:visible}
+.lbox-img{max-width:90vw;max-height:86vh;object-fit:contain;border-radius:var(--r);display:block}
+.lbox-cap{text-align:center;color:rgba(255,255,255,.6);margin-top:12px;font-size:.86rem}
+.lbox-close,.lbox-nav{position:absolute;background:rgba(255,255,255,.1);border:none;color:#fff;cursor:pointer;border-radius:50%;width:44px;height:44px;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:.3s;backdrop-filter:blur(10px)}
+.lbox-close:hover,.lbox-nav:hover{background:var(--dental)}
+.lbox-close{top:18px;right:18px}
+.lbox-prev{left:18px;top:50%;transform:translateY(-50%);font-size:1.5rem}
+.lbox-next{right:18px;top:50%;transform:translateY(-50%);font-size:1.5rem}
+
+/* ─ TESTIMONIALS ─ */
+.testi-section{background:linear-gradient(135deg,var(--bg2),var(--bg3))}
+.testi-wrap{max-width:880px;margin:0 auto;overflow:hidden}
+.testi-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.tcard{flex:0 0 100%;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid var(--border2);border-radius:var(--rxl);padding:44px;text-align:center}
+.tcard-q{font-size:3rem;color:var(--dental);opacity:.3;line-height:1;margin-bottom:4px}
+.tcard-stars{color:var(--gold);font-size:1.2rem;letter-spacing:3px;margin-bottom:16px}
+.tcard p{font-size:.96rem;color:var(--text);line-height:1.85;font-style:italic;margin-bottom:24px}
+.tcard-auth{display:flex;align-items:center;justify-content:center;gap:12px}
+.tcard-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--dental),var(--dental-dk));display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;color:#fff}
+.tcard-auth strong{display:block;font-size:.88rem;font-weight:700;color:var(--white)}
+.tcard-auth span{font-size:.74rem;color:var(--text-dim)}
+.testi-ctrl{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:26px}
+.testi-ctrl button{background:rgba(255,255,255,.07);border:1px solid var(--border2);color:var(--white);width:40px;height:40px;border-radius:50%;font-size:1.5rem;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;line-height:1}
+.testi-ctrl button:hover{background:var(--dental);border-color:var(--dental)}
+.tdots{display:flex;gap:6px;align-items:center}
+.tdot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);cursor:pointer;transition:.3s}
+.tdot.on{background:var(--dental);width:20px;border-radius:3px}
+
+/* ─ CONTACT ─ */
+.contact-section{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start}
+.ci-col{display:flex;flex-direction:column;gap:12px}
+.cicard{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px;display:flex;align-items:flex-start;gap:14px;transition:.3s}
+.cicard:hover{border-color:var(--dental);transform:translateX(4px)}
+.ci-ico{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--dental),var(--dental-dk));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;flex-shrink:0}
+.cicard h4{font-size:.83rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.cicard p{font-size:.8rem;color:var(--text-dim);line-height:1.65}
+.cicard a{color:var(--dental-lt)}
+.cf-col{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rl);padding:28px}
+.cf-col h3{font-family:var(--fh);font-size:1.4rem;color:var(--white);margin-bottom:20px}
+.cf{display:flex;flex-direction:column;gap:12px}
+.btn-cf{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;background:linear-gradient(135deg,var(--dental),var(--dental-dk));color:#fff;border:none;border-radius:var(--r);font-family:var(--fb);font-size:.9rem;font-weight:700;cursor:pointer;transition:.3s}
+.btn-cf:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(255,101,52,.4)}
+.map-col{border-radius:var(--rl);overflow:hidden;box-shadow:var(--shadow)}
+.map-col iframe{display:block;border-radius:var(--rl) var(--rl) 0 0}
+.btn-dir{display:flex;align-items:center;justify-content:center;gap:8px;padding:14px;background:var(--bg3);border:none;color:var(--eye);font-size:.86rem;font-weight:700;cursor:pointer;font-family:var(--fb);width:100%;border-radius:0 0 var(--rl) var(--rl);transition:.3s;border-top:1px solid var(--border)}
+.btn-dir:hover{background:var(--eye);color:var(--bg1)}
+
+/* ─ FOOTER ─ */
+footer{background:var(--bg1);border-top:1px solid var(--border)}
+.foot-main{padding:60px 5% 36px;display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:50px;max-width:1500px;margin:0 auto}
+.foot-brand img{width:62px;height:62px;object-fit:contain;border-radius:12px;background:#fff;padding:7px;margin-bottom:14px}
+.foot-brand h3{font-family:var(--fh);font-size:1rem;color:var(--white);margin-bottom:4px}
+.foot-brand > p{font-size:.8rem;color:var(--text-dim);line-height:1.72;margin:10px 0 16px;max-width:240px}
+.fsocials{display:flex;gap:8px}
+.fsoc{width:32px;height:32px;border-radius:9px;background:var(--glass2);display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--text);transition:.3s}
+.fsoc:hover{background:var(--dental);color:#fff;transform:translateY(-3px)}
+.foot-col h4{font-size:.8rem;font-weight:700;color:var(--dental);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+.foot-col ul{display:flex;flex-direction:column;gap:7px}
+.foot-col li a,.foot-col li span{font-size:.8rem;color:var(--text-dim);transition:color .3s;cursor:pointer}
+.foot-col li a:hover,.foot-col li span:hover{color:var(--dental)}
+.foot-col li i{color:var(--dental);font-size:.75rem;margin-right:5px}
+.foot-em{display:inline-flex;align-items:center;gap:6px;background:rgba(255,101,52,.12);border:1px solid rgba(255,101,52,.2);color:var(--dental-lt);padding:7px 12px;border-radius:var(--r);font-size:.76rem;font-weight:700;margin-top:12px}
+.foot-bot{border-top:1px solid var(--border);padding:18px 5%;display:flex;align-items:center;justify-content:space-between;max-width:1500px;margin:0 auto;flex-wrap:wrap;gap:10px}
+.foot-bot p{font-size:.76rem;color:var(--text-dim)}
+
+/* ─ FAB (Floating) ─ */
+.fab-wrap{position:fixed;bottom:24px;right:18px;display:flex;flex-direction:column;gap:10px;z-index:8000}
+.fab{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:50%;border:none;cursor:pointer;font-size:1.2rem;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.5);transition:.35s var(--ease);position:relative}
+.fab:hover{transform:scale(1.12) translateX(-4px)}
+.fab-wa{background:linear-gradient(135deg,#25D366,#128C7E)}
+.fab-em{background:linear-gradient(135deg,#FF5252,#C62828);animation:emgPulse 2.5s infinite}
+.fab-ap{background:linear-gradient(135deg,var(--dental),var(--dental-dk))}
+@keyframes emgPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,82,82,.45)}60%{box-shadow:0 0 0 12px rgba(255,82,82,0)}}
+.fab-tip{position:absolute;right:58px;background:rgba(6,16,30,0.95);color:var(--white);padding:5px 11px;border-radius:8px;font-size:.73rem;font-weight:600;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(10px);border:1px solid var(--border)}
+.fab:hover .fab-tip{opacity:1}
+
+/* ─ ANIMATE UTILS ─ */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─ TOAST ─ */
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--dental);color:var(--white);padding:13px 24px;border-radius:var(--r);font-size:.88rem;font-weight:600;z-index:99999;box-shadow:0 8px 30px rgba(0,0,0,.5);animation:fadeUp .4s ease;backdrop-filter:blur(10px)}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media(max-width:1200px){
+  .cons-grid{grid-template-columns:1fr 1fr}
+  .foot-main{grid-template-columns:1fr 1fr;gap:30px}
+  .svc-m-body{grid-template-columns:1fr 1fr;flex-direction:column}
+  .svc-m-col:last-child{grid-column:1/-1;border-top:1px solid var(--border)}
+  .svc-m-col{max-height:unset}
+}
+@media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center}.h-right{display:none}
+  .h-badge,.h-cta,.h-stats{justify-content:center}.h-desc{margin-left:auto}
+  .dual-svc{grid-template-columns:1fr;gap:0}
+  .dsvc-center{flex-direction:row;height:60px;padding:0 20px}
+  .div-vline{height:2px;width:auto;min-height:0;flex:1}
+  .prev-grid{grid-template-columns:1fr}
+  .main-docs{grid-template-columns:1fr;max-width:480px}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .g-masonry{columns:3}
+  .m-tabs{display:flex}
+  .svc-m-body{grid-template-columns:1fr;overflow-y:auto}
+  .svc-m-col{border-right:none;border-bottom:1px solid var(--border);max-height:unset;display:none}
+  .svc-m-col.show{display:block}
+}
+@media(max-width:768px){
+  section{padding:72px 5%}
+  .burger{display:flex}
+  .nlinks{position:fixed;inset:0;background:rgba(6,16,30,.97);flex-direction:column;align-items:center;justify-content:center;gap:18px;transform:translateX(110%);transition:transform .4s ease;z-index:999}
+  .nlinks.open{transform:translateX(0)}
+  .nlinks a{font-size:1.1rem;color:var(--text)!important}
+  .n-appt{font-size:1rem!important}
+  .hero{padding:100px 5% 60px}
+  .h-title em{font-size:2.4rem}
+  .h-title .h-dual{font-size:2.8rem}
+  .h-sub{font-size:1.3rem}
+  .h-cta{flex-direction:column;align-items:center}
+  .btn-hero-p,.btn-hero-e{width:100%;justify-content:center}
+  .svc-grid2{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .cons-grid{grid-template-columns:1fr 1fr}
+  .g-masonry{columns:2}
+  .contact-grid{grid-template-columns:1fr}
+  .doc-grid{grid-template-columns:1fr}
+  .doc-svcs{grid-template-columns:1fr}
+  .foot-main{grid-template-columns:1fr;gap:24px}
+  .foot-bot{flex-direction:column;text-align:center}
+  .modal-book-row{flex-direction:column;align-items:stretch}
+  .modal-book-btn{justify-content:center}
+}
+@media(max-width:480px){
+  .h-title em{font-size:2rem}
+  .h-title .h-dual{font-size:2.2rem}
+  .g-masonry{columns:1}
+  .cons-grid{grid-template-columns:1fr}
+  .tcard{padding:28px 18px}
+  .pop-2row{grid-template-columns:1fr}
+  .main-docs{max-width:100%}
+  .h-stats{gap:10px}
+  .hstat-n{font-size:1.5rem}
+}
+</style>
+</head>
+<body>
+<!-- CURSOR -->
+<div id="cur"></div><div id="cur2"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pl-inner">
+    <div class="pl-logo-ring">
+      <img src="images/logo_original.jpeg" alt="Dr. Reddy's">
+      <div class="pl-ring1"></div><div class="pl-ring2"></div>
+    </div>
+    <div class="pl-name">Dr. Reddy's</div>
+    <div class="pl-sub">Dental &amp; Eye Care Centre · Karaikal</div>
+    <div class="pl-bar"><div class="pl-fill"></div></div>
+    <div class="pl-dots"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<!-- APPOINTMENT POPUP -->
+<div class="overlay" id="apptOv" onclick="ovClose(event,'apptOv')">
+  <div class="popup-box">
+    <div class="popup-stripe"></div>
+    <button class="pop-close" onclick="closePopup()">×</button>
+    <div class="popup-content">
+      <div class="pop-logo"><img src="images/logo_original.jpeg" alt="Logo"></div>
+      <h3>Book Your Appointment</h3>
+      <p class="pop-tag">Premium care — Karaikal's finest dental &amp; eye centre</p>
+      <div class="step-bar">
+        <div class="s-dot on" id="sd1">1</div><div class="s-line"></div><div class="s-dot" id="sd2">2</div>
+      </div>
+      <form onsubmit="submitAppt(event)">
+        <div class="form-step on" id="ps1">
+          <div class="fld"><label>Full Name</label><input type="text" placeholder="Your full name" required></div>
+          <div class="fld"><label>Mobile Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+          <div class="fld"><label>Email (Optional)</label><input type="email" placeholder="your@email.com"></div>
+          <button type="button" class="btn-next" onclick="popNext()"><i class="fas fa-arrow-right"></i> Continue</button>
+        </div>
+        <div class="form-step" id="ps2">
+          <div class="fld"><label>Department</label>
+            <select><option>Select Department</option><option>Dental Care</option><option>Eye Care</option><option>Dental Implants</option><option>Cataract Surgery</option><option>Orthodontics / Invisalign</option><option>Root Canal Treatment</option><option>Paediatric Dentistry</option><option>Glaucoma / Retina</option><option>Emergency</option></select></div>
+          <div class="fld"><label>Preferred Date</label><input type="date" required></div>
+          <div class="fld"><label>Message (Optional)</label><textarea placeholder="Describe your concern..." rows="2" style="resize:none"></textarea></div>
+          <div class="pop-2row">
+            <button type="button" class="btn-back" onclick="popPrev()"><i class="fas fa-arrow-left"></i> Back</button>
+            <button type="submit" class="btn-sub"><i class="fas fa-check"></i> Confirm Booking</button>
+          </div>
+        </div>
+      </form>
+      <div class="pop-em"><i class="fas fa-phone-alt"></i><span>24/7 Emergency: <a href="tel:04368224097">04368-224097</a></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE MODAL -->
+<div class="overlay" id="svcOv" onclick="ovClose(event,'svcOv')">
+  <div class="modal-box svc-modal-box">
+    <button class="m-close" onclick="closeOv('svcOv')">×</button>
+    <div id="svcHero" class="svc-m-hero"></div>
+    <div class="m-tabs" id="mTabs">
+      <button class="m-tab active" onclick="switchTab(0)">Overview</button>
+      <button class="m-tab" onclick="switchTab(1)">How It Works</button>
+      <button class="m-tab" onclick="switchTab(2)">Before &amp; After / FAQ</button>
+    </div>
+    <div class="svc-m-body" id="svcBody"></div>
+    <div class="modal-book-row">
+      <div class="em-badge"><i class="fas fa-ambulance"></i> Emergency 24/7: <a href="tel:04368224097" style="color:var(--dental-lt);font-weight:700">04368-224097</a></div>
+      <button class="modal-book-btn" onclick="closeOv('svcOv');openPopup()"><i class="fas fa-calendar-check"></i> Book This Treatment</button>
+    </div>
+  </div>
+</div>
+
+<!-- DOCTOR MODAL -->
+<div class="overlay" id="docOv" onclick="ovClose(event,'docOv')">
+  <div class="modal-box doc-modal-box">
+    <button class="m-close" onclick="closeOv('docOv')">×</button>
+    <div id="docContent"></div>
+    <div class="doc-book-row">
+      <button class="modal-book-btn" onclick="closeOv('docOv');openPopup()"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lbox" id="lbox">
+  <button class="lbox-close" onclick="closeLbox()">×</button>
+  <button class="lbox-nav lbox-prev" onclick="lboxNav(-1)">❮</button>
+  <button class="lbox-nav lbox-next" onclick="lboxNav(1)">❯</button>
+  <div style="text-align:center">
+    <img class="lbox-img" id="lboxImg" src="" alt="">
+    <p class="lbox-cap" id="lboxCap"></p>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header id="hdr">
+  <nav class="nav">
+    <a href="#home" class="nlogo">
+      <img src="images/logo_original.jpeg" alt="Logo">
+      <div class="nbrand"><strong>Dr. Reddy's</strong><span>Dental &amp; Eye Care Centre</span></div>
+    </a>
+    <ul class="nlinks" id="nl">
+      <li><a href="#home" onclick="closeMob()">Home</a></li>
+      <li><a href="#services" onclick="closeMob()">Services</a></li>
+      <li><a href="#doctors" onclick="closeMob()">Doctors</a></li>
+      <li><a href="#gallery" onclick="closeMob()">Gallery</a></li>
+      <li><a href="#contact" onclick="closeMob()">Contact</a></li>
+      <li><a href="#" class="n-appt" onclick="closeMob();openPopup();return false;">Book Appointment</a></li>
+    </ul>
+    <div class="burger" id="burger" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-canvas">
+    <div id="pCanvas"></div>
+    <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-content s-wrap">
+    <div class="h-left">
+      <div class="h-badge reveal d1"><span class="h-badge-live"></span>Super Speciality Centre — Karaikal, Puducherry</div>
+      <h1 class="h-title reveal d2">
+        <em>Advanced</em>
+        <span class="h-dual"><span class="h-dental">Dental</span><span class="h-amp">&amp;</span><span class="h-eye">Eye Care</span></span>
+        <span class="h-sub">Under One Roof</span>
+      </h1>
+      <p class="h-desc reveal d3">Premium treatments by <strong>fellowship-trained specialists</strong> with cutting-edge technology. 30+ years of trusted care in Karaikal — because your health deserves the best.</p>
+      <div class="h-cta reveal d4">
+        <button class="btn-hero-p" onclick="openPopup()"><i class="fas fa-calendar-check"></i> Book Appointment</button>
+        <a href="tel:04368224097" class="btn-hero-e"><i class="fas fa-phone-alt e-pulse"></i> Emergency 24/7</a>
+      </div>
+      <div class="h-stats reveal d4" style="transition-delay:.5s">
+        <div class="hstat"><span class="hstat-n count" data-t="30">0</span><span>+</span><span class="hstat-l">Years Exp.</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n count" data-t="15000">0</span><span>+</span><span class="hstat-l">Patients</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n count" data-t="6">0</span><span></span><span class="hstat-l">Specialists</span></div>
+        <div class="hstat-div"></div>
+        <div class="hstat"><span class="hstat-n">24</span><span>/7</span><span class="hstat-l">Emergency</span></div>
+      </div>
+    </div>
+    <div class="h-right reveal d2" style="transition-delay:.25s">
+      <div class="h-visual">
+        <div class="h-logo-core">
+          <img class="h-logo-img" src="images/logo_original.jpeg" alt="Logo">
+          <div class="h-ring hr1"></div><div class="h-ring hr2"></div><div class="h-ring hr3"></div>
+        </div>
+        <div class="h-float hf1"><i class="fas fa-tooth"></i><div><strong>Dental Care</strong><small>Implants · Braces · RCT</small></div></div>
+        <div class="h-float hf2"><i class="fas fa-eye"></i><div><strong>Eye Care</strong><small>Cataract · Cornea · Retina</small></div></div>
+        <div class="h-float hf3"><i class="fas fa-ambulance"></i><div><strong>24/7 Emergency</strong><small>Always Available</small></div></div>
+        <div class="h-float hf4"><i class="fas fa-child"></i><div><strong>Kids Play Zone</strong><small>Child-Friendly</small></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="h-scroll"><span>Scroll</span><div class="h-scroll-icon"></div></div>
+</section>
+
+<!-- MARQUEE BAR -->
+<div class="mbar">
+  <div class="mtrack"><span>🦷 Osstem Dental Implants &nbsp;|&nbsp; 👁 Laser Cataract Surgery &nbsp;|&nbsp; ✨ Smile Designing &nbsp;|&nbsp; 🏆 30+ Years Excellence &nbsp;|&nbsp; 🚑 24/7 Dental &amp; Eye Emergency &nbsp;|&nbsp; 👶 Paediatric Dental Play Zone &nbsp;|&nbsp; 👓 ZEISS Myovision Lenses &nbsp;|&nbsp; 🦷 Invisalign Clear Aligners &nbsp;|&nbsp; 👁 Retina Imaging &amp; Diabetic Screening &nbsp;|&nbsp; 📞 04368-224097 · 04368-224141 &nbsp;|&nbsp; 🦷 Osstem Dental Implants &nbsp;|&nbsp; 👁 Laser Cataract Surgery &nbsp;|&nbsp; ✨ Smile Designing &nbsp;|&nbsp; 🏆 30+ Years Excellence &nbsp;|&nbsp; 🚑 24/7 Dental &amp; Eye Emergency &nbsp;|&nbsp;</span></div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="svc-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-star"></i> Our Specialities</div>
+      <h2 class="sec-title">Two Specialities, <span class="g-text">One Destination</span></h2>
+      <p class="sec-desc">Click any service to explore the full treatment overview, step-by-step procedure, before &amp; after results, and FAQ.</p>
+    </div>
+  </div>
+  <!-- Running service pills -->
+  <div class="svc-marquee-outer" style="margin-bottom:8px">
+    <div class="svc-track" id="st1">
+      <div class="svc-pill d-pill" onclick="openSvc('implants')"><i class="fas fa-tooth"></i><span>Dental Implants</span><span class="svc-pill-badge">Osstem</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('ortho')"><i class="fas fa-smile"></i><span>Orthodontics</span><span class="svc-pill-badge">Invisalign</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('rct')"><i class="fas fa-syringe"></i><span>Root Canal</span><span class="svc-pill-badge">Painless</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('smile')"><i class="fas fa-star"></i><span>Smile Designing</span><span class="svc-pill-badge">Digital</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('pediatric')"><i class="fas fa-child"></i><span>Paediatric</span><span class="svc-pill-badge">Play Zone</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('perio')"><i class="fas fa-teeth-open"></i><span>Periodontics</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('prostho')"><i class="fas fa-teeth"></i><span>Prosthodontics</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('surgery')"><i class="fas fa-procedures"></i><span>Oral Surgery</span></div>
+      <!-- duplicate -->
+      <div class="svc-pill d-pill" onclick="openSvc('implants')"><i class="fas fa-tooth"></i><span>Dental Implants</span><span class="svc-pill-badge">Osstem</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('ortho')"><i class="fas fa-smile"></i><span>Orthodontics</span><span class="svc-pill-badge">Invisalign</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('rct')"><i class="fas fa-syringe"></i><span>Root Canal</span><span class="svc-pill-badge">Painless</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('smile')"><i class="fas fa-star"></i><span>Smile Designing</span><span class="svc-pill-badge">Digital</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('pediatric')"><i class="fas fa-child"></i><span>Paediatric</span><span class="svc-pill-badge">Play Zone</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('perio')"><i class="fas fa-teeth-open"></i><span>Periodontics</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('prostho')"><i class="fas fa-teeth"></i><span>Prosthodontics</span></div>
+      <div class="svc-pill d-pill" onclick="openSvc('surgery')"><i class="fas fa-procedures"></i><span>Oral Surgery</span></div>
+    </div>
+  </div>
+  <div class="svc-marquee-outer" style="margin-bottom:40px">
+    <div class="svc-track" id="st2" style="animation-direction:reverse">
+      <div class="svc-pill e-pill" onclick="openSvc('cataract')"><i class="fas fa-eye"></i><span>Cataract Surgery</span><span class="svc-pill-badge">Laser</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('retina')"><i class="fas fa-circle"></i><span>Retina Services</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('glaucoma')"><i class="fas fa-binoculars"></i><span>Glaucoma</span><span class="svc-pill-badge">YAG Laser</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('contactlens')"><i class="fas fa-glasses"></i><span>Contact Lens</span><span class="svc-pill-badge">Multifocal</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('squint')"><i class="fas fa-adjust"></i><span>Squint &amp; Amblyopia</span><span class="svc-pill-badge">Orthoptek</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('cornea')"><i class="fas fa-dot-circle"></i><span>Corneal Surgery</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('pedieye')"><i class="fas fa-baby"></i><span>Paediatric Eye</span><span class="svc-pill-badge">ROP</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('optical')"><i class="fas fa-drafting-compass"></i><span>Optical Dispensing</span><span class="svc-pill-badge">ZEISS</span></div>
+      <!-- dup -->
+      <div class="svc-pill e-pill" onclick="openSvc('cataract')"><i class="fas fa-eye"></i><span>Cataract Surgery</span><span class="svc-pill-badge">Laser</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('retina')"><i class="fas fa-circle"></i><span>Retina Services</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('glaucoma')"><i class="fas fa-binoculars"></i><span>Glaucoma</span><span class="svc-pill-badge">YAG Laser</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('contactlens')"><i class="fas fa-glasses"></i><span>Contact Lens</span><span class="svc-pill-badge">Multifocal</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('squint')"><i class="fas fa-adjust"></i><span>Squint &amp; Amblyopia</span><span class="svc-pill-badge">Orthoptek</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('cornea')"><i class="fas fa-dot-circle"></i><span>Corneal Surgery</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('pedieye')"><i class="fas fa-baby"></i><span>Paediatric Eye</span><span class="svc-pill-badge">ROP</span></div>
+      <div class="svc-pill e-pill" onclick="openSvc('optical')"><i class="fas fa-drafting-compass"></i><span>Optical Dispensing</span><span class="svc-pill-badge">ZEISS</span></div>
+    </div>
+  </div>
+  <!-- Dual grid -->
+  <div class="dual-svc">
+    <div class="dsvc-half d-half">
+      <div class="dsvc-heading"><div class="dsvc-icon d-ico"><i class="fas fa-tooth"></i></div><div><h3>Dental Care</h3><p>Fellowship-trained chief dental surgeon · 30+ years</p></div></div>
+      <div class="svc-grid2">
+        <div class="sc2 d-sc" onclick="openSvc('implants')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-tooth"></i></div><div class="sc2-all"><h4>Dental Implants</h4><p>World-renowned Osstem permanent implants</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('ortho')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-smile"></i></div><div class="sc2-all"><h4>Orthodontics</h4><p>Braces, Invisalign &amp; digital aligners</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('rct')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-syringe"></i></div><div class="sc2-all"><h4>Root Canal (RCT)</h4><p>Painless precision root canal treatment</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('smile')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-star"></i></div><div class="sc2-all"><h4>Smile Designing</h4><p>Veneers, whitening &amp; smile makeover</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('pediatric')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-child"></i></div><div class="sc2-all"><h4>Paediatric Dentistry</h4><p>Kids play zone · gentle child care</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('perio')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-teeth-open"></i></div><div class="sc2-all"><h4>Periodontics</h4><p>Scaling, grafting &amp; gum surgery</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('prostho')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-teeth"></i></div><div class="sc2-all"><h4>Prosthodontics</h4><p>RPD, CD, FPD, Endocrown</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 d-sc" onclick="openSvc('surgery')"><div class="sc2-icon d-sci sc2-all"><i class="fas fa-procedures"></i></div><div class="sc2-all"><h4>Oral Surgery</h4><p>Impaction &amp; maxillofacial surgery</p></div><span class="sc2-arr sc2-all">→</span></div>
+      </div>
+    </div>
+    <div class="dsvc-center"><div class="div-vline"></div><div class="dsvc-center-logo"><img src="images/logo_original.jpeg" alt="Logo"></div><div class="div-vline"></div></div>
+    <div class="dsvc-half e-half">
+      <div class="dsvc-heading"><div class="dsvc-icon e-ico"><i class="fas fa-eye"></i></div><div><h3>Eye Care</h3><p>DNB ophthalmic surgeon · Narayana Nethralaya fellowship</p></div></div>
+      <div class="svc-grid2">
+        <div class="sc2 e-sc" onclick="openSvc('cataract')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-eye"></i></div><div class="sc2-all"><h4>Cataract Surgery</h4><p>Laser phacoemulsification technique</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('retina')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-circle"></i></div><div class="sc2-all"><h4>Retina Services</h4><p>Diabetic retinopathy &amp; retinal imaging</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('glaucoma')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-binoculars"></i></div><div class="sc2-all"><h4>Glaucoma</h4><p>YAG laser &amp; comprehensive glaucoma care</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('contactlens')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-glasses"></i></div><div class="sc2-all"><h4>Contact Lens Clinic</h4><p>Multifocal &amp; specialty lenses</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('squint')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-adjust"></i></div><div class="sc2-all"><h4>Squint &amp; Amblyopia</h4><p>Lazy eye · Orthoptek therapy</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('cornea')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-dot-circle"></i></div><div class="sc2-all"><h4>Corneal Surgery</h4><p>Anterior segment &amp; cornea</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('pedieye')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-baby"></i></div><div class="sc2-all"><h4>Paediatric Eye Care</h4><p>ROP screening &amp; preschool exams</p></div><span class="sc2-arr sc2-all">→</span></div>
+        <div class="sc2 e-sc" onclick="openSvc('optical')"><div class="sc2-icon e-sci sc2-all"><i class="fas fa-drafting-compass"></i></div><div class="sc2-all"><h4>Optical Dispensing</h4><p>ZEISS Myovision premium lenses</p></div><span class="sc2-arr sc2-all">→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREVENTION TIPS -->
+<section class="prev-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-shield-alt"></i> Prevention &amp; Care</div>
+      <h2 class="sec-title">Prevent Problems <span class="g-text">Before They Start</span></h2>
+      <p class="sec-desc">Expert tips from our specialists to protect your smile and vision every day — because prevention is always better than cure.</p>
+    </div>
+    <div class="prev-grid">
+      <div class="prev-card reveal">
+        <div class="prev-hd"><div class="prev-hd-icon d-prev-ico"><i class="fas fa-tooth"></i></div><div><h3>Dental Health Prevention</h3><p>Protect your smile for life</p></div></div>
+        <div class="prev-list">
+          <div class="prev-item"><div class="prev-num d-pn">1</div><div><strong>Brush Twice Daily — Correctly</strong><span>Use fluoride toothpaste and a soft-bristled brush for 2 minutes each session — morning and night. Poor technique is as bad as not brushing at all.</span></div></div>
+          <div class="prev-item"><div class="prev-num d-pn">2</div><div><strong>Floss Every Night</strong><span>90% of cavities begin between teeth where brushes can't reach. Daily flossing removes plaque and prevents gum disease before it starts.</span></div></div>
+          <div class="prev-item"><div class="prev-num d-pn">3</div><div><strong>Visit Your Dentist Every 6 Months</strong><span>Professional cleaning removes hardened tartar. Early detection of cavities, gum disease, and oral cancer saves teeth and lives.</span></div></div>
+          <div class="prev-item"><div class="prev-num d-pn">4</div><div><strong>Limit Sugary &amp; Acidic Foods</strong><span>Sugar feeds bacteria that produce acid, eroding enamel. Rinse with water after meals and wait 30 minutes before brushing after acidic drinks.</span></div></div>
+          <div class="prev-item"><div class="prev-num d-pn">5</div><div><strong>Never Ignore Tooth Pain or Sensitivity</strong><span>Pain is your body's alarm. Ignoring dental pain often leads to abscesses, extractions, or costly emergency treatments. Act within 24-48 hours.</span></div></div>
+          <div class="prev-item"><div class="prev-num d-pn">6</div><div><strong>Guard Your Teeth During Sports</strong><span>Use a mouthguard during contact sports. A single impact can crack or knock out a tooth — prevention costs ₹500, replacement costs ₹15,000+.</span></div></div>
+        </div>
+      </div>
+      <div class="prev-card reveal d2">
+        <div class="prev-hd"><div class="prev-hd-icon e-prev-ico"><i class="fas fa-eye"></i></div><div><h3>Eye Health Prevention</h3><p>Protect your vision for life</p></div></div>
+        <div class="prev-list">
+          <div class="prev-item"><div class="prev-num e-pn">1</div><div><strong>Schedule Annual Eye Exams</strong><span>Many serious eye diseases — glaucoma, diabetic retinopathy — have zero symptoms early on. Annual exams detect problems when treatment is most effective.</span></div></div>
+          <div class="prev-item"><div class="prev-num e-pn">2</div><div><strong>Control Diabetes &amp; Blood Pressure</strong><span>These are the #1 causes of preventable blindness. Strict sugar and pressure control dramatically reduces risk of diabetic retinopathy and hypertensive eye damage.</span></div></div>
+          <div class="prev-item"><div class="prev-num e-pn">3</div><div><strong>Wear UV-Protective Sunglasses</strong><span>Chronic UV exposure causes cataracts and macular degeneration. Always wear CE/UV400-certified sunglasses outdoors, even on cloudy days.</span></div></div>
+          <div class="prev-item"><div class="prev-num e-pn">4</div><div><strong>Follow the 20-20-20 Screen Rule</strong><span>For every 20 minutes of screen time, look at something 20 feet away for 20 seconds. This prevents digital eye strain, headaches, and dry eye syndrome.</span></div></div>
+          <div class="prev-item"><div class="prev-num e-pn">5</div><div><strong>Never Rub Your Eyes</strong><span>Rubbing can worsen allergies, transfer bacteria, and in corneal weakness cases cause permanent damage (keratoconus). Rinse with clean water instead.</span></div></div>
+          <div class="prev-item"><div class="prev-num e-pn">6</div><div><strong>Protect Children's Myopia Early</strong><span>Myopia (near-sightedness) progresses fastest in children aged 6-14. ZEISS Myovision lenses and outdoor play time can slow progression significantly.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors" class="doc-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-user-md"></i> Our Team</div>
+      <h2 class="sec-title">Meet Our <span class="g-text">Expert Specialists</span></h2>
+      <p class="sec-desc">Fellowship-trained doctors dedicated to your dental and eye health — click to see full credentials, expertise, and services.</p>
+    </div>
+    <div class="main-docs">
+      <div class="mdoc reveal" onclick="openDoc('sudhakar')">
+        <div class="mdoc-banner d-banner"><div class="mdoc-av"><i class="fas fa-user-md"></i></div><div class="mdoc-badge">Chief Dental Surgeon · Founder</div></div>
+        <div class="mdoc-body">
+          <h3>Dr. M. V. Sudhakar Reddy</h3><span class="mdoc-deg">BDS, FICOI</span>
+          <p>Founder &amp; Chief Dental Surgeon · Fellowship in Implantology, Malaysia</p>
+          <div class="mdoc-chips"><span class="chip d-chip"><i class="fas fa-award"></i> 30+ Years</span><span class="chip d-chip"><i class="fas fa-globe"></i> Malaysia FICOI</span><span class="chip d-chip"><i class="fas fa-tooth"></i> Implantologist</span></div>
+          <button class="btn-port d-port">View Full Portfolio <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+      <div class="mdoc reveal d2" onclick="openDoc('kamalapriya')">
+        <div class="mdoc-banner e-banner"><div class="mdoc-av" style="color:var(--eye)"><i class="fas fa-user-md"></i></div><div class="mdoc-badge" style="border-color:rgba(0,200,255,.3)">Consultant Ophthalmic Surgeon</div></div>
+        <div class="mdoc-body">
+          <h3>Dr. G. V. Kamalapriya Sudhakar Reddy</h3><span class="mdoc-deg">MBBS, DO, DNB</span>
+          <p>Consultant Ophthalmic Surgeon · Phaco Fellowship, Narayana Nethralaya</p>
+          <div class="mdoc-chips"><span class="chip e-chip"><i class="fas fa-award"></i> 23+ Years</span><span class="chip e-chip"><i class="fas fa-hospital"></i> Narayana Nethralaya</span><span class="chip e-chip"><i class="fas fa-eye"></i> Aravind Eye Hosp.</span></div>
+          <button class="btn-port e-port">View Full Portfolio <i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+    <div class="cons-hdr"><h3 style="font-family:var(--fh);font-size:1.5rem;color:var(--white)">Our Visiting Consultants</h3></div>
+    <div class="cons-grid">
+      <div class="ccard reveal" onclick="openDoc('chidambaram')"><div class="ccard-icon"><i class="fas fa-teeth"></i></div><h4>Prof. Dr. Chidambaram</h4><span class="cdeg">MDS</span><p>Orthodontist</p><span class="cexp">25 Years Experience</span></div>
+      <div class="ccard reveal d1" onclick="openDoc('jothikumar')"><div class="ccard-icon"><i class="fas fa-tooth"></i></div><h4>Prof. Dr. Jothikumar Kamalakannan</h4><span class="cdeg">MDS, FISOI, FICOI</span><p>Prosthodontist &amp; Implantologist</p><span class="cexp">30 Years Experience</span></div>
+      <div class="ccard reveal d2" onclick="openDoc('karthigean')"><div class="ccard-icon"><i class="fas fa-scalpel"></i></div><h4>Dr. Karthigean</h4><span class="cdeg">MDS</span><p>Oral &amp; Maxillofacial Surgeon</p><span class="cexp">45 Years Experience</span></div>
+      <div class="ccard reveal d3" onclick="openDoc('janarthanan')"><div class="ccard-icon"><i class="fas fa-procedures"></i></div><h4>Prof. Dr. Janarthanan</h4><span class="cdeg">MDS</span><p>Oral &amp; Maxillofacial Surgeon</p><span class="cexp">10 Years Experience</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-trophy"></i> Why Choose Us</div>
+      <h2 class="sec-title">Why <span class="o-text">Dr. Reddy's</span> Is Simply the <span class="b-text">Best</span></h2>
+      <p class="sec-desc">Six reasons thousands of patients in Karaikal trust us over any other clinic — year after year.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal" data-tilt><div class="why-icon"><i class="fas fa-clock"></i></div><h4>24/7 Emergency Always</h4><p>Dental pain or eye emergency at 2 AM? We're here. Our round-the-clock emergency service ensures you're never left suffering. Call and we answer — always.</p><span class="why-badge">⚡ Always Available</span></div>
+      <div class="why-card reveal d1" data-tilt><div class="why-icon"><i class="fas fa-shield-alt"></i></div><h4>Global Sterilization Standards</h4><p>Bio Sonic Cleaner, B-Type Autoclave, UV Chamber — our sterilization protocol exceeds global WHO standards. Every instrument is fully sterilized between every patient.</p><span class="why-badge">🏥 WHO Standards</span></div>
+      <div class="why-card reveal d2" data-tilt><div class="why-icon"><i class="fas fa-graduation-cap"></i></div><h4>Fellowship-Trained Specialists</h4><p>FICOI from Malaysia. DNB with Phaco Fellowship from Narayana Nethralaya. Training at Aravind Eye Hospital. These aren't just degrees — they're the world's finest credentials.</p><span class="why-badge">🎓 World-Class Training</span></div>
+      <div class="why-card reveal" data-tilt><div class="why-icon"><i class="fas fa-microchip"></i></div><h4>World's Best Equipment</h4><p>Osstem Implants (Korea). ZEISS Myovision Lenses (Germany). Digital RVG X-Ray. Intraoral Scanners. YAG Laser. No compromises on technology, ever.</p><span class="why-badge">🔬 Premium Tech</span></div>
+      <div class="why-card reveal d1" data-tilt><div class="why-icon"><i class="fas fa-child"></i></div><h4>Exclusive Kids Play Zone</h4><p>Children don't fear the dentist here — they actually look forward to it! Our dedicated paediatric unit with a fun play zone transforms dental anxiety into dental excitement.</p><span class="why-badge">😊 Child-Friendly</span></div>
+      <div class="why-card reveal d2" data-tilt><div class="why-icon"><i class="fas fa-comments"></i></div><h4>Zero Pressure, Full Transparency</h4><p>Air-sterilized consulting cabins. No pushy upselling. We explain every option, every cost, every alternative — you decide. Patient trust is our most prized credential.</p><span class="why-badge">✅ No Pressure</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="tech-section">
+  <div class="s-wrap" style="margin-bottom:40px">
+    <div class="sec-hd">
+      <div class="sec-tag" style="background:rgba(0,200,255,.1);border-color:rgba(0,200,255,.25);color:var(--eye)"><i class="fas fa-microchip"></i> Advanced Technology</div>
+      <h2 class="sec-title">Powered by <span class="b-text">World-Class Technology</span></h2>
+      <p class="sec-desc">Every instrument, every system chosen for precision, safety, and the best patient outcomes.</p>
+    </div>
+  </div>
+  <div class="tech-outer">
+    <div class="tech-track">
+      <div class="tech-pill"><i class="fas fa-x-ray"></i><span>Digital X-Ray RVG</span></div>
+      <div class="tech-pill"><i class="fas fa-eye"></i><span>Phaco Laser Cataract</span></div>
+      <div class="tech-pill"><i class="fas fa-teeth"></i><span>Invisalign System</span></div>
+      <div class="tech-pill"><i class="fas fa-circle"></i><span>Retina Imaging</span></div>
+      <div class="tech-pill"><i class="fas fa-tooth"></i><span>Osstem Implants</span></div>
+      <div class="tech-pill"><i class="fas fa-laptop-medical"></i><span>Intra Oral Scanner</span></div>
+      <div class="tech-pill"><i class="fas fa-shield-virus"></i><span>B-Type Autoclave</span></div>
+      <div class="tech-pill"><i class="fas fa-microscope"></i><span>YAG Laser</span></div>
+      <div class="tech-pill"><i class="fas fa-wave-square"></i><span>Ultrasonic Scaling</span></div>
+      <div class="tech-pill"><i class="fas fa-sun"></i><span>UV Sterilization</span></div>
+      <div class="tech-pill"><i class="fas fa-drafting-compass"></i><span>ZEISS Myovision</span></div>
+      <div class="tech-pill"><i class="fas fa-binoculars"></i><span>Glaucoma Laser</span></div>
+      <div class="tech-pill"><i class="fas fa-x-ray"></i><span>Digital X-Ray RVG</span></div>
+      <div class="tech-pill"><i class="fas fa-eye"></i><span>Phaco Laser Cataract</span></div>
+      <div class="tech-pill"><i class="fas fa-teeth"></i><span>Invisalign System</span></div>
+      <div class="tech-pill"><i class="fas fa-circle"></i><span>Retina Imaging</span></div>
+      <div class="tech-pill"><i class="fas fa-tooth"></i><span>Osstem Implants</span></div>
+      <div class="tech-pill"><i class="fas fa-laptop-medical"></i><span>Intra Oral Scanner</span></div>
+      <div class="tech-pill"><i class="fas fa-shield-virus"></i><span>B-Type Autoclave</span></div>
+      <div class="tech-pill"><i class="fas fa-microscope"></i><span>YAG Laser</span></div>
+      <div class="tech-pill"><i class="fas fa-wave-square"></i><span>Ultrasonic Scaling</span></div>
+      <div class="tech-pill"><i class="fas fa-sun"></i><span>UV Sterilization</span></div>
+      <div class="tech-pill"><i class="fas fa-drafting-compass"></i><span>ZEISS Myovision</span></div>
+      <div class="tech-pill"><i class="fas fa-binoculars"></i><span>Glaucoma Laser</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-images"></i> Our Facility</div>
+      <h2 class="sec-title">Inside Our <span class="g-text">World-Class Centre</span></h2>
+      <p class="sec-desc">Step inside and experience the premium environment we've built for your comfort and care.</p>
+    </div>
+    <div class="gtabs">
+      <button class="gtab active" onclick="gFilter(event,'all')">All</button>
+      <button class="gtab" onclick="gFilter(event,'dental')">Dental</button>
+      <button class="gtab" onclick="gFilter(event,'eye')">Eye Care</button>
+      <button class="gtab" onclick="gFilter(event,'clinic')">Clinic</button>
+    </div>
+    <div class="g-masonry" id="gGrid">
+      <div class="g-item" data-c="clinic" onclick="openLbox(0)"><img src="images/enterance.jpg" alt="Entrance" loading="lazy"><div class="g-ov"><span>Clinic Entrance</span></div></div>
+      <div class="g-item" data-c="clinic" onclick="openLbox(1)"><img src="images/reciption.webp" alt="Reception" loading="lazy"><div class="g-ov"><span>Reception Area</span></div></div>
+      <div class="g-item" data-c="clinic" onclick="openLbox(2)"><img src="images/waiting_area.webp" alt="Waiting" loading="lazy"><div class="g-ov"><span>Waiting Area</span></div></div>
+      <div class="g-item" data-c="dental" onclick="openLbox(3)"><img src="images/treating_place.webp" alt="Treatment" loading="lazy"><div class="g-ov"><span>Dental Treatment Unit</span></div></div>
+      <div class="g-item" data-c="dental" onclick="openLbox(4)"><img src="images/equipments.jpg" alt="Equipment" loading="lazy"><div class="g-ov"><span>Advanced Equipment</span></div></div>
+      <div class="g-item" data-c="dental" onclick="openLbox(5)"><img src="images/tooth_x_ray.jpg" alt="X-Ray" loading="lazy"><div class="g-ov"><span>Digital X-Ray</span></div></div>
+      <div class="g-item" data-c="eye" onclick="openLbox(6)"><img src="images/eye_img1.jpg" alt="Eye Exam" loading="lazy"><div class="g-ov"><span>Eye Examination</span></div></div>
+      <div class="g-item" data-c="eye" onclick="openLbox(7)"><img src="images/lens_place.jpg" alt="Optical" loading="lazy"><div class="g-ov"><span>Optical Dispensing</span></div></div>
+      <div class="g-item" data-c="clinic" onclick="openLbox(8)"><img src="images/pharmacy.jpg" alt="Pharmacy" loading="lazy"><div class="g-ov"><span>In-House Pharmacy</span></div></div>
+      <div class="g-item" data-c="clinic" onclick="openLbox(9)"><img src="images/pleace_place.webp" alt="Peace" loading="lazy"><div class="g-ov"><span>Peaceful Waiting Zone</span></div></div>
+      <div class="g-item" data-c="dental" onclick="openLbox(10)"><img src="images/doctor_with_patient.jpg" alt="Doctor" loading="lazy"><div class="g-ov"><span>Doctor Consultation</span></div></div>
+      <div class="g-item" data-c="eye" onclick="openLbox(11)"><img src="images/wrong_lens_in_cataract_op.jpg" alt="Surgery" loading="lazy"><div class="g-ov"><span>Cataract Surgery</span></div></div>
+      <div class="g-item" data-c="clinic" onclick="openLbox(12)"><img src="images/original_waiting_area.jpg" alt="Waiting" loading="lazy"><div class="g-ov"><span>Original Waiting Area</span></div></div>
+      <div class="g-item" data-c="dental" onclick="openLbox(13)"><img src="images/img_1.jpg" alt="Design" loading="lazy"><div class="g-ov"><span>Premium Interior Design</span></div></div>
+      <div class="g-item" data-c="dental" onclick="openLbox(14)"><img src="images/img_2.jpg" alt="Room" loading="lazy"><div class="g-ov"><span>Treatment Room</span></div></div>
+      <div class="g-item" data-c="eye" onclick="openLbox(15)"><img src="images/img_3.jpg" alt="Eye Unit" loading="lazy"><div class="g-ov"><span>Eye Care Unit</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-heart"></i> Patient Stories</div>
+      <h2 class="sec-title">What Our <span class="o-text">Patients Say</span></h2>
+      <p class="sec-desc">Real words from real patients — stories of restored smiles and clearer vision.</p>
+    </div>
+    <div class="testi-wrap">
+      <div class="testi-track" id="ttrack">
+        <div class="tcard"><div class="tcard-q">❝</div><div class="tcard-stars">★★★★★</div><p>Dr. Reddy's is exceptional! My dental implant was completely painless and the result looks 100% natural. The clinic is ultra-modern and the hygiene standards are impeccable. Best decision I ever made for my teeth!</p><div class="tcard-auth"><div class="tcard-av">R</div><div><strong>Ramesh Kumar</strong><span>Dental Implant Patient, Karaikal</span></div></div></div>
+        <div class="tcard"><div class="tcard-q">❝</div><div class="tcard-stars">★★★★★</div><p>Dr. Kamalapriya performed my cataract surgery with incredible skill. I can see clearly for the first time in years! The recovery was quick and the post-op care was outstanding. Life-changing experience.</p><div class="tcard-auth"><div class="tcard-av">S</div><div><strong>Sumathi Devi</strong><span>Cataract Surgery Patient, Nagapattinam</span></div></div></div>
+        <div class="tcard"><div class="tcard-q">❝</div><div class="tcard-stars">★★★★★</div><p>My children actually look forward to dental visits now! The play zone is a genius idea. Dr. Reddy is so gentle and patient with kids. No tears, no fear — just great teeth and happy smiles every time.</p><div class="tcard-auth"><div class="tcard-av">P</div><div><strong>Priya Krishnaswamy</strong><span>Parent — Paediatric Patient</span></div></div></div>
+        <div class="tcard"><div class="tcard-q">❝</div><div class="tcard-stars">★★★★★</div><p>My Invisalign treatment was done with digital impressions — no messy moulds! The result exceeded every expectation. My smile looks incredible and my confidence has completely transformed. Thank you!</p><div class="tcard-auth"><div class="tcard-av">A</div><div><strong>Anbu Mani</strong><span>Invisalign Patient, Karaikal</span></div></div></div>
+        <div class="tcard"><div class="tcard-q">❝</div><div class="tcard-stars">★★★★★</div><p>ZEISS Myovision lenses have genuinely slowed my daughter's myopia progression. The eye specialists here truly care about long-term outcomes, not just selling glasses. Outstanding, trustworthy centre!</p><div class="tcard-auth"><div class="tcard-av">V</div><div><strong>Vasantha Lakshmi</strong><span>Myopia Patient's Parent</span></div></div></div>
+      </div>
+      <div class="testi-ctrl">
+        <button onclick="tSlide(-1)">❮</button>
+        <div class="tdots" id="tdots"></div>
+        <button onclick="tSlide(1)">❯</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="s-wrap">
+    <div class="sec-hd">
+      <div class="sec-tag"><i class="fas fa-map-marker-alt"></i> Find Us</div>
+      <h2 class="sec-title">Visit or <span class="g-text">Contact Us</span></h2>
+      <p class="sec-desc">We're here for your dental and eye care needs — always welcoming walk-ins and appointments alike.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="ci-col">
+        <div class="cicard reveal"><div class="ci-ico"><i class="fas fa-map-marker-alt"></i></div><div><h4>Our Location</h4><p>24, Singaravelar Salai,<br>Karaikal – 609 602<br>Puducherry, India</p></div></div>
+        <div class="cicard reveal d1"><div class="ci-ico"><i class="fas fa-phone-alt"></i></div><div><h4>Phone Numbers</h4><p><a href="tel:04368224097">04368-224097</a><br><a href="tel:04368224141">04368-224141</a><br><a href="tel:8438224097">84382 24097</a></p></div></div>
+        <div class="cicard reveal d2"><div class="ci-ico" style="background:linear-gradient(135deg,var(--eye-dk),var(--bg1))"><i class="fas fa-clock"></i></div><div><h4>Working Hours</h4><p>Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 2:00 PM<br><a style="color:var(--dental-lt);font-weight:700">Emergency: 24 Hours / 7 Days</a></p></div></div>
+        <div class="cicard reveal d3"><div class="ci-ico" style="background:linear-gradient(135deg,#FF5252,#C62828)"><i class="fas fa-heartbeat"></i></div><div><h4>Emergency Services</h4><p>Dental &amp; Ocular Emergencies<br>Eye Donation Desk: 24×7<br><a style="color:var(--dental-lt);font-weight:700">Always Ready — Always Available</a></p></div></div>
+      </div>
+      <div class="cf-col reveal d1">
+        <h3>Send Us a Message</h3>
+        <form class="cf" onsubmit="cfSubmit(event)">
+          <div class="fld"><label>Your Name</label><input type="text" placeholder="Full name" required></div>
+          <div class="fld"><label>Mobile Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" required></div>
+          <div class="fld"><label>Department</label><select><option value="">Select</option><option>Dental Care</option><option>Eye Care</option><option>Emergency</option><option>General Query</option></select></div>
+          <div class="fld"><label>Message</label><textarea placeholder="Your query or concern..." rows="4" style="resize:none"></textarea></div>
+          <button type="submit" class="btn-cf"><i class="fas fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+      <div class="map-col reveal d2">
+        <div style="overflow:hidden;border-radius:var(--rl) var(--rl) 0 0">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.65!2d79.8378!3d10.9221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baaed78e8d4e761%3A0x1!2sKaraikal!5e0!3m2!1sen!2sin!4v1714000000000" width="100%" height="320" style="border:0;display:block" allowfullscreen="" loading="lazy" title="Dr. Reddy's Location"></iframe>
+        </div>
+        <button class="btn-dir" onclick="window.open('https://maps.app.goo.gl/yzZ7tqwR8RxWWFUPA','_blank')"><i class="fas fa-directions"></i> Open in Google Maps</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-main">
+    <div class="foot-brand">
+      <img src="images/logo_original.jpeg" alt="Logo">
+      <h3>Dr. Reddy's Dental &amp; Eye Care Centre</h3>
+      <p>Super Speciality Dental &amp; Eye Care in Karaikal, Puducherry. Trusted by thousands for 30+ years of excellence — because your health deserves the best.</p>
+      <div class="fsocials">
+        <a class="fsoc" href="https://wa.me/918438224097" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a class="fsoc" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a class="fsoc" href="#"><i class="fab fa-instagram"></i></a>
+        <a class="fsoc" href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="foot-em"><i class="fas fa-ambulance"></i> 24/7 Emergency Available</div>
+    </div>
+    <div class="foot-col">
+      <h4>Dental Services</h4>
+      <ul>
+        <li><span onclick="openSvc('implants')">Dental Implants (Osstem)</span></li>
+        <li><span onclick="openSvc('ortho')">Orthodontics &amp; Invisalign</span></li>
+        <li><span onclick="openSvc('rct')">Root Canal Treatment</span></li>
+        <li><span onclick="openSvc('smile')">Smile Designing</span></li>
+        <li><span onclick="openSvc('pediatric')">Paediatric Dentistry</span></li>
+        <li><span onclick="openSvc('perio')">Periodontics</span></li>
+        <li><span onclick="openSvc('prostho')">Prosthodontics</span></li>
+        <li><span onclick="openSvc('surgery')">Oral Surgery</span></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Eye Care Services</h4>
+      <ul>
+        <li><span onclick="openSvc('cataract')">Cataract Surgery (Phaco)</span></li>
+        <li><span onclick="openSvc('retina')">Retina Services</span></li>
+        <li><span onclick="openSvc('glaucoma')">Glaucoma &amp; YAG Laser</span></li>
+        <li><span onclick="openSvc('contactlens')">Contact Lens Clinic</span></li>
+        <li><span onclick="openSvc('squint')">Squint &amp; Amblyopia</span></li>
+        <li><span onclick="openSvc('cornea')">Corneal Surgery</span></li>
+        <li><span onclick="openSvc('pedieye')">Paediatric Eye Care</span></li>
+        <li><span onclick="openSvc('optical')">Optical — ZEISS Lenses</span></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><span><i class="fas fa-map-marker-alt"></i>24, Singaravelar Salai, Karaikal – 609 602</span></li>
+        <li><a href="tel:04368224097"><i class="fas fa-phone-alt"></i>04368-224097</a></li>
+        <li><a href="tel:04368224141"><i class="fas fa-phone-alt"></i>04368-224141</a></li>
+        <li><a href="https://wa.me/918438224097" target="_blank"><i class="fab fa-whatsapp"></i>84382 24097</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <p>© 2025 Dr. Reddy's Dental &amp; Eye Care Centre, Karaikal. All Rights Reserved.</p>
+    <p>Designed with ❤️ for the people of Karaikal &amp; Puducherry</p>
+  </div>
+</footer>
+
+<!-- FLOATING ACTION BUTTONS -->
+<div class="fab-wrap">
+  <a class="fab fab-wa" href="https://wa.me/918438224097" target="_blank"><i class="fab fa-whatsapp"></i><span class="fab-tip">WhatsApp Us</span></a>
+  <a class="fab fab-em" href="tel:04368224097"><i class="fas fa-phone-alt"></i><span class="fab-tip">Emergency Call</span></a>
+  <button class="fab fab-ap" onclick="openPopup()"><i class="fas fa-calendar-check"></i><span class="fab-tip">Book Appointment</span></button>
+</div>
+
+<script>
+'use strict';
+/* ══ CURSOR ══ */
+const C=document.getElementById('cur'),C2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;C.style.left=mx+'px';C.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;C2.style.left=rx+'px';C2.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,[onclick],.svc-pill,.sc2,.ccard,.mdoc,.gtab,.why-card,.prev-card,.g-item,.fab,.tcard-auth').forEach(el=>{
+  el.addEventListener('mouseenter',()=>C.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>C.classList.remove('hovering'));
+});
+
+/* ══ PRELOADER ══ */
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('preloader').classList.add('out');setTimeout(openPopup,5000)},2500)});
+
+/* ══ PARTICLES ══ */
+(function(){
+  const c=document.getElementById('pCanvas');if(!c)return;
+  const style=document.createElement('style');
+  style.textContent=`@keyframes pf{0%,100%{transform:translate(0,0) rotate(0deg);opacity:.6}50%{transform:translate(var(--dx),var(--dy)) rotate(var(--dr));opacity:.15}}`;
+  document.head.appendChild(style);
+  for(let i=0;i<50;i++){
+    const p=document.createElement('div');
+    const s=Math.random()*3+1;
+    const dx=(Math.random()*80-40)+'px',dy=(Math.random()*-80)+'px',dr=(Math.random()*40-20)+'deg';
+    p.style.cssText=`position:absolute;width:${s}px;height:${s}px;background:rgba(255,255,255,${Math.random()*.3+.05});border-radius:50%;left:${Math.random()*100}%;top:${Math.random()*100}%;--dx:${dx};--dy:${dy};--dr:${dr};animation:pf ${Math.random()*12+7}s ease-in-out infinite;animation-delay:-${Math.random()*12}s;pointer-events:none`;
+    c.appendChild(p);
+  }
+  ['🦷','👁','+','◇'].forEach(sym=>{
+    for(let i=0;i<5;i++){
+      const s=document.createElement('div');const dx=(Math.random()*60-30)+'px',dy=(Math.random()*-60)+'px';
+      s.textContent=sym;s.style.cssText=`position:absolute;font-size:${Math.random()*10+8}px;opacity:${Math.random()*.08+.03};left:${Math.random()*100}%;top:${Math.random()*100}%;--dx:${dx};--dy:${dy};--dr:0;animation:pf ${Math.random()*15+8}s ease-in-out infinite;animation-delay:-${Math.random()*15}s;pointer-events:none;color:white`;
+      c.appendChild(s);
+    }
+  });
+})();
+
+/* ══ NAVBAR ══ */
+window.addEventListener('scroll',()=>document.getElementById('hdr').classList.toggle('on',window.scrollY>60));
+function toggleMob(){const n=document.getElementById('nl'),b=document.getElementById('burger');n.classList.toggle('open');b.classList.toggle('open');document.body.classList.toggle('locked',n.classList.contains('open'))}
+function closeMob(){document.getElementById('nl').classList.remove('open');document.getElementById('burger').classList.remove('open');document.body.classList.remove('locked')}
+
+/* ══ COUNTER ══ */
+function runCounter(el){
+  const t=parseInt(el.dataset.t),d=2000,inc=t/(d/16);let cur=0;
+  const iv=setInterval(()=>{cur+=inc;if(cur>=t){cur=t;clearInterval(iv)}el.textContent=Math.floor(cur).toLocaleString()},16);
+}
+
+/* ══ SCROLL REVEAL ══ */
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('in');
+    if(e.target.classList.contains('count')){runCounter(e.target);ro.unobserve(e.target)}
+  });
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.count').forEach(el=>ro.observe(el));
+
+/* ══ TILT ══ */
+document.querySelectorAll('[data-tilt]').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    c.style.transform=`perspective(700px) rotateX(${((y-r.height/2)/r.height)*10}deg) rotateY(${((r.width/2-x)/r.width)*10}deg) translateY(-6px)`;
+  });
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+/* ══ POPUP ══ */
+let pStep=1;
+function openPopup(){document.getElementById('apptOv').classList.add('open');document.body.classList.add('locked')}
+function closePopup(){document.getElementById('apptOv').classList.remove('open');document.body.classList.remove('locked');resetPop()}
+function resetPop(){pStep=1;document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('on'));document.getElementById('ps1').classList.add('on');document.getElementById('sd1').classList.add('on');document.getElementById('sd2').classList.remove('on')}
+function popNext(){document.getElementById('ps'+pStep).classList.remove('on');document.getElementById('sd'+pStep).classList.remove('on');pStep++;document.getElementById('ps'+pStep).classList.add('on');document.getElementById('sd'+pStep).classList.add('on')}
+function popPrev(){document.getElementById('ps'+pStep).classList.remove('on');document.getElementById('sd'+pStep).classList.remove('on');pStep--;document.getElementById('ps'+pStep).classList.add('on');document.getElementById('sd'+pStep).classList.add('on')}
+function submitAppt(e){e.preventDefault();toast('✅ Appointment booked! We\'ll contact you shortly.');closePopup()}
+function ovClose(e,id){if(e.target===e.currentTarget)closeOv(id)}
+function closeOv(id){document.getElementById(id).classList.remove('open');document.body.classList.remove('locked')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){['apptOv','svcOv','docOv'].forEach(closeOv);closeLbox()}if(e.key==='ArrowLeft')lboxNav(-1);if(e.key==='ArrowRight')lboxNav(1)});
+
+/* ══ TOAST ══ */
+function toast(msg){const t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),4000)}
+
+/* ══ CONTACT FORM ══ */
+function cfSubmit(e){e.preventDefault();toast('✅ Message sent! We\'ll reply shortly.');e.target.reset()}
+
+/* ══ MOBILE TABS (service modal) ══ */
+let curTab=0;
+function switchTab(i){
+  curTab=i;
+  document.querySelectorAll('.m-tab').forEach((t,idx)=>t.classList.toggle('active',idx===i));
+  document.querySelectorAll('.svc-m-col').forEach((c,idx)=>c.classList.toggle('show',idx===i));
+}
+
+/* ══ BEFORE/AFTER ══ */
+function initBA(id){
+  const wrap=document.getElementById(id),after=wrap?.querySelector('.ba-a'),handle=wrap?.querySelector('.ba-handle');
+  if(!wrap||!after||!handle)return;
+  let drag=false;
+  const upd=x=>{const r=wrap.getBoundingClientRect();const p=Math.max(2,Math.min(98,((x-r.left)/r.width)*100));after.style.clipPath=`inset(0 ${100-p}% 0 0)`;handle.style.left=p+'%'};
+  handle.addEventListener('mousedown',()=>drag=true);
+  handle.addEventListener('touchstart',()=>drag=true,{passive:true});
+  document.addEventListener('mousemove',e=>{if(drag)upd(e.clientX)});
+  document.addEventListener('touchmove',e=>{if(drag)upd(e.touches[0].clientX)},{passive:true});
+  document.addEventListener('mouseup',()=>drag=false);
+  document.addEventListener('touchend',()=>drag=false);
+  wrap.addEventListener('click',e=>upd(e.clientX));
+}
+
+/* ══ FAQ ══ */
+function initFAQ(){
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.onclick=()=>{
+      const a=q.nextElementSibling;const open=a.classList.contains('open');
+      document.querySelectorAll('.faq-ans').forEach(x=>x.classList.remove('open'));
+      document.querySelectorAll('.faq-q').forEach(x=>x.classList.remove('open'));
+      if(!open){a.classList.add('open');q.classList.add('open')}
+    };
+  });
+}
+
+/* ══ SERVICE DATA ══ */
+const SVCS={
+  implants:{
+    title:'Dental Implants',icon:'fas fa-tooth',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'World-Renowned Osstem Implants',
+    img:'images/equipments.jpg',
+    about:'Dental implants are the gold standard for replacing missing teeth. A titanium post is surgically placed into the jawbone, fusing with bone (osseointegration) to create a permanent, stable foundation for a crown. At Dr. Reddy\'s, we use Osstem implants — South Korea\'s world-renowned brand trusted in 90+ countries. Dr. M.V. Sudhakar Reddy\'s FICOI fellowship ensures international-level expertise.',
+    facts:[
+      {icon:'fas fa-check-circle',label:'Success Rate',val:'97–98% Long-Term Success'},
+      {icon:'fas fa-calendar',label:'Total Duration',val:'3–6 Months (Healing Included)'},
+      {icon:'fas fa-globe',label:'Implant Brand',val:'Osstem (South Korea) — World #1'},
+      {icon:'fas fa-shield-alt',label:'Lifespan',val:'15–25+ Years with Good Care'},
+    ],
+    steps:[
+      {title:'Initial Consultation & 3D Assessment',desc:'Comprehensive examination, digital X-ray, CBCT scan to assess bone density and implant suitability. Personalised treatment plan created.'},
+      {title:'Treatment Planning & Design',desc:'Digital implant positioning simulation. Surgical guide fabrication if needed. Medical clearance obtained. Implant size and position finalized.'},
+      {title:'Implant Surgical Placement',desc:'Local anaesthesia ensures complete comfort. Titanium implant post surgically placed into jawbone. Procedure takes 45–90 minutes. Minimal discomfort.'},
+      {title:'Osseointegration Healing Period',desc:'Implant fuses with jawbone over 2–4 months. Temporary restoration provided. Bone gradually grows around the titanium post, creating a permanent foundation.'},
+      {title:'Abutment Placement',desc:'Healing abutment attached once osseointegration confirmed. Gum tissue shaped for ideal emergence profile. Impressions taken for final crown.'},
+      {title:'Crown Fitting & Final Polish',desc:'Custom-made porcelain crown permanently attached. Bite checked and adjusted. Final polish. Smile transformed — natural, permanent, beautiful.'},
+    ],
+    before:'Missing Tooth / Uncomfortable Gap',after:'Permanent, Natural Implant Smile',
+    faqs:[
+      {q:'Is dental implant surgery painful?',a:'No. Under local anaesthesia, you feel no pain during surgery. Post-operative soreness is managed with standard pain relief. Most patients report surprisingly little discomfort — often less than a tooth extraction.'},
+      {q:'How long do implants last?',a:'With proper care — brushing, flossing, and regular check-ups — Osstem implants can last 15–25+ years. Many last a lifetime. The titanium post is designed to permanently integrate with your jawbone.'},
+      {q:'Am I a suitable candidate?',a:'Most adults with good general health are suitable. A sufficient amount of jawbone is required for implant anchorage. If bone loss has occurred, bone grafting may be recommended. Dr. Reddy will assess you thoroughly.'},
+      {q:'How does the cost compare to other options?',a:'While implants have a higher upfront cost than dentures or bridges, they are the only option that preserves jawbone, looks completely natural, and lasts decades. Over 10-15 years, implants are often the most cost-effective solution.'},
+    ]
+  },
+  ortho:{
+    title:'Orthodontics & Invisalign',icon:'fas fa-smile',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'Straight Teeth · Digital Planning',
+    img:'images/doctor_with_patient.jpg',
+    about:'Orthodontic treatment straightens teeth, corrects bite problems, and improves both function and appearance. Prof. Dr. Chidambaram (25 years, MDS) leads our orthodontic consultations. We offer the full range from traditional metal braces to modern Invisalign clear aligners using digital intraoral scanning — no messy impressions.',
+    facts:[
+      {icon:'fas fa-clock',label:'Treatment Duration',val:'12–24 Months (Case-Dependent)'},
+      {icon:'fas fa-laptop-medical',label:'Technology',val:'Digital Intraoral Scanner'},
+      {icon:'fas fa-teeth',label:'Options',val:'Metal, Ceramic, Self-Ligating, Invisalign'},
+      {icon:'fas fa-star',label:'Specialist',val:'Prof. Dr. Chidambaram — 25 Yrs Exp.'},
+    ],
+    steps:[
+      {title:'Consultation & Smile Assessment',desc:'Comprehensive dental and facial analysis. Photos, X-rays, and digital impressions taken. Treatment options explained with expected outcomes.'},
+      {title:'Digital Treatment Planning',desc:'Computer-simulated treatment preview shows your expected final smile. Invisalign patients can see their tooth movement before starting.'},
+      {title:'Appliance Fitting',desc:'Braces bonded to teeth (15–30 min) or Invisalign aligners delivered. Detailed instructions provided on care, wear time, and food restrictions.'},
+      {title:'Regular Adjustment Visits',desc:'Monthly check-ups (braces) or every 6–8 weeks (Invisalign). Wires tightened or new aligners issued. Progress monitored and photos taken.'},
+      {title:'Debond & Retainer Fitting',desc:'Braces removed, teeth polished. Digital impressions for custom retainers. Retainers worn nightly to maintain results permanently.'},
+    ],
+    before:'Crowded, Gapped, or Misaligned Teeth',after:'Perfectly Straight, Confident Smile',
+    faqs:[
+      {q:'Is Invisalign as effective as braces?',a:'For most cases, yes. Invisalign is highly effective for mild to moderate crowding, spacing, and bite correction. Severe cases may still benefit from traditional braces. Prof. Dr. Chidambaram will recommend the best option for your specific situation.'},
+      {q:'Will orthodontic treatment hurt?',a:'There is typically soreness for 2–4 days after each adjustment — this is normal and indicates teeth are moving. Over-the-counter pain relief helps. The discomfort decreases significantly with each appointment.'},
+      {q:'At what age should orthodontics start?',a:'Early assessment at age 7 is recommended. Treatment is most effective between ages 10–14 when jaws are still growing. However, orthodontic treatment is equally successful in adults — age is no barrier to a great smile.'},
+      {q:'How long must I wear Invisalign aligners?',a:'Invisalign aligners must be worn 20–22 hours per day, removing only for eating and oral hygiene. Compliance is key — consistent wearing ensures the treatment finishes on schedule.'},
+    ]
+  },
+  rct:{
+    title:'Root Canal Treatment',icon:'fas fa-syringe',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'Painless · Precision · Tooth-Saving',
+    img:'images/tooth_x_ray.jpg',
+    about:'Root Canal Treatment (RCT) removes infected or dead pulp tissue from inside the tooth, relieving pain and saving the tooth from extraction. Modern anaesthesia and rotary instrumentation make RCT virtually painless. Dr. Reddy specializes in standard RCT, failed RCT management, and the technically challenging calcified root canal — cases often referred from other clinics.',
+    facts:[
+      {icon:'fas fa-smile-beam',label:'Pain Level',val:'Virtually Painless with Local Anaesthesia'},
+      {icon:'fas fa-clock',label:'Duration',val:'1–2 Sessions of 60–90 Minutes Each'},
+      {icon:'fas fa-tooth',label:'Specialty',val:'Failed RCT & Calcified Canal Expertise'},
+      {icon:'fas fa-shield-alt',label:'Success',val:'95%+ with Proper Crown Restoration'},
+    ],
+    steps:[
+      {title:'Digital X-Ray Diagnosis',desc:'RVG digital X-ray taken to assess root length, number of canals, infection extent, and surrounding bone health. Treatment complexity determined.'},
+      {title:'Local Anaesthesia',desc:'Effective local anaesthetic injected. You\'ll feel pressure but no pain. We wait until you\'re completely numb before proceeding — comfort is our priority.'},
+      {title:'Access Opening',desc:'Small opening created in the crown of the tooth to access the pulp chamber. Infected pulp tissue removed with precision instruments under magnification.'},
+      {title:'Canal Shaping & Disinfection',desc:'Rotary files shape canals to precise dimensions. Sodium hypochlorite irrigation eliminates all bacteria. Canals dried and measured with apex locator.'},
+      {title:'Canal Filling (Obturation)',desc:'Canals filled with biocompatible gutta-percha and sealer — permanently sealing them. Temporary restoration placed if returning for crown.'},
+      {title:'Crown Restoration',desc:'Permanent crown or Endocrown placed to protect the treated tooth from fracture and restore full chewing function. RCT tooth can last a lifetime.'},
+    ],
+    before:'Infected, Throbbing, Painful Tooth',after:'Saved, Pain-Free, Restored Tooth',
+    faqs:[
+      {q:'Is root canal really that painful?',a:'This is the biggest myth in dentistry! Modern RCT is no more uncomfortable than a routine filling. The anaesthesia fully eliminates pain during the procedure. You\'re actually relieving the pain of infection, not creating new pain.'},
+      {q:'Can I drive home after RCT?',a:'Yes. Local anaesthesia wears off in 2–4 hours. You can drive and return to normal activities the same day. Mild soreness for 1–3 days is normal and managed with over-the-counter pain relief.'},
+      {q:'Why choose RCT over extraction?',a:'Your natural tooth is always the best option. Extractions lead to bone loss, shifting teeth, and bite changes. Replacing an extracted tooth costs 3–5x more. RCT saves your tooth permanently with proper crown restoration.'},
+      {q:'What if my previous RCT has failed?',a:'Dr. Reddy specializes in failed RCT management (re-treatment). He locates missed canals, removes old filling material, re-disinfects, and re-seals. Most failed RCTs can be successfully re-treated, saving the tooth from extraction.'},
+    ]
+  },
+  smile:{
+    title:'Smile Designing & Esthetic Dentistry',icon:'fas fa-star',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'Digital Design · Porcelain Veneers · Makeover',
+    img:'images/img_1.jpg',
+    about:'Advanced esthetic dentistry blends science and artistry to craft your perfect smile. Dr. Sudhakar Reddy uses digital smile design software to preview your results before a single tooth is touched. Whether you want whiter teeth, corrected chips, or a complete smile makeover, we combine veneers, crowns, whitening, and gum contouring into one seamless transformation.',
+    facts:[
+      {icon:'fas fa-laptop',label:'Technology',val:'Digital Smile Design Preview'},
+      {icon:'fas fa-gem',label:'Materials',val:'Porcelain / Zirconia Veneers & Crowns'},
+      {icon:'fas fa-clock',label:'Duration',val:'2–3 Visits Over 2–3 Weeks'},
+      {icon:'fas fa-star',label:'Results',val:'Natural, Celebrity-Quality Smile'},
+    ],
+    steps:[
+      {title:'Smile Analysis & Digital Preview',desc:'Photos and measurements taken. Digital smile simulation created — you see your new smile before treatment begins. Adjust until you\'re completely happy.'},
+      {title:'Treatment Planning',desc:'Comprehensive plan detailing every procedure: veneers, whitening, gum contouring, or combination. Timeline, costs, and alternatives discussed transparently.'},
+      {title:'Tooth Preparation',desc:'Minimal tooth reduction (0.3–0.5mm for veneers). Local anaesthesia ensures comfort. Precise preparation is critical for a perfect veneer fit.'},
+      {title:'Digital Impressions',desc:'Intraoral scanner creates a precise 3D digital impression. No messy moulds. More accurate, faster, and more comfortable for the patient.'},
+      {title:'Lab Fabrication',desc:'Master ceramist crafts your porcelain veneers/crowns to match your digital smile design. Shade, shape, and translucency precisely customized to you.'},
+      {title:'Bonding & Final Polish',desc:'Trial fitting confirms aesthetics and bite. Permanent bonding with high-strength adhesive. Final polish. Stunning smile revealed — transformation complete.'},
+    ],
+    before:'Discoloured, Chipped, Uneven Teeth',after:'Radiant, Flawless Smile Design',
+    faqs:[
+      {q:'How long do porcelain veneers last?',a:'High-quality porcelain veneers last 10–15 years with good care. Avoid biting hard objects like ice or fingernails. Regular check-ups ensure longevity. With proper maintenance, many veneers last 20+ years.'},
+      {q:'Does veneer preparation damage teeth?',a:'Minimal preparation (0.3–0.5mm) is required — far less than a crown. Ultra-thin "no-prep" veneers are available for suitable candidates. The procedure is conservative, preserving as much natural tooth structure as possible.'},
+      {q:'Can I get a smile makeover in one visit?',a:'For some cases (composite bonding, whitening), yes. Porcelain veneers require 2–3 visits due to lab fabrication. Same-day composite veneers are an option for immediate transformation at lower cost.'},
+      {q:'How white can my teeth be?',a:'Whitening and veneer shades are chosen to look natural for your skin tone. We use clinical shade guides and consider your complexion — the goal is stunning but natural, not artificial-looking "Hollywood white."'},
+    ]
+  },
+  pediatric:{
+    title:'Paediatric Dentistry — Kids Play Zone',icon:'fas fa-child',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'Exclusive Play Zone · Child-Friendly · Gentle Care',
+    img:'images/img_2.jpg',
+    about:'Children deserve a dental experience they\'ll actually look forward to. Our dedicated paediatric unit with an exclusive Play Zone transforms dental anxiety into dental excitement. Gentle techniques, child-safe materials, and a fun, non-clinical atmosphere make every visit positive. Healthy dental habits formed before age 6 protect teeth for life.',
+    facts:[
+      {icon:'fas fa-gamepad',label:'Unique Feature',val:'Exclusive Kids Play Zone — Karaikal\'s Only'},
+      {icon:'fas fa-child',label:'Age Range',val:'6 Months to 14 Years'},
+      {icon:'fas fa-heart',label:'Approach',val:'Tell-Show-Do — Anxiety-Free Technique'},
+      {icon:'fas fa-shield-alt',label:'Materials',val:'Pediatric-Safe, BPA-Free Materials'},
+    ],
+    steps:[
+      {title:'Fun, Friendly Welcome',desc:'Child welcomed into Play Zone first. No clinical smells, no scary equipment in sight. Games, toys, and cartoons help child relax and associate the clinic with fun.'},
+      {title:'Meet the Dentist (Play Mode)',desc:'Dentist introduced in a non-threatening way. "Show" — instrument shown and explained playfully. Child\'s curiosity used to build comfort rather than fear.'},
+      {title:'Gentle Examination',desc:'Mouth examination done with child\'s comfort prioritized. Special child-sized instruments. Parent present throughout. Findings explained to both child and parent.'},
+      {title:'Treatment with Care',desc:'Child-safe anaesthesia if required (flavoured gel first, then painless injection). Treatment done in short bursts with frequent breaks. Child stays in control.'},
+      {title:'Reward & Positive Reinforcement',desc:'Sticker chart, certificates, small rewards. Positive association with dental visits created. Child leaves proud of their "brave" visit. Next visit eagerly anticipated.'},
+    ],
+    before:'Dental-Anxious, Fearful Child',after:'Confident, Cooperative Happy Patient',
+    faqs:[
+      {q:'When should my child first visit the dentist?',a:'The first dental visit should be within 6 months of the first tooth appearing, or by age 1. Early visits familiarize children with the dental environment and allow us to guide parents on oral care, diet, and habit correction (thumb sucking, pacifier use).'},
+      {q:'My child has a severe dental phobia — can you help?',a:'Absolutely. Our paediatric team specializes in behaviour management for anxious children. Tell-Show-Do, positive reinforcement, and our Play Zone environment transform even the most anxious children. In very rare severe cases, safe sedation options are discussed with parents.'},
+      {q:'How do milk teeth cavities affect permanent teeth?',a:'Significantly. Infected milk teeth can damage the developing permanent teeth below them. Early extraction of milk teeth disrupts spacing, causing crowded permanent teeth. Treating milk teeth is essential — they\'re not just "baby teeth," they\'re the foundation for lifelong dental health.'},
+      {q:'When should orthodontic treatment begin?',a:'An orthodontic assessment at age 7 identifies early problems. Interceptive treatment (Phase 1 orthodontics) at age 8–10 can correct jaw growth problems, potentially avoiding complex treatment later. Phase 2 (comprehensive braces) typically begins at 11–13.'},
+    ]
+  },
+  perio:{
+    title:'Periodontics — Gum Care',icon:'fas fa-teeth-open',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'Gum Disease Treatment · Scaling · Gum Surgery',
+    img:'images/treating_place.webp',
+    about:'Periodontal (gum) disease is the leading cause of tooth loss in adults. It ranges from simple gum inflammation (gingivitis) to serious infections that destroy jawbone (periodontitis). Gum disease is also linked to heart disease, diabetes complications, and pregnancy complications. Our comprehensive periodontal treatments range from deep cleaning to surgical interventions.',
+    facts:[
+      {icon:'fas fa-exclamation-triangle',label:'Key Fact',val:'Leading Cause of Tooth Loss in Adults'},
+      {icon:'fas fa-link',label:'Systemic Link',val:'Linked to Heart Disease & Diabetes'},
+      {icon:'fas fa-tools',label:'Treatments',val:'Scaling, Grafting, Gingivectomy, Frenectomy'},
+      {icon:'fas fa-check',label:'Prevention',val:'6-Monthly Professional Cleaning'},
+    ],
+    steps:[
+      {title:'Periodontal Charting & Diagnosis',desc:'Pocket depth measurements at 6 points per tooth. Full-mouth X-rays assess bone levels. Bleeding on probing recorded. Disease stage classified.'},
+      {title:'Scaling & Root Planing (Deep Clean)',desc:'Ultrasonic and hand scaler remove plaque and calculus above and below gumline. Root surfaces smoothed to prevent bacteria from reattaching.'},
+      {title:'Reassessment (4–6 Weeks)',desc:'Gums reassessed after initial healing. Pocket depths remeasured. Many cases resolve with scaling alone. Surgical evaluation if pockets remain deep.'},
+      {title:'Surgical Treatment (If Required)',desc:'Flap surgery accesses deep pockets. Bone regeneration procedures may be performed. Soft tissue grafting corrects gum recession. Gingivectomy reshapes gum tissue.'},
+      {title:'Maintenance Programme',desc:'Regular 3–6 monthly maintenance visits. Professional cleaning, home care review, and monitoring prevent recurrence. Gum disease management is lifelong.'},
+    ],
+    before:'Bleeding, Receded, Infected Gums',after:'Healthy, Firm, Pink Gum Line',
+    faqs:[
+      {q:'Do gums bleed when brushing? Is that normal?',a:'No — healthy gums never bleed. Bleeding while brushing is a warning sign of gum disease (gingivitis). If left untreated, gingivitis progresses to periodontitis, which destroys the bone supporting your teeth. See us immediately.'},
+      {q:'Can gum disease be completely cured?',a:'Gingivitis (early gum disease) is completely reversible with professional cleaning and improved home care. Advanced periodontitis can be controlled and halted, but the bone loss that has occurred is permanent. This is why early treatment is critical.'},
+      {q:'Is gum treatment painful?',a:'Local anaesthesia is used for deep cleaning and surgical procedures. You\'ll feel pressure but no pain. Post-treatment soreness lasts 2–5 days and is managed with pain relief. Most patients are surprised by how comfortable the process is.'},
+      {q:'How is gum disease linked to diabetes?',a:'Gum disease worsens blood sugar control in diabetics, and high blood sugar makes gum disease worse — a vicious cycle. Treating gum disease is proven to improve HbA1c levels. All diabetic patients should have gum health evaluated regularly.'},
+    ]
+  },
+  prostho:{
+    title:'Prosthodontics — Complete Teeth Replacement',icon:'fas fa-teeth',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'RPD · CD · FPD · Endocrown · Digital',
+    img:'images/img_3.jpg',
+    about:'Prosthodontics specializes in replacing missing teeth and restoring full mouth function and aesthetics. Prof. Dr. Jothikumar (30 years, FISOI, FICOI) leads our prosthodontic services. From single crowns to complete dentures and implant-supported rehabilitations, we restore smiles comprehensively using both traditional and digital techniques.',
+    facts:[
+      {icon:'fas fa-user-graduate',label:'Lead Specialist',val:'Prof. Dr. Jothikumar — FISOI, FICOI'},
+      {icon:'fas fa-laptop-medical',label:'Technology',val:'Digital Impressions & CAD/CAM'},
+      {icon:'fas fa-list',label:'Options',val:'RPD, CD, FPD, Endocrown, Implant-Supported'},
+      {icon:'fas fa-award',label:'Experience',val:'30 Years of Complex Rehabilitations'},
+    ],
+    steps:[
+      {title:'Comprehensive Oral Assessment',desc:'Full examination of remaining teeth, gums, bite, and bone. Photographs, X-rays, and digital impressions taken. Functional and aesthetic goals discussed.'},
+      {title:'Treatment Planning',desc:'Multiple options presented with costs. Treatment sequencing planned — tooth extractions, gum treatment, implants (if needed) before prosthetics.'},
+      {title:'Digital Impressions',desc:'Intraoral scanner creates precise 3D model — no messy traditional impressions. Digital model sent to lab for precision fabrication.'},
+      {title:'Prosthesis Fabrication',desc:'Skilled ceramists fabricate dentures, crowns, or bridges using premium materials. Multiple try-in stages ensure perfect fit, bite, and appearance.'},
+      {title:'Fitting & Adjustment',desc:'Prosthesis tried in mouth. Bite checked with articulating paper. Adjustments made. Patient given care and maintenance instructions.'},
+      {title:'Review & Maintenance',desc:'Follow-up appointments at 1 week, 1 month, and annually. Dentures relined if needed. Implant-supported prostheses serviced professionally.'},
+    ],
+    before:'Missing Teeth / Poor Function',after:'Complete Smile Restored with Full Function',
+    faqs:[
+      {q:'What is the difference between RPD and CD?',a:'RPD (Removable Partial Denture) replaces some missing teeth while remaining teeth provide support. CD (Complete Denture) replaces an entire arch of missing teeth. Both are removable and cleaned outside the mouth. Implant-supported versions are also available for superior stability.'},
+      {q:'What is an Endocrown?',a:'An Endocrown is a single-piece ceramic restoration that both restores a root-canal-treated tooth and replaces the lost crown. Unlike traditional crown and post systems, Endocrowns are stronger, require less tooth reduction, and are fabricated using digital technology for precision fit.'},
+      {q:'Are dentures comfortable?',a:'Modern dentures are significantly more comfortable than those of 20 years ago. Initial adjustment takes 4–6 weeks. Implant-supported dentures are even more stable and comfortable, eliminating the need for denture adhesive entirely.'},
+      {q:'How long does full mouth rehabilitation take?',a:'Complex cases involving implants, bone grafting, and multiple prosthetics can take 6–18 months. The timeline depends on healing, the number of implants, and the type of prostheses. Dr. Jothikumar will map out a complete timeline at your first consultation.'},
+    ]
+  },
+  surgery:{
+    title:'Oral & Maxillofacial Surgery',icon:'fas fa-procedures',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',
+    tag:'Impaction · Jaw Surgery · Expert Surgeons',
+    img:'images/equipments.jpg',
+    about:'Our oral surgery team — Dr. Karthigean (45 years) and Prof. Dr. Janarthanan — handles the full spectrum of oral surgical cases. From wisdom tooth extractions to complex jaw fracture reductions and maxillofacial reconstructions, their combined experience ensures the safest, most effective surgical outcomes. Many complex cases from surrounding hospitals are referred to our team.',
+    facts:[
+      {icon:'fas fa-user-md',label:'Lead Surgeon',val:'Dr. Karthigean — 45 Years Experience'},
+      {icon:'fas fa-list',label:'Procedures',val:'Impaction, Jaw Fracture, Major Surgery'},
+      {icon:'fas fa-hospital',label:'Referrals',val:'Accepted from Surrounding Hospitals'},
+      {icon:'fas fa-shield-alt',label:'Anaesthesia',val:'Local & General Anaesthesia Available'},
+    ],
+    steps:[
+      {title:'Pre-Surgical Assessment',desc:'X-rays, CBCT scan, blood tests, and medical history reviewed. Anaesthesia planned. Surgical risks, benefits, and alternatives discussed with patient and family.'},
+      {title:'Anaesthesia Administration',desc:'Local anaesthesia for minor procedures. General anaesthesia for major surgery coordinated with anaesthesiologist. Patient comfort and safety paramount.'},
+      {title:'Surgical Procedure',desc:'Precise surgical technique. Minimal tissue trauma approach. Hemostasis ensured. Wound closure with absorbable or non-absorbable sutures as appropriate.'},
+      {title:'Immediate Post-Op Care',desc:'Recovery monitored. Pain management protocol started. Antibiotics and anti-inflammatory medications prescribed. Detailed verbal and written care instructions given.'},
+      {title:'Follow-Up & Healing',desc:'Review at 1 week (suture removal if needed), 1 month, and 3 months. Healing progress assessed. Rehabilitation planned (prosthetics if teeth extracted).'},
+    ],
+    before:'Impacted / Fractured / Diseased Tissue',after:'Successfully Treated & Smooth Recovery',
+    faqs:[
+      {q:'How long is recovery from wisdom tooth removal?',a:'Simple extractions: 2–3 days. Surgical removal of impacted wisdom teeth: 3–7 days of swelling and soreness, full healing in 2 weeks. Soft foods, ice packs, and prescribed medications make the recovery comfortable.'},
+      {q:'Is jaw fracture surgery necessary?',a:'Jaw fractures often require surgical fixation to restore proper alignment and function. Without treatment, bone heals in the wrong position, causing permanent bite problems. Dr. Karthigean\'s 45 years of maxillofacial experience ensures optimal outcomes.'},
+      {q:'What is impaction surgery?',a:'An impacted tooth (usually wisdom tooth) is trapped beneath the gum or bone. Impaction surgery involves making a small incision, removing bone if needed, and extracting the tooth in sections. It\'s routine in our practice with minimal complications.'},
+      {q:'Can I have surgery if I take blood thinners?',a:'Yes, with proper planning. We coordinate with your physician to temporarily modify your medication protocol. Most blood-thinning medications can be safely managed around oral surgery with appropriate precautions.'},
+    ]
+  },
+  cataract:{
+    title:'Cataract Surgery — Laser Phacoemulsification',icon:'fas fa-eye',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'Phaco Fellowship Surgeon · Daycare Procedure',
+    img:'images/wrong_lens_in_cataract_op.jpg',
+    about:'Cataracts cloud the eye\'s natural lens, causing blurry vision, glare, and colours appearing faded. Phacoemulsification is the gold-standard technique: a tiny incision, ultrasound breaks up the cloudy lens, and a premium foldable IOL (Intraocular Lens) is implanted. Dr. Kamalapriya completed her Phaco Fellowship at Narayana Nethralaya, Bangalore — India\'s finest eye institution. Daycare procedure, 1-day recovery.',
+    facts:[
+      {icon:'fas fa-graduation-cap',label:'Surgeon Training',val:'Phaco Fellowship — Narayana Nethralaya'},
+      {icon:'fas fa-clock',label:'Procedure Time',val:'15–20 Minutes Per Eye'},
+      {icon:'fas fa-hospital',label:'Setting',val:'Daycare — Home Same Day'},
+      {icon:'fas fa-eye',label:'Vision Recovery',val:'Clear Vision Within 24–48 Hours'},
+    ],
+    steps:[
+      {title:'Comprehensive Eye Examination',desc:'Visual acuity, slit-lamp examination, fundus assessment, IOP measurement, and cataract grading. Type and density of cataract documented.'},
+      {title:'Biometry & IOL Power Calculation',desc:'Precise measurements taken with optical biometry. IOL power calculated using multiple formulae. Premium IOL type discussed (monofocal, toric, multifocal).'},
+      {title:'Pre-operative Preparation',desc:'Blood tests, systemic clearance, dilating drops started 1 hour before surgery. Sterile preparation of the surgical area. Patient and family counselled.'},
+      {title:'Phacoemulsification Surgery',desc:'Topical anaesthetic drops (no injection). 2.2mm micro-incision. Ultrasound probe emulsifies (breaks up) the cloudy lens. IOL implanted through same tiny incision.'},
+      {title:'IOL Implantation',desc:'Foldable premium IOL inserted through micro-incision and unfolds inside the eye. Incision self-sealing — no stitches needed. Entire procedure: 15–20 minutes.'},
+      {title:'Post-operative Care & Recovery',desc:'Eye pad for 6 hours. Antibiotic and anti-inflammatory drops for 4 weeks. Vision clears within 24–48 hours. Follow-up at day 1, 1 week, 1 month, and 3 months.'},
+    ],
+    before:'Cloudy, Blurred, Glare-Affected Vision',after:'Crystal-Clear, Vibrant, Sharp Vision',
+    faqs:[
+      {q:'Is cataract surgery safe?',a:'Phacoemulsification cataract surgery has a 99%+ safety record and is one of the most commonly performed surgeries worldwide. In experienced hands like Dr. Kamalapriya\'s, it is extremely safe and routine. Serious complications are very rare.'},
+      {q:'Do I need to stay in hospital?',a:'No. Cataract surgery at Dr. Reddy\'s is a daycare procedure. You arrive, have surgery, rest for 1–2 hours, and go home the same day. A companion is required to drive you home.'},
+      {q:'Will I need glasses after surgery?',a:'It depends on the IOL chosen. Standard monofocal IOLs correct distance vision — reading glasses may still be needed. Premium multifocal IOLs reduce or eliminate spectacle dependence for both distance and near vision. Toric IOLs also correct astigmatism.'},
+      {q:'When should cataracts be operated on?',a:'Modern advice: don\'t wait until cataract is "ripe." Surgery when the cataract affects your daily life — driving, reading, or watching TV. Earlier surgery is technically easier and safer. There is no advantage to waiting for cataracts to "mature."'},
+    ]
+  },
+  retina:{
+    title:'Retina Services & Diabetic Eye Care',icon:'fas fa-circle',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'Retinal Imaging · Diabetic Screening · Laser',
+    img:'images/eye_img1.jpg',
+    about:'The retina is the light-sensitive layer at the back of the eye — damage here causes irreversible vision loss. Diabetic retinopathy is the leading cause of preventable blindness in working-age adults. Dr. Kamalapriya\'s training at Aravind Eye Hospital and Narayana Nethralaya gives her comprehensive expertise in retinal diagnosis, laser treatment, and management of complex retinal conditions.',
+    facts:[
+      {icon:'fas fa-camera',label:'Technology',val:'High-Resolution Retinal Imaging'},
+      {icon:'fas fa-exclamation-triangle',label:'Critical Fact',val:'Diabetic Retinopathy — Zero Early Symptoms'},
+      {icon:'fas fa-calendar',label:'Screening',val:'Annual for All Diabetics (From Diagnosis)'},
+      {icon:'fas fa-hospital',label:'Training',val:'Aravind Eye Hospital + Narayana Nethralaya'},
+    ],
+    steps:[
+      {title:'Dilated Fundus Examination',desc:'Pupils dilated with drops. Comprehensive examination of optic disc, macula, vessels, and peripheral retina using indirect ophthalmoscopy and slit-lamp biomicroscopy.'},
+      {title:'Retinal Photography & Imaging',desc:'Digital fundus photography documents retinal status. Images serve as baseline for monitoring disease progression over years.'},
+      {title:'Diabetic Retinopathy Grading',desc:'Retinopathy classified: mild, moderate, severe non-proliferative, or proliferative. Grading determines urgency of treatment and monitoring frequency.'},
+      {title:'Laser Treatment (If Required)',desc:'Focal or panretinal photocoagulation laser applied to treat leaking vessels and prevent further vision-threatening disease progression.'},
+      {title:'Structured Follow-up Protocol',desc:'Follow-up frequency set based on retinopathy grade. Quarterly for severe cases. Annual for early disease. Collaboration with patient\'s diabetologist for systemic control.'},
+    ],
+    before:'Undetected Retinal Damage / Blurred Vision',after:'Treated, Monitored, Protected Vision',
+    faqs:[
+      {q:'Does diabetic retinopathy cause pain?',a:'No — this is what makes it so dangerous. Diabetic retinopathy causes no pain and minimal vision symptoms in early stages. By the time symptoms appear, significant irreversible damage may have occurred. Annual eye exams from the time of diabetes diagnosis are essential.'},
+      {q:'How often should diabetics get eye exams?',a:'Every year from the time of diabetes diagnosis — regardless of vision or blood sugar control. Type 1 diabetics: from 5 years after diagnosis. Type 2 diabetics: immediately at diagnosis. Pregnant diabetics: each trimester. Frequency increases if retinopathy is detected.'},
+      {q:'Can laser treatment cure diabetic retinopathy?',a:'Laser treatment does not cure retinopathy or restore already-lost vision. It prevents further worsening. This is why early detection is critical — treatment before significant vision loss occurs gives the best outcomes.'},
+      {q:'What other retinal conditions do you treat?',a:'We manage Retinopathy of Prematurity (ROP), age-related macular degeneration, retinal vein and artery occlusions, uveal disorders, hypertensive retinopathy, hereditary retinal dystrophies, and neuro-ophthalmic retinal conditions.'},
+    ]
+  },
+  glaucoma:{
+    title:'Glaucoma Management & YAG Laser',icon:'fas fa-binoculars',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'Silent Thief of Sight · YAG Laser · Screening',
+    img:'images/lens_place.jpg',
+    about:'Glaucoma is the "silent thief of sight" — the leading cause of irreversible blindness worldwide. Most patients have no symptoms until significant vision is permanently lost. Elevated intraocular pressure (IOP) damages the optic nerve. Our comprehensive glaucoma clinic offers full diagnostic workup including visual fields, optic disc photography, and treatment including YAG laser and glaucoma laser procedures.',
+    facts:[
+      {icon:'fas fa-exclamation-triangle',label:'Warning',val:'No Symptoms Until 40% Vision Lost'},
+      {icon:'fas fa-laser',label:'Treatment',val:'YAG Laser & Glaucoma Laser Available'},
+      {icon:'fas fa-users',label:'Risk Groups',val:'Age 40+, Family History, Myopia, Diabetes'},
+      {icon:'fas fa-infinity',label:'Management',val:'Lifelong — Cannot Be Cured, Can Be Controlled'},
+    ],
+    steps:[
+      {title:'Intraocular Pressure (IOP) Measurement',desc:'Goldmann applanation tonometry — gold-standard IOP measurement. Elevated IOP (>21 mmHg) indicates glaucoma risk. Normal IOP alone doesn\'t rule out glaucoma.'},
+      {title:'Optic Disc Evaluation',desc:'Optic nerve photographed and analyzed for cupping, disc asymmetry, and nerve fiber layer defects. These are early structural signs of glaucomatous damage.'},
+      {title:'Visual Field Testing (Perimetry)',desc:'Automated visual field test maps peripheral vision. Characteristic patterns of visual field loss confirm glaucoma diagnosis and track progression.'},
+      {title:'Gonioscopy',desc:'Special lens examines the angle where fluid drains from the eye. Distinguishes between open-angle (most common) and closed-angle glaucoma — treatment differs significantly.'},
+      {title:'Treatment — Drops, Laser, or Surgery',desc:'Eye drops reduce IOP. YAG peripheral iridotomy treats angle-closure risk. Selective laser trabeculoplasty enhances drainage. Surgery reserved for refractory cases.'},
+      {title:'Lifelong Monitoring',desc:'Glaucoma requires lifelong monitoring and treatment. IOP, visual fields, and optic disc assessed at every visit. Medications adjusted based on IOP targets and progression.'},
+    ],
+    before:'Silent Progressive Vision Loss / Tunnel Vision',after:'Controlled IOP & Preserved Vision',
+    faqs:[
+      {q:'What are the risk factors for glaucoma?',a:'Age over 40, family history of glaucoma, elevated eye pressure, myopia (short-sightedness), diabetes, high blood pressure, long-term steroid use, and previous eye injury all increase glaucoma risk. Anyone with these factors should be screened annually.'},
+      {q:'Can lost vision from glaucoma be restored?',a:'No — vision lost to glaucoma is permanent. The optic nerve cannot regenerate. This is why early detection and treatment are critical. Treatment halts progression but cannot restore what has been lost.'},
+      {q:'Is glaucoma hereditary?',a:'Yes, significantly. First-degree relatives of glaucoma patients have a 4–9x higher risk. All siblings and children of glaucoma patients should be screened from age 35 onwards. Genetic factors play a major role in primary open-angle glaucoma.'},
+      {q:'What is YAG laser and does it hurt?',a:'YAG peripheral iridotomy creates a small hole in the iris to improve fluid drainage, preventing angle-closure glaucoma. It takes 5 minutes and is painless (anaesthetic drops). One-time treatment that permanently eliminates the risk of acute angle-closure attack.'},
+    ]
+  },
+  contactlens:{
+    title:'Contact Lens Clinic — Multifocal Specialist',icon:'fas fa-glasses',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'All Brands · Multifocal Expert · Specialty Lenses',
+    img:'images/lens_place.jpg',
+    about:'Our contact lens clinic offers comprehensive fitting for all contact lens types with special expertise in multifocal contact lenses — the most complex to fit correctly. With all leading global brands available and experienced practitioners, we ensure perfect vision, comfort, and eye health. Contact lenses are a medical device — expert fitting is essential for safe, comfortable wear.',
+    facts:[
+      {icon:'fas fa-award',label:'Specialization',val:'Multifocal Contact Lens Fitting'},
+      {icon:'fas fa-globe',label:'Brands',val:'All Leading Global Brands Available'},
+      {icon:'fas fa-eye',label:'Lens Types',val:'Soft Daily, Monthly, RGP, Toric, Multifocal'},
+      {icon:'fas fa-shield-alt',label:'Safety',val:'Annual Eye Health Review Mandatory'},
+    ],
+    steps:[
+      {title:'Comprehensive Eye Examination',desc:'Visual acuity, refraction, slit-lamp anterior segment examination, tear film assessment, and corneal health evaluation. Confirmation that contact lenses are safe for you.'},
+      {title:'Corneal Assessment',desc:'Keratometry measures corneal curvature. Corneal topography maps the surface. These measurements determine correct lens base curve and diameter for an optimal fit.'},
+      {title:'Lens Parameter Selection',desc:'Lens type, material, wear schedule, and replacement frequency selected. Multifocal lens zone design chosen based on your visual demands (reading, computer, distance).'},
+      {title:'Trial Lens Fitting',desc:'Trial lenses applied and fit assessed after 20 minutes. Vision checked for distance, intermediate, and near (multifocal). Comfort and centration evaluated.'},
+      {title:'Handling & Hygiene Training',desc:'Insertion, removal, cleaning, and storage demonstrated and practiced until you\'re confident. Contact lens hygiene education — critical for preventing eye infections.'},
+      {title:'Follow-up & Lens Review',desc:'1-week follow-up. Annual review mandatory. Lens parameters adjusted as needed. Eye health monitored — corneal hypoxia and infection risk assessed regularly.'},
+    ],
+    before:'Glasses Only / Poor Multifocal Fit',after:'Clear Vision & Comfort with Contact Lenses',
+    faqs:[
+      {q:'Can I wear contact lenses if I have astigmatism?',a:'Yes — toric contact lenses are specifically designed to correct astigmatism. They have different powers in different meridians and stabilize correctly in the eye. Modern toric lenses are extremely stable, comfortable, and provide excellent vision.'},
+      {q:'Are contact lenses safe for daily full-time wear?',a:'Yes, with proper care. Daily disposable lenses eliminate cleaning risk. Extended wear lenses allow limited overnight wear. The key is never sleeping in non-extended-wear lenses, always cleaning and replacing as scheduled, and attending annual reviews.'},
+      {q:'What are multifocal contact lenses?',a:'Multifocal contact lenses have multiple zones of power in each lens, allowing clear vision at distance, intermediate, and near distances — eliminating the need for reading glasses. They are the contact lens solution for presbyopia (age-related near vision loss from age 40+).'},
+      {q:'Can I use contact lenses with dry eyes?',a:'Dry eye is the most common reason patients struggle with contact lenses. Modern materials (silicone hydrogel, water gradient lenses) are specifically designed for dry eye comfort. A thorough dry eye assessment helps us select the most suitable lens for you.'},
+    ]
+  },
+  squint:{
+    title:'Squint & Amblyopia — Orthoptek Therapy',icon:'fas fa-adjust',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'Lazy Eye · Orthoptek · Surgical Correction',
+    img:'images/eye_img1.jpg',
+    about:'Squint (strabismus) is misalignment of the eyes. Amblyopia (lazy eye) is reduced vision in one eye due to abnormal visual development in childhood. Both require early expert intervention. Dr. Kamalapriya\'s team uses Orthoptek binocular vision training and comprehensive management protocols. Early treatment in children offers the best long-term outcomes — the visual brain is most plastic before age 8.',
+    facts:[
+      {icon:'fas fa-clock',label:'Critical Age',val:'Treatment Most Effective Before Age 8'},
+      {icon:'fas fa-laptop',label:'Technology',val:'Orthoptek Binocular Vision Therapy'},
+      {icon:'fas fa-check',label:'Treatment',val:'Glasses, Patching, Therapy & Surgery'},
+      {icon:'fas fa-star',label:'Outcome',val:'Best Results with Early Intervention'},
+    ],
+    steps:[
+      {title:'Detailed Squint Evaluation',desc:'Type of squint measured (esotropia, exotropia, hypertropia). Deviation angle measured with prism cover test. Distance and near fixation assessed.'},
+      {title:'Binocular Vision Assessment',desc:'Worth 4-dot test, stereoacuity testing, and fusion assessment. Determines the degree of binocular cooperation and guides treatment approach.'},
+      {title:'Glasses Prescription',desc:'Many squints improve or resolve with correct glasses prescription alone. Cycloplegic refraction under eye drops obtains the true refractive error, especially in children.'},
+      {title:'Patching & Penalisation',desc:'For amblyopia: the better eye is patched for prescribed hours daily, forcing the lazy eye to develop. Atropine penalisation is an alternative. Compliance is monitored carefully.'},
+      {title:'Orthoptek Vision Therapy',desc:'Computerized binocular vision exercises stimulate fusion and stereo vision. Age-appropriate activities make therapy engaging for children. Sessions tracked and progress measured.'},
+      {title:'Surgical Correction (If Required)',desc:'Squint surgery adjusts eye muscle position under general anaesthesia for children. Day surgery. Eye alignment improved in 85–90% of cases with one procedure.'},
+    ],
+    before:'Eye Misalignment / Reduced Vision in One Eye',after:'Aligned Eyes & Full Binocular Vision',
+    faqs:[
+      {q:'Will my child\'s squint resolve on its own?',a:'Rarely. Most squints require treatment. Pseudo-squint (appearance of squint due to wide nasal bridge) may seem to resolve as the face grows. True squints require proper evaluation and usually intervention. Never assume a squint will "grow out" without professional assessment.'},
+      {q:'Is squint surgery safe for children?',a:'Yes — squint surgery is one of the most commonly performed paediatric eye surgeries. General anaesthesia in a paediatric setting is very safe. The procedure adjusts external eye muscles; the eye itself is not entered. Recovery is quick — back to school in 3–5 days.'},
+      {q:'What is the success rate of squint surgery?',a:'85–90% of patients achieve satisfactory alignment with one surgery. A small percentage require a second procedure (adjustable suture technique or re-operation) to fine-tune the result. Vision therapy after surgery helps consolidate binocular vision.'},
+      {q:'Can amblyopia (lazy eye) be treated in adults?',a:'The younger the better — treatment is most effective before age 8. However, there is increasing evidence that amblyopia treatment can be partially effective even in teenagers and young adults. It is always worth attempting treatment regardless of age.'},
+    ]
+  },
+  cornea:{
+    title:'Corneal & Anterior Segment Surgery',icon:'fas fa-dot-circle',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'Corneal Surgery · Anterior Segment · Orbit',
+    img:'images/eye_img1.jpg',
+    about:'The cornea is the clear front window of the eye. Corneal diseases — infections, ulcers, dystrophies, and trauma — can cause severe vision loss. Dr. Kamalapriya manages the full range of anterior segment conditions including corneal surgery, orbit surgery, and neuro-ophthalmic presentations. Her training at Aravind Eye Hospital gives her expertise in high volumes of complex anterior segment cases.',
+    facts:[
+      {icon:'fas fa-hospital',label:'Training',val:'Aravind Eye Hospital — World\'s Largest'},
+      {icon:'fas fa-list',label:'Procedures',val:'Corneal, Anterior Segment, Orbit Surgery'},
+      {icon:'fas fa-eye',label:'Expertise',val:'Neuro-Ophthalmology, Uveal Disorders'},
+      {icon:'fas fa-shield-alt',label:'Safety',val:'Microsurgical Precision Techniques'},
+    ],
+    steps:[
+      {title:'Slit-Lamp Biomicroscopy',desc:'Detailed examination of cornea, anterior chamber, iris, and lens under high magnification. Corneal staining with fluorescein identifies ulcers and abrasions.'},
+      {title:'Corneal Topography',desc:'Maps the curvature and shape of the corneal surface. Identifies irregularities, keratoconus, and post-surgical changes. Guides treatment planning.'},
+      {title:'Diagnosis & Classification',desc:'Condition classified: infection, dystrophy, degeneration, trauma, or post-surgical. Culture and sensitivity testing for infective conditions to guide antibiotic selection.'},
+      {title:'Medical Management',desc:'Intensive topical antibiotics, antivirals, or antifungals as indicated. Cycloplegics for comfort. Lubricants for dry eye. Close monitoring during treatment.'},
+      {title:'Surgical Intervention',desc:'Corneal surgery, anterior vitrectomy, or orbital procedures performed under general or local anaesthesia with microsurgical techniques and specialized instruments.'},
+      {title:'Post-Operative Rehabilitation',desc:'Intensive follow-up during healing. Contact lens fitting for visual rehabilitation if needed. Keratoplasty (corneal transplant) referral for severe cases requiring specialized centres.'},
+    ],
+    before:'Corneal Disease / Anterior Eye Pathology',after:'Treated, Clear, Healthy Eye',
+    faqs:[
+      {q:'What causes corneal ulcers?',a:'Most corneal ulcers are caused by bacterial, viral, or fungal infections — often following minor trauma or poor contact lens hygiene. Herpes simplex virus is a common cause of recurrent corneal ulcers. Any red, painful eye with decreased vision needs immediate evaluation.'},
+      {q:'What is keratoconus?',a:'Keratoconus is progressive thinning and bulging of the cornea into a cone shape, causing distorted vision that glasses cannot fully correct. It often affects young people. Management includes specialized contact lenses, corneal collagen cross-linking to halt progression, and corneal transplant in advanced cases.'},
+      {q:'Is corneal transplant available here?',a:'Dr. Kamalapriya performs anterior segment surgery and manages candidates for corneal transplant. We have an Eye Donation Desk operating 24×7. Complex keratoplasty cases may be referred to tertiary centres for specialized procedures like DSAEK or DALK.'},
+      {q:'What are the signs of a corneal emergency?',a:'Sudden eye pain, photophobia (light sensitivity), red eye, decreased vision, and excessive tearing are corneal emergency signs. Contact lens wearers who develop these symptoms should remove lenses immediately and seek urgent evaluation. Delay risks permanent vision loss.'},
+    ]
+  },
+  pedieye:{
+    title:'Paediatric Eye Care — ROP & Myopia Control',icon:'fas fa-baby',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'ROP Screening · Preschool Exams · Myopia Control',
+    img:'images/eye_img1.jpg',
+    about:'Children\'s eyes are still developing and require specialized care. Conditions like ROP in premature infants, amblyopia, strabismus, and myopia must be detected and treated early to prevent permanent vision impairment. Dr. Kamalapriya\'s comprehensive paediatric eye service covers newborns through adolescents, with special expertise in myopia control using ZEISS Myovision lenses.',
+    facts:[
+      {icon:'fas fa-baby',label:'ROP Screening',val:'All Premature Infants Under 34 Weeks'},
+      {icon:'fas fa-child',label:'Preschool',val:'Age 3–5 Critical Screening Window'},
+      {icon:'fas fa-glasses',label:'Myopia',val:'ZEISS Myovision — Clinically Proven Control'},
+      {icon:'fas fa-clock',label:'Critical Period',val:'Visual Development Completes by Age 8'},
+    ],
+    steps:[
+      {title:'Newborn ROP Screening',desc:'Premature infants under 34 weeks or under 1500g screened for retinopathy of prematurity. Indirect ophthalmoscopy performed. Graded and monitored/treated as required.'},
+      {title:'Preschool Vision Screening',desc:'Vision testing adapted for pre-literate children using picture optotypes. Colour vision, cover test, and fundus examination. Parents educated on warning signs of vision problems.'},
+      {title:'School-Age Myopia Assessment',desc:'Cycloplegic refraction to determine accurate glasses prescription. Myopia progression rate calculated. Axial length measured (gold standard for myopia monitoring).'},
+      {title:'ZEISS Myovision Lens Prescription',desc:'ZEISS Myovision lenses prescribed for myopic children. These specially designed lenses reduce the peripheral hyperopic defocus signal that drives axial eye growth.'},
+      {title:'Annual Monitoring & Adjustment',desc:'Myopia progression tracked annually. Glasses prescription updated. ZEISS lens effectiveness monitored. Lifestyle advice: 2 hours outdoor activity daily reduces myopia progression.'},
+    ],
+    before:'Undetected Paediatric Eye Conditions',after:'Protected, Monitored Child Vision Health',
+    faqs:[
+      {q:'At what age should children first have an eye exam?',a:'All children should have an eye exam before starting school (age 3–5). Premature babies should have ROP screening in the NICU. Earlier if parents notice crossing of eyes, squinting, light sensitivity, or poor visual tracking in infants.'},
+      {q:'Does too much screen time cause myopia?',a:'Screen time itself may not directly cause myopia, but near work and lack of outdoor time are the strongest environmental factors. Children spending more time indoors have higher myopia rates. At least 2 hours of outdoor time daily is strongly protective against myopia development.'},
+      {q:'Do ZEISS Myovision lenses really work?',a:'Yes — clinical studies show ZEISS Myovision lenses slow myopia progression by 30–67% compared to standard single-vision lenses. They work by manipulating how peripheral light focuses on the retina, reducing the signal that drives eye elongation and myopia worsening.'},
+      {q:'What is ROP and how serious is it?',a:'ROP (Retinopathy of Prematurity) occurs in premature infants whose retinal blood vessels haven\'t fully developed at birth. Abnormal vessel growth can cause retinal detachment and blindness. Timely screening and treatment (laser or injection) is sight-saving. All premature infants must be screened.'},
+    ]
+  },
+  optical:{
+    title:'Optical Dispensing — ZEISS Myovision',icon:'fas fa-drafting-compass',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',
+    tag:'ZEISS Premium Lenses · Expert Dispensing · Myopia Control',
+    img:'images/lens_place.jpg',
+    about:'Our optical section offers premium eyewear dispensing with a strong focus on ZEISS Myovision lenses for myopia control in children. All major global brands are stocked. Our experienced dispensing team ensures every frame is fitted perfectly, every lens is precisely aligned, and every patient receives the best visual correction for their lifestyle. Good dispensing is as important as a good prescription.',
+    facts:[
+      {icon:'fas fa-award',label:'Flagship Lens',val:'ZEISS Myovision — Myopia Control'},
+      {icon:'fas fa-globe',label:'Brands',val:'All Premium International Brands'},
+      {icon:'fas fa-ruler',label:'Dispensing',val:'Professional Fit — Precision Aligned'},
+      {icon:'fas fa-certificate',label:'Technology',val:'AR Coating, Photochromic, Blue Light Filter'},
+    ],
+    steps:[
+      {title:'Comprehensive Refraction',desc:'Accurate subjective and objective refraction. Binocular vision assessment ensures both eyes work together optimally. Prescription finalized with patient comfort confirmed.'},
+      {title:'Frame Selection',desc:'Expert guidance on frame selection based on prescription power, face shape, lifestyle, and budget. Titanium, acetate, and memory wire options available.'},
+      {title:'Lens Consultation',desc:'Lens material, design, and coating recommended. Single vision vs progressive vs ZEISS Myovision discussed. Index, coating, tint, and UV protection options explained.'},
+      {title:'Precise Measurement',desc:'Pupillary distance, segment height, and frame parameters measured precisely. For progressive lenses: fitting cross marked for optimal corridor alignment.'},
+      {title:'Quality Lens Fabrication',desc:'Lenses ordered from certified ZEISS laboratory. Quality checked against prescription upon arrival. Precision edged and fitted to selected frame.'},
+      {title:'Dispensing, Fitting & Instructions',desc:'Frame adjusted for perfect fit — nose pads, temple length, pantoscopic tilt. Lens care and handling instructions provided. Collection confirmed with prescription verification.'},
+    ],
+    before:'Blurred Vision / Worsening Myopia',after:'Perfect Vision & Myopia Protection',
+    faqs:[
+      {q:'What makes ZEISS Myovision different from regular lenses?',a:'ZEISS Myovision lenses have a special peripheral defocus management design. Regular lenses create peripheral hyperopic defocus that signals the eye to elongate (worsening myopia). Myovision eliminates this signal, slowing axial eye growth by an average of 30–67%.'},
+      {q:'What lens coatings do you recommend?',a:'Anti-reflection (AR) coating is essential for all lenses — reduces glare and eye strain, especially for screen users. UV400 protection is non-negotiable for outdoor use. Blue light filtering is beneficial for heavy screen users. Photochromic lenses adapt to light conditions automatically.'},
+      {q:'How often should glasses prescriptions be updated?',a:'Adults: every 1–2 years. Children: annually, as prescriptions change faster during growth. Myopic children should be reviewed every 6 months to monitor progression and update ZEISS Myovision prescription if needed.'},
+      {q:'Do you offer progressive lenses?',a:'Yes — progressive (no-line bifocal) lenses are available from all major brands. Correct fitting and dispensing is critical for progressive lenses — this is where our expert dispensing team makes the difference. Poorly fitted progressives cause headaches and adaptation problems.'},
+    ]
+  }
+};
+
+function openSvc(id){
+  const d=SVCS[id];if(!d)return;
+  const c1=`
+    <div class="svc-m-col show" id="col0">
+      <h3><i class="fas fa-info-circle" style="color:${d.type==='d'?'var(--dental)':'var(--eye)'}"></i> Overview</h3>
+      <div class="svc-img-wrap"><img src="${d.img}" alt="${d.title}" onerror="this.style.display='none'"></div>
+      <p>${d.about}</p>
+      ${d.facts.map(f=>`<div class="svc-fact"><i class="${f.icon}" style="color:${d.type==='d'?'var(--dental)':'var(--eye)'}"></i><div><strong>${f.label}</strong><span>${f.val}</span></div></div>`).join('')}
+    </div>`;
+  const c2=`
+    <div class="svc-m-col" id="col1">
+      <h3><i class="fas fa-list-ol" style="color:${d.type==='d'?'var(--dental)':'var(--eye)'}"></i> How It Works — Step by Step</h3>
+      <div class="step-tl">
+        ${d.steps.map((s,i)=>`<div class="step-tl-item"><div class="step-tl-num" style="background:${d.type==='d'?'rgba(255,101,52,0.15)':'rgba(0,200,255,0.12)'};color:${d.type==='d'?'var(--dental)':'var(--eye)'}">${i+1}</div><div class="step-tl-text"><strong>${s.title}</strong><span>${s.desc}</span></div></div>`).join('')}
+      </div>
+    </div>`;
+  const c3=`
+    <div class="svc-m-col" id="col2">
+      <h3><i class="fas fa-exchange-alt" style="color:${d.type==='d'?'var(--dental)':'var(--eye)'}"></i> Before &amp; After</h3>
+      <div class="ba-container" id="baC">
+        <div class="ba-b"><span>⭕ Before</span><span class="ba-label">${d.before}</span></div>
+        <div class="ba-a"><span>✅ After</span><span class="ba-label">${d.after}</span></div>
+        <div class="ba-handle"><div class="ba-btn">⟺</div></div>
+      </div>
+      <h3 style="margin-top:20px"><i class="fas fa-question-circle" style="color:${d.type==='d'?'var(--dental)':'var(--eye)'}"></i> Frequently Asked Questions</h3>
+      <div>${d.faqs.map((f,i)=>`<div class="faq-item"><div class="faq-q" id="fq${i}"><span>${f.q}</span><i class="fas fa-chevron-down"></i></div><div class="faq-ans" id="fa${i}">${f.a}</div></div>`).join('')}</div>
+    </div>`;
+  document.getElementById('svcHero').innerHTML=`<div class="svc-m-hero-bg" style="background:${d.type==='d'?'var(--dental)':'var(--eye)'}"></div><div class="hero-tag"><i class="${d.icon}"></i> ${d.tag}</div><h2>${d.title}</h2><p>Click any tab below to explore the full treatment details</p>`;
+  document.getElementById('svcHero').style.background=d.color;
+  document.getElementById('svcBody').innerHTML=c1+c2+c3;
+  curTab=0;
+  document.querySelectorAll('.m-tab').forEach((t,i)=>t.classList.toggle('active',i===0));
+  document.getElementById('apptOv')?.classList.remove('open');
+  document.getElementById('svcOv').classList.add('open');
+  document.body.classList.add('locked');
+  setTimeout(()=>{initBA();initFAQ()},100);
+}
+
+/* ══ DOCTOR DATA ══ */
+const DOCS={
+  sudhakar:{name:'Dr. M. V. Sudhakar Reddy',deg:'BDS, FICOI',title:'Founder & Chief Dental Surgeon',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',exp:'30+ Years',qual:'BDS, FICOI (International Congress of Oral Implantologists)',
+    fellow:'Fellowship in Implantology — Malaysia',hosp:'Founder — Dr. Reddy\'s Dental & Eye Care Centre',
+    spec:'Dental Implantology, Advanced Esthetic Dentistry, Oral Surgery, Geriatric Dentistry',
+    about:'Dr. M. V. Sudhakar Reddy is the visionary founder and Chief Dental Surgeon of Dr. Reddy\'s Dental & Eye Care Centre. With over 30 years of clinical excellence and a prestigious FICOI Fellowship in Implantology from Malaysia, he is one of the most accomplished dental specialists in South India. His expertise spans complex implant surgeries, advanced smile designing, digital dentistry, and comprehensive care for all age groups. He is the driving force behind the centre\'s unwavering commitment to global standards, patient-first care, and continuous adoption of the latest dental technology.',
+    svcs:['Osstem Dental Implants','Smile Designing & Veneers','Root Canal Treatment','Failed RCT Management','Oral Surgery','Periodontics & Gum Care','Geriatric Dentistry','Paediatric Dentistry']},
+  kamalapriya:{name:'Dr. G. V. Kamalapriya Sudhakar Reddy',deg:'MBBS, DO, DNB',title:'Consultant Ophthalmic Surgeon',type:'e',
+    color:'linear-gradient(135deg,#00C8FF,#007BAA)',exp:'23+ Years',qual:'MBBS, DO, DNB (Ophthalmology)',
+    fellow:'Phaco Fellowship — Narayana Nethralaya, Bangalore (India\'s Premier Eye Institute)',hosp:'Aravind Eye Hospital, Puducherry | Lions Eye Hospital, Vandampalai, Tiruvarur',
+    spec:'Cataract Surgery (Phacoemulsification), Anterior Segment, Corneal Surgery, Retina, Glaucoma',
+    about:'Dr. G. V. Kamalapriya Sudhakar Reddy is an exceptionally qualified Consultant Ophthalmic Surgeon with 23+ years of comprehensive eye care experience. Her training at Aravind Eye Hospital — the world\'s largest provider of eye care — gave her exposure to extraordinarily high volumes of complex cases. She completed a prestigious Phacoemulsification Fellowship at Narayana Nethralaya, Bangalore, one of India\'s most respected ophthalmology institutions. Her clinical expertise spans cataract surgery, corneal procedures, glaucoma, retina disorders, squint, and all major ophthalmic conditions. The Eye Donation Desk and Eye Collection Centre operate 24×7 under her supervision.',
+    svcs:['Cataract (Phacoemulsification)','Corneal Surgery','Glaucoma & YAG Laser','Retina Services & Laser','Squint & Amblyopia (Orthoptek)','Contact Lens Clinic (Multifocal)','Diabetic Eye Screening','Paediatric Eye Care & ROP','Eye Donation & Collection Centre']},
+  chidambaram:{name:'Prof. Dr. Chidambaram',deg:'MDS',title:'Orthodontist',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',exp:'25 Years',qual:'MDS (Orthodontics & Dentofacial Orthopaedics)',
+    fellow:'Professor of Orthodontics',hosp:'Visiting Consultant — Dr. Reddy\'s Centre',
+    spec:'Orthodontics, Dentofacial Orthopaedics, Invisalign',
+    about:'Prof. Dr. Chidambaram is a highly distinguished Orthodontist with 25 years of combined academic and clinical practice. His professorial expertise brings both academic rigor and clinical precision to complex orthodontic corrections, dentofacial orthopaedics, and modern aligner therapies including Invisalign.',
+    svcs:['Metal & Ceramic Braces','Invisalign Clear Aligners','Self-Ligating Braces','Functional Appliances','Early Orthodontic Treatment','Retention & Retainers']},
+  jothikumar:{name:'Prof. Dr. Jothikumar Kamalakannan',deg:'MDS, FISOI, FICOI',title:'Prosthodontist & Implantologist',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',exp:'30 Years',qual:'MDS, FISOI, FICOI (Dual Implantology Fellowships)',
+    fellow:'FISOI (Indian Society of Oral Implantology) + FICOI (International Congress)',hosp:'Visiting Consultant — Dr. Reddy\'s Centre',
+    spec:'Prosthodontics, Advanced Implantology, Full Mouth Rehabilitation, Digital Prosthetics',
+    about:'Prof. Dr. Jothikumar holds rare dual fellowships in implantology (FISOI & FICOI), placing him among India\'s most qualified implantologists. With 30 years in prosthodontics and implant dentistry, he specializes in full mouth rehabilitation cases — restoring both function and aesthetics for the most complex clinical situations.',
+    svcs:['RPD, CD, CPD, FPD','Endocrown Restorations','Dental Implants','Full Mouth Rehabilitation','Implant-Supported Dentures','Digital Prosthetics']},
+  karthigean:{name:'Dr. Karthigean',deg:'MDS',title:'Oral & Maxillofacial Surgeon',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',exp:'45 Years',qual:'MDS (Oral & Maxillofacial Surgery)',
+    fellow:'Senior Maxillofacial Surgeon — Regional Expert',hosp:'Visiting Consultant — Dr. Reddy\'s Centre',
+    spec:'Oral Surgery, Maxillofacial Surgery, Jaw Fracture Management, Tumour Surgery',
+    about:'Dr. Karthigean commands extraordinary respect with 45 years of oral and maxillofacial surgical experience. His surgical portfolio encompasses the complete spectrum of procedures including complex jaw fracture management, tumour excisions, and major reconstructive surgeries. His referral rate from hospitals across the region is a testament to his unparalleled surgical reputation.',
+    svcs:['Wisdom Tooth Impaction','Major Oral Surgery','Jaw Fracture Management','Open & Closed Reduction','Maxilla & Mandible Surgery','Tumour Excision & Reconstruction']},
+  janarthanan:{name:'Prof. Dr. Janarthanan',deg:'MDS',title:'Oral & Maxillofacial Surgeon',type:'d',
+    color:'linear-gradient(135deg,#FF6534,#D94A18)',exp:'10 Years',qual:'MDS (Oral & Maxillofacial Surgery)',
+    fellow:'Professor of Oral & Maxillofacial Surgery',hosp:'Visiting Consultant — Dr. Reddy\'s Centre',
+    spec:'Oral Surgery, Corrective Jaw Surgery, Reconstructive Procedures, Academic Teaching',
+    about:'Prof. Dr. Janarthanan combines his academic role as Professor of Oral & Maxillofacial Surgery with active clinical consultancy. His contemporary, evidence-based approach to complex oral surgical cases and expertise in corrective jaw surgery bring fresh methodologies and academic precision to the team.',
+    svcs:['Wisdom Tooth Surgery','Corrective Jaw Surgery','Facial Trauma Management','Reconstructive Surgery','Dental Extractions','Maxillofacial Procedures']},
+};
+
+function openDoc(id){
+  const d=DOCS[id];if(!d)return;
+  document.getElementById('docContent').innerHTML=`
+    <div class="doc-m-head" style="background:${d.color}">
+      <div class="doc-av" style="border-color:rgba(255,255,255,.2)"><i class="fas fa-user-md" style="color:rgba(255,255,255,.7)"></i></div>
+      <div class="doc-m-info">
+        <h2>${d.name}</h2>
+        <span class="doc-deg" style="background:rgba(255,255,255,.2);color:#fff">${d.deg}</span>
+        <p>${d.title}</p>
+      </div>
+    </div>
+    <div class="doc-m-body">
+      <div class="doc-grid">
+        <div class="doc-item"><i class="fas fa-award"></i><div><strong>Experience</strong><span>${d.exp}</span></div></div>
+        <div class="doc-item"><i class="fas fa-graduation-cap"></i><div><strong>Qualifications</strong><span>${d.qual}</span></div></div>
+        <div class="doc-item"><i class="fas fa-certificate"></i><div><strong>Fellowship / Training</strong><span>${d.fellow}</span></div></div>
+        <div class="doc-item"><i class="fas fa-hospital"></i><div><strong>Hospital / Institutions</strong><span>${d.hosp}</span></div></div>
+      </div>
+      <p style="font-family:var(--fh);font-size:1rem;color:var(--white);margin:16px 0 8px">About ${d.name.split(' ').slice(0,2).join(' ')}</p>
+      <p class="doc-about">${d.about}</p>
+      <p style="font-family:var(--fh);font-size:1rem;color:var(--white);margin:16px 0 10px">Services &amp; Expertise</p>
+      <div class="doc-svcs">${d.svcs.map(s=>`<div class="doc-svc-pill"><i class="fas fa-check-circle" style="color:${d.type==='d'?'var(--dental)':'var(--eye)'}"></i>${s}</div>`).join('')}</div>
+    </div>`;
+  document.getElementById('docOv').classList.add('open');
+  document.body.classList.add('locked');
+}
+
+/* ══ GALLERY ══ */
+const GDATA=[
+  {s:'images/enterance.jpg',c:'Clinic Entrance',cat:'clinic'},
+  {s:'images/reciption.webp',c:'Reception Area',cat:'clinic'},
+  {s:'images/waiting_area.webp',c:'Waiting Area',cat:'clinic'},
+  {s:'images/treating_place.webp',c:'Dental Treatment Unit',cat:'dental'},
+  {s:'images/equipments.jpg',c:'Advanced Equipment',cat:'dental'},
+  {s:'images/tooth_x_ray.jpg',c:'Digital X-Ray',cat:'dental'},
+  {s:'images/eye_img1.jpg',c:'Eye Examination Unit',cat:'eye'},
+  {s:'images/lens_place.jpg',c:'Optical Dispensing',cat:'eye'},
+  {s:'images/pharmacy.jpg',c:'In-House Pharmacy',cat:'clinic'},
+  {s:'images/pleace_place.webp',c:'Peaceful Waiting Zone',cat:'clinic'},
+  {s:'images/doctor_with_patient.jpg',c:'Doctor Consultation',cat:'dental'},
+  {s:'images/wrong_lens_in_cataract_op.jpg',c:'Cataract Surgery',cat:'eye'},
+  {s:'images/original_waiting_area.jpg',c:'Waiting Area (Original)',cat:'clinic'},
+  {s:'images/img_1.jpg',c:'Premium Interior Design',cat:'dental'},
+  {s:'images/img_2.jpg',c:'Treatment Room',cat:'dental'},
+  {s:'images/img_3.jpg',c:'Eye Care Unit',cat:'eye'},
+];
+let lbI=0;
+function openLbox(i){lbI=i;updLb();document.getElementById('lbox').classList.add('open');document.body.classList.add('locked')}
+function closeLbox(){document.getElementById('lbox').classList.remove('open');document.body.classList.remove('locked')}
+function updLb(){document.getElementById('lboxImg').src=GDATA[lbI].s;document.getElementById('lboxCap').textContent=GDATA[lbI].c}
+function lboxNav(d){lbI=(lbI+d+GDATA.length)%GDATA.length;updLb()}
+document.getElementById('lbox')?.addEventListener('click',e=>{if(e.target.id==='lbox')closeLbox()});
+function gFilter(e,cat){
+  document.querySelectorAll('.gtab').forEach(b=>b.classList.remove('active'));
+  e.target.classList.add('active');
+  document.querySelectorAll('.g-item').forEach((item,i)=>{
+    const show=cat==='all'||item.dataset.c===cat;
+    item.classList.toggle('gone',!show);
+  });
+}
+
+/* ══ TESTIMONIALS ══ */
+let tI=0;const tCards=document.querySelectorAll('.tcard'),tdots=document.getElementById('tdots');
+tCards.forEach((_,i)=>{const d=document.createElement('div');d.className='tdot'+(i===0?' on':'');d.onclick=()=>{tI=i;updT()};tdots?.appendChild(d)});
+function updT(){document.getElementById('ttrack').style.transform=`translateX(-${tI*100}%)`;document.querySelectorAll('.tdot').forEach((d,i)=>d.classList.toggle('on',i===tI))}
+function tSlide(d){tI=(tI+d+tCards.length)%tCards.length;updT()}
+setInterval(()=>tSlide(1),5500);
+
+/* ══ SMOOTH SCROLL ══ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{const h=a.getAttribute('href');if(h==='#'||h==='#!')return;const t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}});
+});
+
+console.log('%c🦷 👁 Dr. Reddy\'s Dental & Eye Care Centre — Karaikal','background:linear-gradient(135deg,#FF6534,#00C8FF);color:#fff;padding:8px 16px;border-radius:8px;font-weight:bold;font-size:14px');
+</script>
+</body>
+</html>
