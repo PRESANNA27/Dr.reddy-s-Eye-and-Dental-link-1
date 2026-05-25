@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Reddy's Dental & Eye Care Centre – Karaikal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#E8580A;
+  --orange2:#F47B35;
+  --orange3:#FFB37C;
+  --orange-bg:#FFF4EC;
+  --orange-soft:#FEE9D7;
+  --white:#FFFFFF;
+  --offwhite:#FAFAF8;
+  --cream:#FFF8F2;
+  --slate:#1A1A2E;
+  --slate2:#2D2D44;
+  --text:#2C2C3A;
+  --text2:#5A5A6E;
+  --text3:#9898AA;
+  --border:#ECDDD2;
+  --border2:#F0E8E0;
+  --shadow:rgba(232,88,10,0.12);
+  --shadow2:rgba(44,44,58,0.08);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+.cur{position:fixed;width:10px;height:10px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .15s}
+.cur-ring{position:fixed;width:38px;height:38px;border:2px solid var(--orange2);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:all .22s ease;opacity:.6}
+body *:hover~.cur,.cur:has(+*){transform:translate(-50%,-50%) scale(2.5)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);backdrop-filter:blur(24px);border-bottom:1px solid var(--border2);padding:0 5%;height:72px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 32px var(--shadow2)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{width:48px;height:48px;object-fit:contain;border-radius:50%;border:2.5px solid var(--orange);padding:2px;background:var(--orange-bg)}
+.nav-logo-text .brand{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--slate);display:block;line-height:1.1}
+.nav-logo-text .sub{font-size:.6rem;color:var(--orange);letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:var(--text2);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:color .25s;position:relative;padding-bottom:2px}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--orange);transition:width .3s;border-radius:2px}
+.nav-links a:hover{color:var(--orange)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-phone{font-size:.78rem;color:var(--text2);font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px}
+.nav-cta{background:var(--orange);color:var(--white);border:none;padding:10px 22px;border-radius:50px;font-size:.8rem;font-weight:700;cursor:none;letter-spacing:.03em;transition:all .3s;box-shadow:0 4px 16px var(--shadow)}
+.nav-cta:hover{background:var(--orange2);transform:translateY(-1px);box-shadow:0 8px 24px var(--shadow)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:none;padding:6px}
+.nav-hamburger span{width:24px;height:2px;background:var(--slate);border-radius:2px;transition:all .3s}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--white);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:88px 5% 60px;position:relative;overflow:hidden;gap:60px}
+.hero-bg-pattern{position:absolute;right:0;top:0;width:55%;height:100%;background:linear-gradient(135deg,var(--orange-bg) 0%,var(--cream) 100%);clip-path:polygon(8% 0,100% 0,100% 100%,0 100%);z-index:0}
+.hero-decor-circle{position:absolute;width:500px;height:500px;border-radius:50%;border:80px solid rgba(232,88,10,.05);right:-120px;top:50%;transform:translateY(-50%);z-index:0}
+.hero-left{position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--orange-soft);border:1px solid var(--orange3);padding:6px 16px;border-radius:50px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:28px;opacity:0;animation:slideUp .7s .1s forwards}
+.badge-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:700;line-height:1.06;color:var(--slate);margin-bottom:22px;opacity:0;animation:slideUp .8s .2s forwards}
+.hero-title em{color:var(--orange);font-style:italic}
+.hero-desc{font-size:1rem;color:var(--text2);line-height:1.8;max-width:480px;margin-bottom:36px;font-weight:400;opacity:0;animation:slideUp .8s .35s forwards}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;opacity:0;animation:slideUp .8s .5s forwards}
+.btn-fill{background:var(--orange);color:var(--white);border:none;padding:15px 32px;border-radius:50px;font-size:.88rem;font-weight:700;cursor:none;transition:all .3s;box-shadow:0 6px 24px var(--shadow);letter-spacing:.02em}
+.btn-fill:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 12px 32px var(--shadow)}
+.btn-outline{background:transparent;color:var(--orange);border:2px solid var(--orange);padding:13px 28px;border-radius:50px;font-size:.88rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.02em}
+.btn-outline:hover{background:var(--orange-bg);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:36px;opacity:0;animation:slideUp .8s .65s forwards}
+.stat-box{display:flex;flex-direction:column}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.6rem;color:var(--orange);line-height:1}
+.stat-l{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--text3);margin-top:3px}
+.stat-sep{width:1px;background:var(--border);align-self:stretch}
+
+/* HERO RIGHT */
+.hero-right{position:relative;z-index:2}
+.hero-img-stack{position:relative;height:520px}
+.hi-main{position:absolute;left:0;top:0;width:72%;height:420px;border-radius:24px;overflow:hidden;box-shadow:0 24px 64px rgba(232,88,10,.18)}
+.hi-main img{width:100%;height:100%;object-fit:cover}
+.hi-secondary{position:absolute;right:0;bottom:0;width:52%;height:260px;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(44,44,58,.15);border:4px solid var(--white)}
+.hi-secondary img{width:100%;height:100%;object-fit:cover}
+.hi-badge{position:absolute;left:-20px;bottom:80px;background:var(--white);border-radius:16px;padding:14px 20px;box-shadow:0 12px 36px var(--shadow2);display:flex;align-items:center;gap:10px;border:1px solid var(--border2)}
+.hi-badge-icon{font-size:1.8rem}
+.hi-badge-text strong{display:block;font-size:.85rem;color:var(--slate);font-weight:700}
+.hi-badge-text span{font-size:.72rem;color:var(--text3)}
+.hi-emergency{position:absolute;top:20px;right:-10px;background:linear-gradient(135deg,var(--orange),var(--orange2));color:var(--white);border-radius:14px;padding:10px 16px;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 24px var(--shadow)}
+
+@keyframes slideUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--orange);padding:14px 0;overflow:hidden}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:.1em;padding:0 28px;color:rgba(255,255,255,.85)}
+.marquee-item .dot{color:rgba(255,255,255,.4);margin:0 6px}
+
+/* SECTION BASE */
+section{padding:96px 5%}
+.sec-label{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:12px}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--orange);border-radius:2px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;color:var(--slate);line-height:1.1;margin-bottom:16px}
+.sec-title em{color:var(--orange);font-style:italic}
+.sec-sub{font-size:.92rem;color:var(--text2);line-height:1.8;max-width:520px}
+.reveal{opacity:0;transform:translateY(32px);transition:all .75s cubic-bezier(.23,1,.32,1)}
+.reveal.in{opacity:1;transform:none}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
+
+/* TRUST BAR */
+#trust{padding:48px 5%;background:var(--offwhite);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2)}
+.trust-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:center}
+.trust-item{text-align:center}
+.trust-icon{font-size:2rem;margin-bottom:8px;display:block}
+.trust-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);font-weight:600;margin-bottom:4px}
+.trust-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--slate)}
+
+/* DOCTORS */
+#doctors{background:var(--white)}
+.doctors-intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:30px;flex-wrap:wrap}
+.doctor-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.doc-card{background:var(--white);border:1.5px solid var(--border2);border-radius:24px;overflow:hidden;cursor:none;transition:all .4s cubic-bezier(.23,1,.32,1);box-shadow:0 4px 24px var(--shadow2)}
+.doc-card:hover{border-color:var(--orange);box-shadow:0 16px 56px rgba(232,88,10,.15);transform:translateY(-4px)}
+.doc-card-img{height:240px;overflow:hidden;position:relative;background:linear-gradient(135deg,var(--orange-bg),var(--orange-soft))}
+.doc-card-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
+.doc-initials{font-family:'Cormorant Garamond',serif;font-size:5rem;font-weight:700;color:var(--orange);opacity:.35;position:absolute}
+.doc-specialty-tag{position:absolute;top:16px;left:16px;background:var(--orange);color:var(--white);padding:5px 14px;border-radius:50px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.doc-exp-badge{position:absolute;bottom:16px;right:16px;background:var(--white);border-radius:14px;padding:8px 14px;box-shadow:0 4px 16px var(--shadow2);text-align:center}
+.doc-exp-num{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--orange);line-height:1}
+.doc-exp-l{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3)}
+.doc-card-body{padding:28px 28px 20px}
+.doc-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--slate);margin-bottom:4px}
+.doc-qual{font-size:.72rem;color:var(--orange);font-weight:700;letter-spacing:.08em;margin-bottom:6px;text-transform:uppercase}
+.doc-role{font-size:.82rem;color:var(--text2);margin-bottom:16px}
+.doc-short{font-size:.83rem;color:var(--text2);line-height:1.7;margin-bottom:20px}
+.doc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.doc-tag{background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:4px 12px;border-radius:50px;font-size:.68rem;font-weight:600}
+.doc-view-btn{width:100%;background:var(--orange-bg);border:1.5px solid var(--orange3);color:var(--orange);padding:12px;border-radius:12px;font-size:.82rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.03em}
+.doc-view-btn:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
+
+/* DOCTOR DETAIL MODAL */
+.dmodal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(26,26,46,.7);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.dmodal-overlay.open{opacity:1;pointer-events:all}
+.dmodal{background:var(--white);border-radius:28px;max-width:860px;width:100%;max-height:92vh;overflow-y:auto;position:relative;transform:scale(.93) translateY(30px);transition:all .4s cubic-bezier(.23,1,.32,1)}
+.dmodal-overlay.open .dmodal{transform:none}
+.dmodal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:var(--offwhite);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:none;color:var(--text2);transition:all .25s;z-index:10}
+.dmodal-close:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
+.dmodal-hero{background:linear-gradient(135deg,var(--orange-bg) 0%,var(--cream) 100%);padding:40px 44px 32px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;border-radius:28px 28px 0 0}
+.dmodal-avatar{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--white);border:4px solid var(--white);box-shadow:0 8px 28px var(--shadow);flex-shrink:0}
+.dmodal-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--slate);margin-bottom:4px}
+.dmodal-qual{font-size:.75rem;color:var(--orange);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.dmodal-role{font-size:.9rem;color:var(--text2);margin-bottom:16px}
+.dmodal-stats{display:flex;gap:20px;flex-wrap:wrap}
+.dms{background:var(--white);border-radius:12px;padding:10px 16px;text-align:center;min-width:80px;box-shadow:0 2px 12px var(--shadow2)}
+.dms-n{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--orange);line-height:1}
+.dms-l{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3)}
+.dmodal-body{padding:36px 44px}
+.dmodal-section{margin-bottom:28px}
+.dmodal-sec-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.16em;color:var(--orange);font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.dmodal-sec-title::after{content:'';flex:1;height:1px;background:var(--border2)}
+.dmodal-bio{font-size:.9rem;color:var(--text2);line-height:1.85}
+.dmodal-list{list-style:none;display:flex;flex-direction:column;gap:9px}
+.dmodal-list li{display:flex;align-items:flex-start;gap:10px;font-size:.86rem;color:var(--text2);line-height:1.6}
+.dmodal-list li::before{content:'';width:8px;height:8px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:6px}
+.dmodal-tags-row{display:flex;flex-wrap:wrap;gap:8px}
+.dmodal-tag{background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:6px 14px;border-radius:50px;font-size:.72rem;font-weight:600}
+.dmodal-quote{background:linear-gradient(135deg,var(--orange-bg),var(--cream));border-left:4px solid var(--orange);border-radius:0 14px 14px 0;padding:18px 22px;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--slate);line-height:1.6;margin-bottom:28px}
+.dmodal-book{width:100%;background:linear-gradient(135deg,var(--orange),var(--orange2));color:var(--white);border:none;padding:16px;border-radius:14px;font-size:.92rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.03em}
+.dmodal-book:hover{transform:scale(1.02);box-shadow:0 10px 32px var(--shadow)}
+
+/* SERVICES */
+#services{background:var(--offwhite)}
+.services-filter{display:flex;gap:10px;margin-bottom:44px;flex-wrap:wrap}
+.sfilter-btn{padding:9px 22px;border-radius:50px;font-size:.8rem;font-weight:600;border:1.5px solid var(--border);background:var(--white);color:var(--text2);cursor:none;transition:all .3s}
+.sfilter-btn.active,.sfilter-btn:hover{background:var(--orange);border-color:var(--orange);color:var(--white)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;cursor:none;transition:all .4s cubic-bezier(.23,1,.32,1);box-shadow:0 2px 16px var(--shadow2)}
+.svc-card:hover{border-color:var(--orange);box-shadow:0 12px 40px rgba(232,88,10,.14);transform:translateY(-4px)}
+.svc-img{height:170px;overflow:hidden;position:relative}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.svc-card:hover .svc-img img{transform:scale(1.06)}
+.svc-img-placeholder{width:100%;height:100%;background:linear-gradient(135deg,var(--orange-bg),var(--orange-soft));display:flex;align-items:center;justify-content:center;font-size:3rem}
+.svc-cat-badge{position:absolute;bottom:12px;left:12px;background:var(--orange);color:var(--white);padding:3px 10px;border-radius:50px;font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.svc-body{padding:22px}
+.svc-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--slate);margin-bottom:8px}
+.svc-desc{font-size:.78rem;color:var(--text2);line-height:1.7;margin-bottom:16px}
+.svc-link{font-size:.76rem;color:var(--orange);font-weight:700;display:flex;align-items:center;gap:5px;transition:gap .25s}
+.svc-card:hover .svc-link{gap:10px}
+
+/* SERVICE MODAL */
+.smodal-overlay{position:fixed;inset:0;z-index:2000;background:rgba(26,26,46,.7);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.smodal-overlay.open{opacity:1;pointer-events:all}
+.smodal{background:var(--white);border-radius:28px;max-width:900px;width:100%;max-height:92vh;overflow-y:auto;position:relative;transform:scale(.93) translateY(30px);transition:all .4s cubic-bezier(.23,1,.32,1)}
+.smodal-overlay.open .smodal{transform:none}
+.smodal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:rgba(255,255,255,.9);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:none;color:var(--text2);transition:all .25s;z-index:10}
+.smodal-close:hover{background:var(--orange);color:var(--white)}
+.smodal-hero{height:240px;overflow:hidden;position:relative;border-radius:28px 28px 0 0}
+.smodal-hero img{width:100%;height:100%;object-fit:cover}
+.smodal-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.85) 0%,rgba(26,26,46,.2) 60%,transparent 100%)}
+.smodal-hero-content{position:absolute;bottom:24px;left:32px;right:32px}
+.smodal-cat{background:var(--orange);color:var(--white);padding:3px 12px;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:inline-block;margin-bottom:8px}
+.smodal-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--white)}
+.smodal-body{padding:36px 36px 28px}
+.sm-row{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:28px}
+.sm-full{margin-bottom:28px}
+.sm-sec-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--orange);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sm-sec-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.sm-text{font-size:.87rem;color:var(--text2);line-height:1.82}
+.sm-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.sm-list li{display:flex;align-items:flex-start;gap:10px;font-size:.84rem;color:var(--text2);line-height:1.65}
+.sm-list li::before{content:'✦';color:var(--orange);font-size:.55rem;margin-top:5px;flex-shrink:0}
+.sm-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.sm-step{background:var(--orange-bg);border:1px solid var(--orange3);border-radius:16px;padding:16px;text-align:center}
+.sm-step-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--orange);line-height:1}
+.sm-step-t{font-size:.73rem;color:var(--text2);margin-top:5px;line-height:1.5;font-weight:600}
+.sm-before-after{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px}
+.sm-ba{border-radius:14px;padding:16px 20px;font-size:.82rem}
+.sm-ba.before{background:#FFF1F1;border:1px solid #FECACA}
+.sm-ba.after{background:#F0FFF4;border:1px solid #BBF7D0}
+.sm-ba-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin-bottom:8px}
+.sm-ba.before .sm-ba-label{color:#EF4444}
+.sm-ba.after .sm-ba-label{color:#16A34A}
+.sm-ba ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.sm-ba ul li{font-size:.78rem;color:var(--text2);display:flex;align-items:flex-start;gap:6px}
+.sm-ba ul li::before{content:'•';flex-shrink:0}
+.sm-trust{background:linear-gradient(135deg,var(--orange-bg),var(--cream));border-radius:16px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.sm-trust-icon{font-size:2rem;flex-shrink:0}
+.sm-trust-text strong{display:block;font-size:.88rem;color:var(--slate);font-weight:700;margin-bottom:4px}
+.sm-trust-text span{font-size:.78rem;color:var(--text2);line-height:1.6}
+.sm-book-btn{width:100%;background:linear-gradient(135deg,var(--orange),var(--orange2));color:var(--white);border:none;padding:16px;border-radius:14px;font-size:.92rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.03em}
+.sm-book-btn:hover{transform:scale(1.02);box-shadow:0 10px 32px var(--shadow)}
+
+/* PREVENT */
+#prevent{background:var(--cream)}
+.prevent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.prev-card{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;padding:28px 22px;text-align:center;transition:all .4s;cursor:default}
+.prev-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow)}
+.prev-icon{font-size:2.4rem;margin-bottom:14px;display:block}
+.prev-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--slate);margin-bottom:8px}
+.prev-text{font-size:.78rem;color:var(--text2);line-height:1.75}
+
+/* CONSULTANTS */
+#consultants{background:var(--white)}
+.cons-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+.cons-card{background:var(--offwhite);border:1.5px solid var(--border2);border-radius:20px;padding:28px 22px;text-align:center;transition:all .4s;cursor:none}
+.cons-card:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:0 12px 36px var(--shadow)}
+.cons-av{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--white);margin:0 auto 14px;border:3px solid var(--white);box-shadow:0 4px 16px var(--shadow)}
+.cons-name{font-weight:700;font-size:.92rem;color:var(--slate);margin-bottom:4px}
+.cons-spec{font-size:.74rem;color:var(--orange);font-weight:600;margin-bottom:6px}
+.cons-exp{font-size:.72rem;color:var(--text3);font-weight:500}
+.cons-exp span{color:var(--orange);font-weight:700}
+
+/* FACILITIES */
+#facilities{background:var(--offwhite)}
+.fac-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:48px}
+.fac-card{border-radius:20px;overflow:hidden;position:relative;height:270px;cursor:none}
+.fac-card:hover .fac-img{transform:scale(1.06)}
+.fac-img{width:100%;height:100%;object-fit:cover;transition:transform .6s;display:block}
+.fac-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,46,.85) 0%,rgba(26,26,46,.1) 55%,transparent 100%)}
+.fac-content{position:absolute;bottom:22px;left:22px;right:22px}
+.fac-tag{background:var(--orange);color:var(--white);padding:3px 12px;border-radius:50px;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:inline-block;margin-bottom:6px}
+.fac-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--white)}
+.fac-desc{font-size:.74rem;color:rgba(255,255,255,.72);margin-top:3px}
+
+/* KIDS ZONE */
+.kids-banner{background:linear-gradient(135deg,var(--orange-bg),var(--cream));border:1.5px solid var(--orange3);border-radius:20px;padding:28px 36px;display:flex;align-items:center;gap:24px;margin-top:48px}
+.kids-icon{font-size:3rem;flex-shrink:0}
+.kids-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--slate);margin-bottom:6px}
+.kids-desc{font-size:.84rem;color:var(--text2);line-height:1.7}
+
+/* CONTACT */
+#contact{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:56px}
+.contact-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.ci-icon{width:46px;height:46px;background:var(--orange-bg);border:1.5px solid var(--orange3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+.ci-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);font-weight:700;margin-bottom:3px}
+.ci-val{font-size:.88rem;color:var(--text);line-height:1.65}
+.hours-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.hi{background:var(--offwhite);border:1px solid var(--border2);border-radius:12px;padding:12px 16px}
+.hi-day{font-size:.67rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:3px;font-weight:600}
+.hi-time{font-size:.84rem;font-weight:700;color:var(--orange)}
+.emergency-strip{background:linear-gradient(135deg,var(--orange),var(--orange2));border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:14px;margin-top:12px;grid-column:span 2}
+.emergency-strip strong{font-size:.88rem;font-weight:700;color:var(--white);display:block;margin-bottom:2px}
+.emergency-strip span{font-size:.75rem;color:rgba(255,255,255,.82)}
+.map-wrap{border-radius:20px;overflow:hidden;height:360px;border:1.5px solid var(--border2);box-shadow:0 8px 32px var(--shadow2)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+
+/* APPOINTMENT MODAL */
+.amodal-overlay{position:fixed;inset:0;z-index:3000;background:rgba(26,26,46,.75);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.amodal-overlay.open{opacity:1;pointer-events:all}
+.amodal{background:var(--white);border-radius:28px;max-width:700px;width:100%;max-height:92vh;overflow-y:auto;position:relative;transform:scale(.93) translateY(30px);transition:all .4s cubic-bezier(.23,1,.32,1)}
+.amodal-overlay.open .amodal{transform:none}
+.amodal-close{position:absolute;top:18px;right:18px;width:38px;height:38px;background:var(--offwhite);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:none;color:var(--text2);transition:all .25s;z-index:10}
+.amodal-close:hover{background:var(--orange);color:var(--white)}
+.amodal-header{background:linear-gradient(135deg,var(--orange),var(--orange2));padding:36px 40px 28px;border-radius:28px 28px 0 0}
+.amodal-header h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.amodal-header p{font-size:.84rem;color:rgba(255,255,255,.82)}
+.amodal-steps{display:flex;gap:0;margin-top:20px}
+.astep{display:flex;align-items:center;gap:0;flex:1}
+.astep-num{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;color:var(--white);flex-shrink:0;transition:all .3s}
+.astep-num.active{background:var(--white);color:var(--orange)}
+.astep-num.done{background:rgba(255,255,255,.9);color:var(--orange)}
+.astep-label{font-size:.68rem;color:rgba(255,255,255,.75);margin-left:8px;white-space:nowrap}
+.astep-line{flex:1;height:1px;background:rgba(255,255,255,.25);margin:0 8px}
+.amodal-body{padding:36px 40px}
+.aform-step{display:none}
+.aform-step.active{display:block}
+.aform-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.aform-full{margin-bottom:16px}
+.aform-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text2);font-weight:700;margin-bottom:6px;display:block}
+.aform-input,.aform-select,.aform-textarea{width:100%;background:var(--offwhite);border:1.5px solid var(--border2);border-radius:12px;padding:12px 16px;color:var(--text);font-size:.88rem;font-family:'Plus Jakarta Sans',sans-serif;transition:border-color .25s;outline:none}
+.aform-input:focus,.aform-select:focus,.aform-textarea:focus{border-color:var(--orange);background:var(--white);box-shadow:0 0 0 3px rgba(232,88,10,.08)}
+.aform-textarea{resize:vertical;min-height:90px}
+.aform-select option{background:var(--white)}
+.aform-radio-group{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.aform-radio{position:relative}
+.aform-radio input{position:absolute;opacity:0;pointer-events:none}
+.aform-radio label{display:flex;align-items:center;gap:10px;padding:12px 16px;border:1.5px solid var(--border2);border-radius:12px;cursor:none;transition:all .25s;font-size:.84rem;color:var(--text2);background:var(--offwhite)}
+.aform-radio input:checked+label{border-color:var(--orange);background:var(--orange-bg);color:var(--orange);font-weight:600}
+.aform-radio label:hover{border-color:var(--orange3);background:var(--orange-bg)}
+.aform-radio-icon{font-size:1.2rem}
+.aform-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px}
+.aform-back{background:var(--offwhite);border:1.5px solid var(--border2);color:var(--text2);padding:12px 24px;border-radius:12px;font-size:.86rem;font-weight:600;cursor:none;transition:all .25s}
+.aform-back:hover{border-color:var(--orange);color:var(--orange)}
+.aform-next{background:var(--orange);color:var(--white);border:none;padding:13px 32px;border-radius:12px;font-size:.88rem;font-weight:700;cursor:none;transition:all .3s}
+.aform-next:hover{background:var(--orange2);transform:scale(1.02);box-shadow:0 6px 20px var(--shadow)}
+.aform-submit{width:100%;background:linear-gradient(135deg,var(--orange),var(--orange2));color:var(--white);border:none;padding:16px;border-radius:14px;font-size:.95rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.04em}
+.aform-submit:hover{transform:scale(1.02);box-shadow:0 10px 32px var(--shadow)}
+.confirm-card{background:var(--orange-bg);border:1.5px solid var(--orange3);border-radius:16px;padding:20px 24px;margin-bottom:16px}
+.confirm-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border2)}
+.confirm-row:last-child{border:none}
+.confirm-key{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);font-weight:600}
+.confirm-val{font-size:.86rem;color:var(--slate);font-weight:600}
+.success-screen{text-align:center;padding:20px 0}
+.success-icon{font-size:4rem;margin-bottom:16px;display:block}
+.success-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--slate);margin-bottom:10px}
+.success-text{font-size:.88rem;color:var(--text2);line-height:1.75;max-width:360px;margin:0 auto 24px}
+.success-ref{display:inline-block;background:var(--orange-bg);border:1.5px solid var(--orange3);color:var(--orange);padding:8px 20px;border-radius:50px;font-size:.82rem;font-weight:700;letter-spacing:.08em;margin-bottom:24px}
+
+/* POPUP */
+.appt-popup{position:fixed;bottom:-420px;right:24px;z-index:2500;width:320px;background:var(--white);border:1.5px solid var(--border);border-top:4px solid var(--orange);border-radius:20px;padding:22px 24px;box-shadow:0 20px 60px rgba(44,44,58,.18);transition:bottom .55s cubic-bezier(.23,1,.32,1)}
+.appt-popup.show{bottom:24px}
+.popup-close{position:absolute;top:12px;right:12px;background:none;border:none;color:var(--text3);font-size:1.1rem;cursor:none;transition:color .2s}
+.popup-close:hover{color:var(--orange)}
+.popup-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--slate);margin-bottom:4px}
+.popup-sub{font-size:.75rem;color:var(--text2);margin-bottom:16px}
+.popup-btn{width:100%;background:var(--orange);color:var(--white);border:none;padding:13px;border-radius:12px;font-size:.86rem;font-weight:700;cursor:none;transition:all .3s}
+.popup-btn:hover{background:var(--orange2);transform:scale(1.02)}
+.popup-pulse{width:10px;height:10px;background:var(--orange);border-radius:50%;animation:blink 2s infinite;display:inline-block;margin-right:6px;vertical-align:middle}
+
+/* TOAST */
+.toast{position:fixed;top:88px;right:24px;z-index:4000;background:var(--white);border:1.5px solid var(--orange3);border-left:4px solid var(--orange);color:var(--slate);padding:14px 20px;border-radius:14px;font-size:.86rem;font-weight:600;transform:translateX(200px);opacity:0;transition:all .4s cubic-bezier(.23,1,.32,1);box-shadow:0 8px 28px var(--shadow2)}
+.toast.show{transform:none;opacity:1}
+
+/* FLOAT BTN */
+.float-book{position:fixed;left:20px;bottom:20px;z-index:2500;background:linear-gradient(135deg,var(--orange),var(--orange2));color:var(--white);border:none;padding:13px 22px;border-radius:50px;font-size:.82rem;font-weight:700;cursor:none;box-shadow:0 8px 28px var(--shadow);animation:floatY 3s ease-in-out infinite;display:flex;align-items:center;gap:8px}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* FOOTER */
+footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.footer-brand .flogo{display:flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:18px}
+.footer-brand .flogo img{width:44px;height:44px;object-fit:contain;border-radius:50%;border:2px solid var(--orange);padding:2px}
+.footer-brand .flogo-text{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white)}
+.footer-desc{font-size:.78rem;line-height:1.8;color:rgba(255,255,255,.55);max-width:260px}
+.footer-head{font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--orange);font-weight:700;margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.8rem;transition:color .25s}
+.footer-links a:hover{color:var(--orange)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.footer-copy{font-size:.72rem;color:rgba(255,255,255,.4)}
+.footer-emergency{font-size:.76rem;color:var(--orange3);display:flex;align-items:center;gap:7px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  #hero{grid-template-columns:1fr;padding:100px 5% 60px}
+  .hero-right{display:none}
+  .doctor-cards,.services-grid,.fac-grid,.contact-grid{grid-template-columns:1fr}
+  .prevent-grid,.cons-grid{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .sm-row,.sm-steps,.sm-before-after{grid-template-columns:1fr}
+  .amodal-header,.amodal-body,.dmodal-hero,.dmodal-body{padding-left:24px;padding-right:24px}
+  .dmodal-hero{grid-template-columns:1fr}
+  .aform-grid,.aform-radio-group{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:repeat(3,1fr)}
+  nav .nav-links,.nav-phone{display:none}
+  .nav-hamburger{display:flex}
+  .sm-steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .prevent-grid,.cons-grid{grid-template-columns:1fr}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .hero-stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- FLOATING BOOK -->
+<button class="float-book" onclick="openAppt()">📅 Book Appointment</button>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <img src="/mnt/user-data/uploads/1779685739167_WhatsApp_Image_2026-05-24_at_9_31_26_PM.jpeg" alt="Logo">
+    <div class="nav-logo-text">
+      <span class="brand">Dr. Reddy's</span>
+      <span class="sub">Dental & Eye Care Centre</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#doctors">Doctors</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#prevent">Prevention</a></li>
+    <li><a href="#facilities">Facilities</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="tel:8438224097" class="nav-phone">📞 84382 24097</a>
+    <button class="nav-cta" onclick="openAppt()">Book Now</button>
+    <button class="nav-hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-decor-circle"></div>
+  <div class="hero-left">
+    <div class="hero-badge"><span class="badge-dot"></span> 24×7 Emergency · Karaikal, Tamil Nadu</div>
+    <h1 class="hero-title">Exceptional Care<br>For Every <em>Smile</em><br>& <em>Sight</em></h1>
+    <p class="hero-desc">Dr. Reddy's Super Speciality Dental & Eye Care Centre — 30+ years of trust, world-class technology, and compassionate specialists under one roof.</p>
+    <div class="hero-btns">
+      <button class="btn-fill" onclick="openAppt()">Book Appointment</button>
+      <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><span class="stat-n">30+</span><span class="stat-l">Years Experience</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-box"><span class="stat-n">24×7</span><span class="stat-l">Emergency Care</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat-box"><span class="stat-n">6+</span><span class="stat-l">Specialists</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-stack">
+      <div class="hi-main"><img src="/mnt/user-data/uploads/enterance.jpg" alt="Clinic Entrance"></div>
+      <div class="hi-secondary"><img src="/mnt/user-data/uploads/reciption.webp" alt="Reception"></div>
+      <div class="hi-badge"><div class="hi-badge-icon">🏆</div><div class="hi-badge-text"><strong>ISO Sterilization</strong><span>B-Type Autoclave · UV Chamber</span></div></div>
+      <div class="hi-emergency">🚨 24×7 Emergency</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="mTrack">
+    <span class="marquee-item">Dental Implants<span class="dot">✦</span></span>
+    <span class="marquee-item">Cataract Surgery<span class="dot">✦</span></span>
+    <span class="marquee-item">Invisalign<span class="dot">✦</span></span>
+    <span class="marquee-item">Phacoemulsification<span class="dot">✦</span></span>
+    <span class="marquee-item">Root Canal Treatment<span class="dot">✦</span></span>
+    <span class="marquee-item">ZEISS Myovision Lenses<span class="dot">✦</span></span>
+    <span class="marquee-item">Smile Designing<span class="dot">✦</span></span>
+    <span class="marquee-item">Glaucoma Screening<span class="dot">✦</span></span>
+    <span class="marquee-item">Retina Imaging<span class="dot">✦</span></span>
+    <span class="marquee-item">Pediatric Dentistry<span class="dot">✦</span></span>
+    <span class="marquee-item">Dental Implants<span class="dot">✦</span></span>
+    <span class="marquee-item">Cataract Surgery<span class="dot">✦</span></span>
+    <span class="marquee-item">Invisalign<span class="dot">✦</span></span>
+    <span class="marquee-item">Phacoemulsification<span class="dot">✦</span></span>
+    <span class="marquee-item">Root Canal Treatment<span class="dot">✦</span></span>
+    <span class="marquee-item">ZEISS Myovision Lenses<span class="dot">✦</span></span>
+    <span class="marquee-item">Smile Designing<span class="dot">✦</span></span>
+    <span class="marquee-item">Glaucoma Screening<span class="dot">✦</span></span>
+    <span class="marquee-item">Retina Imaging<span class="dot">✦</span></span>
+    <span class="marquee-item">Pediatric Dentistry<span class="dot">✦</span></span>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<section id="trust">
+  <div class="trust-grid">
+    <div class="trust-item reveal"><span class="trust-icon">🏅</span><div class="trust-label">Founded</div><div class="trust-val">1994</div></div>
+    <div class="trust-item reveal rd1"><span class="trust-icon">👨‍⚕️</span><div class="trust-label">Specialists</div><div class="trust-val">6+</div></div>
+    <div class="trust-item reveal rd2"><span class="trust-icon">🦷</span><div class="trust-label">Treatments</div><div class="trust-val">50+</div></div>
+    <div class="trust-item reveal rd3"><span class="trust-icon">🌡️</span><div class="trust-label">Sterilization</div><div class="trust-val">ISO</div></div>
+    <div class="trust-item reveal rd4"><span class="trust-icon">⏰</span><div class="trust-label">Emergency</div><div class="trust-val">24×7</div></div>
+  </div>
+</section>
+
+<!-- DOCTORS -->
+<section id="doctors">
+  <div class="doctors-intro">
+    <div>
+      <div class="sec-label reveal">Our Experts</div>
+      <h2 class="sec-title reveal">Meet Our <em>Distinguished</em> Doctors</h2>
+      <p class="sec-sub reveal">Globally trained, deeply experienced specialists dedicated to restoring your health with precision and compassion.</p>
+    </div>
+    <button class="btn-fill reveal" onclick="openAppt()" style="white-space:nowrap;flex-shrink:0">Schedule a Consultation</button>
+  </div>
+
+  <div class="doctor-cards">
+    <!-- DR. SUDHAKAR -->
+    <div class="doc-card reveal" onclick="openDocModal('sudhakar')">
+      <div class="doc-card-img">
+        <div class="doc-img-placeholder" style="background:linear-gradient(135deg,#FFF4EC,#FFE8D5);width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative">
+          <img src="/mnt/user-data/uploads/doctor_with_patient.jpg" alt="Dr Sudhakar" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(232,88,10,.25),transparent)"></div>
+        </div>
+        <div class="doc-specialty-tag">🦷 Chief Dental Surgeon</div>
+        <div class="doc-exp-badge"><div class="doc-exp-num">30+</div><div class="doc-exp-l">Years</div></div>
+      </div>
+      <div class="doc-card-body">
+        <div class="doc-name">Dr. M. V. Sudhakar Reddy</div>
+        <div class="doc-qual">BDS · FICOI</div>
+        <div class="doc-role">Founder · Chief Dental Surgeon · Implantologist</div>
+        <p class="doc-short">Founder of Dr. Reddy's Centre with a Fellowship in Implantology from Malaysia. Pioneer of advanced dental care in Karaikal for over three decades.</p>
+        <div class="doc-tags">
+          <span class="doc-tag">🌏 Malaysia Fellowship</span>
+          <span class="doc-tag">🦷 Osstem Implants</span>
+          <span class="doc-tag">✨ Smile Design</span>
+        </div>
+        <button class="doc-view-btn">View Full Profile →</button>
+      </div>
+    </div>
+
+    <!-- DR. KAMALAPRIYA -->
+    <div class="doc-card reveal rd1" onclick="openDocModal('kamalapriya')">
+      <div class="doc-card-img">
+        <div style="background:linear-gradient(135deg,#FFF4EC,#FFE8D5);width:100%;height:100%;display:flex;align-items:center;justify-content:center;position:relative">
+          <img src="/mnt/user-data/uploads/eye_img1.jpg" alt="Eye Surgery" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(232,88,10,.25),transparent)"></div>
+        </div>
+        <div class="doc-specialty-tag">👁️ Ophthalmic Surgeon</div>
+        <div class="doc-exp-badge"><div class="doc-exp-num">23+</div><div class="doc-exp-l">Years</div></div>
+      </div>
+      <div class="doc-card-body">
+        <div class="doc-name">Dr. G. V. Kamalapriya</div>
+        <div class="doc-qual">MBBS · DO · DNB</div>
+        <div class="doc-role">Consultant Ophthalmic Surgeon</div>
+        <p class="doc-short">Trained at Aravind Eye Hospital (Puducherry), Lions Eye Hospital (Tiruvarur), and a Phaco Fellowship from Narayana Nethralaya (Bangalore).</p>
+        <div class="doc-tags">
+          <span class="doc-tag">👁️ Aravind Eye Hospital</span>
+          <span class="doc-tag">🔬 Phaco Fellowship</span>
+          <span class="doc-tag">🏥 Narayana Nethralaya</span>
+        </div>
+        <button class="doc-view-btn">View Full Profile →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-label reveal">What We Offer</div>
+  <h2 class="sec-title reveal">Comprehensive <em>Treatment</em> Services</h2>
+  <p class="sec-sub reveal" style="margin-bottom:36px">Click on any service to learn about the procedure, causes, what to expect, and how we treat it — so you come informed and confident.</p>
+  <div class="services-filter reveal" id="svcFilters">
+    <button class="sfilter-btn active" onclick="filterSvc('all',this)">All Services</button>
+    <button class="sfilter-btn" onclick="filterSvc('dental',this)">🦷 Dental</button>
+    <button class="sfilter-btn" onclick="filterSvc('eye',this)">👁️ Eye Care</button>
+    <button class="sfilter-btn" onclick="filterSvc('surgery',this)">⚕️ Surgery</button>
+    <button class="sfilter-btn" onclick="filterSvc('paeds',this)">👶 Paediatric</button>
+  </div>
+  <div class="services-grid" id="svcGrid">
+
+    <div class="svc-card reveal" data-cat="dental" onclick="openSvcModal('implants')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/treating_place.webp" alt="Implants"><div class="svc-cat-badge">Dental</div></div>
+      <div class="svc-body"><div class="svc-name">Dental Implants</div><p class="svc-desc">Permanent, natural-feeling tooth replacement using world-renowned Osstem implants. Restore your smile and confidence for life.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd1" data-cat="dental" onclick="openSvcModal('rct')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/equipments.jpg" alt="RCT"><div class="svc-cat-badge">Dental</div></div>
+      <div class="svc-body"><div class="svc-name">Root Canal Treatment</div><p class="svc-desc">Advanced pain-free endodontic care. Save your natural tooth with precision RCT, including failed & calcified canal management.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd2" data-cat="dental" onclick="openSvcModal('ortho')">
+      <div class="svc-img"><div class="svc-img-placeholder">😁</div><div class="svc-cat-badge">Dental</div></div>
+      <div class="svc-body"><div class="svc-name">Orthodontics</div><p class="svc-desc">Straight Wire, Self-Ligating Braces, Invisalign & Functional Appliances for children and adults. Perfect alignment, perfect confidence.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal" data-cat="dental" onclick="openSvcModal('smile')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/tooth.jpg" alt="Smile"><div class="svc-cat-badge">Dental</div></div>
+      <div class="svc-body"><div class="svc-name">Smile Designing</div><p class="svc-desc">Digital smile design, veneers, crowns, and whitening to craft a personalised smile that transforms your appearance.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd1" data-cat="paeds" onclick="openSvcModal('pediatric')">
+      <div class="svc-img"><div class="svc-img-placeholder">👶</div><div class="svc-cat-badge">Paediatric</div></div>
+      <div class="svc-body"><div class="svc-name">Pediatric Dentistry</div><p class="svc-desc">Gentle, fun dental care for kids in our dedicated paediatric unit — complete with a children's play zone to ease anxiety.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd2" data-cat="dental" onclick="openSvcModal('perio')">
+      <div class="svc-img"><div class="svc-img-placeholder">🦷</div><div class="svc-cat-badge">Dental</div></div>
+      <div class="svc-body"><div class="svc-name">Periodontics</div><p class="svc-desc">Scaling, root planning, soft tissue grafting, gingivectomy and frenectomy to restore gum health and prevent tooth loss.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal" data-cat="eye" onclick="openSvcModal('cataract')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/wrong_lens_in_cataract_op.jpg" alt="Cataract"><div class="svc-cat-badge">Eye Care</div></div>
+      <div class="svc-body"><div class="svc-name">Cataract Surgery</div><p class="svc-desc">Advanced phacoemulsification (laser cataract surgery) with premium IOLs. Restore crystal-clear vision — often without glasses.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd1" data-cat="eye" onclick="openSvcModal('glaucoma')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/lens_2.jpg" alt="Glaucoma"><div class="svc-cat-badge">Eye Care</div></div>
+      <div class="svc-body"><div class="svc-name">Glaucoma Management</div><p class="svc-desc">Comprehensive screening, YAG laser & long-term management to protect your optic nerve from irreversible vision loss.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd2" data-cat="eye" onclick="openSvcModal('retina')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/eye_img1.jpg" alt="Retina"><div class="svc-cat-badge">Eye Care</div></div>
+      <div class="svc-body"><div class="svc-name">Retina & Diabetic Care</div><p class="svc-desc">Advanced retinal imaging, diabetic retinopathy grading, ROP screening, and myopia progression monitoring.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal" data-cat="surgery" onclick="openSvcModal('maxillo')">
+      <div class="svc-img"><div class="svc-img-placeholder">⚕️</div><div class="svc-cat-badge">Surgery</div></div>
+      <div class="svc-body"><div class="svc-name">Maxillofacial Surgery</div><p class="svc-desc">Expert impaction surgery, jaw fracture management, and oral & facial procedures by surgeons with up to 45 years experience.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd1" data-cat="eye" onclick="openSvcModal('contactlens')">
+      <div class="svc-img"><img src="/mnt/user-data/uploads/lens_2.jpg" alt="Contact Lens"><div class="svc-cat-badge">Eye Care</div></div>
+      <div class="svc-body"><div class="svc-name">Contact Lens Clinic</div><p class="svc-desc">All branded contact lenses including multifocal options. ZEISS Myovision lenses for myopia control in children and adults.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+    <div class="svc-card reveal rd2" data-cat="eye" onclick="openSvcModal('squint')">
+      <div class="svc-img"><div class="svc-img-placeholder">👁️</div><div class="svc-cat-badge">Eye Care</div></div>
+      <div class="svc-body"><div class="svc-name">Squint & Amblyopia</div><p class="svc-desc">Specialised management of squint (strabismus) and lazy eye (amblyopia) using Orthoptek — especially critical for children.</p><span class="svc-link">Learn More & Book →</span></div>
+    </div>
+
+  </div>
+
+  <div class="kids-banner reveal">
+    <div class="kids-icon">🎠</div>
+    <div>
+      <div class="kids-title">Exclusive Children's Play Zone</div>
+      <p class="kids-desc">We know dental visits can feel scary for kids. Our dedicated Paediatric Dental Unit features a play zone where children can play, relax, and feel at home — so they actually look forward to their visit! Gentle, anxiety-free care with specially trained staff makes all the difference.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVENT -->
+<section id="prevent">
+  <div class="sec-label reveal">Stay Healthy</div>
+  <h2 class="sec-title reveal">How to <em>Prevent</em> Common Problems</h2>
+  <p class="sec-sub reveal">Expert-recommended habits that protect your teeth and eyes — prevention is always the best treatment.</p>
+  <div class="prevent-grid">
+    <div class="prev-card reveal"><span class="prev-icon">🪥</span><div class="prev-title">Brush Twice Daily</div><p class="prev-text">Use a soft-bristled brush with fluoride toothpaste for 2 full minutes. Reach all surfaces and the gum line. Replace every 3 months.</p></div>
+    <div class="prev-card reveal rd1"><span class="prev-icon">🧵</span><div class="prev-title">Floss Every Day</div><p class="prev-text">Flossing removes plaque and food from between teeth where brushes cannot reach — preventing cavities and gum disease at the root.</p></div>
+    <div class="prev-card reveal rd2"><span class="prev-icon">🥦</span><div class="prev-title">Eat Smart</div><p class="prev-text">Calcium-rich foods strengthen enamel and bones. Reduce sugar and acidic drinks. Carrots, almonds, and leafy greens promote dental and eye health.</p></div>
+    <div class="prev-card reveal rd3"><span class="prev-icon">☀️</span><div class="prev-title">UV Eye Protection</div><p class="prev-text">Wear certified UV-blocking sunglasses outdoors. UV rays accelerate cataracts and macular degeneration. Start protecting eyes early in life.</p></div>
+    <div class="prev-card reveal"><span class="prev-icon">📱</span><div class="prev-title">20-20-20 Screen Rule</div><p class="prev-text">Every 20 minutes on a screen, look at something 20 feet away for 20 seconds. Reduces digital eye strain and slows myopia progression.</p></div>
+    <div class="prev-card reveal rd1"><span class="prev-icon">💧</span><div class="prev-title">Stay Hydrated</div><p class="prev-text">Water flushes oral bacteria and maintains the tear film that keeps eyes moist. Dehydration worsens dry eye and gum inflammation.</p></div>
+    <div class="prev-card reveal rd2"><span class="prev-icon">🩺</span><div class="prev-title">Regular Check-ups</div><p class="prev-text">Dental visits every 6 months and eye examinations annually detect problems before they become serious — saving time, money, and discomfort.</p></div>
+    <div class="prev-card reveal rd3"><span class="prev-icon">🚭</span><div class="prev-title">Avoid Tobacco</div><p class="prev-text">Tobacco severely damages gums, stains teeth, and triples the risk of cataracts and macular degeneration. Quitting reverses many early effects.</p></div>
+  </div>
+</section>
+
+<!-- CONSULTANTS -->
+<section id="consultants">
+  <div class="sec-label reveal">Our Panel</div>
+  <h2 class="sec-title reveal">Expert <em>Consultants</em></h2>
+  <p class="sec-sub reveal">Senior specialists who bring decades of sub-specialty expertise to complex cases.</p>
+  <div class="cons-grid">
+    <div class="cons-card reveal"><div class="cons-av">C</div><div class="cons-name">Prof. Dr. Chidambaram</div><div class="cons-spec">Orthodontist · MDS</div><div class="cons-exp"><span>25</span> Years Experience</div></div>
+    <div class="cons-card reveal rd1"><div class="cons-av">J</div><div class="cons-name">Prof. Dr. Jothikumar K.</div><div class="cons-spec">Prosthodontist & Implantologist · MDS, FISOI, FICOI</div><div class="cons-exp"><span>30</span> Years Experience</div></div>
+    <div class="cons-card reveal rd2"><div class="cons-av">K</div><div class="cons-name">Dr. Karthigean</div><div class="cons-spec">Oral & Maxillofacial Surgeon · MDS</div><div class="cons-exp"><span>45</span> Years Experience</div></div>
+    <div class="cons-card reveal rd3"><div class="cons-av">J</div><div class="cons-name">Prof. Dr. Janarthanan</div><div class="cons-spec">Oral & Maxillofacial Surgeon</div><div class="cons-exp"><span>10</span> Years Experience</div></div>
+  </div>
+</section>
+
+<!-- FACILITIES -->
+<section id="facilities">
+  <div class="sec-label reveal">State of the Art</div>
+  <h2 class="sec-title reveal">Our <em>Facilities</em></h2>
+  <div class="fac-grid">
+    <div class="fac-card reveal"><img class="fac-img" src="/mnt/user-data/uploads/original_image.jpg" alt="Dental Unit"><div class="fac-overlay"></div><div class="fac-content"><div class="fac-tag">Dental</div><div class="fac-name">Advanced Dental Units</div><p class="fac-desc">B-Type Autoclave · UV Chamber · Digital RVG X-ray · Intraoral Scanners</p></div></div>
+    <div class="fac-card reveal rd1"><img class="fac-img" src="/mnt/user-data/uploads/original_waiting_area.jpg" alt="Waiting Area"><div class="fac-overlay"></div><div class="fac-content"><div class="fac-tag">Comfort</div><div class="fac-name">Peaceful Waiting Lounge</div><p class="fac-desc">Serene garden ambiance · ZEISS Optical Display · Kids Play Zone</p></div></div>
+    <div class="fac-card reveal"><img class="fac-img" src="/mnt/user-data/uploads/pharmacy.jpg" alt="Pharmacy"><div class="fac-overlay"></div><div class="fac-content"><div class="fac-tag">In-Clinic</div><div class="fac-name">In-House Pharmacy</div><p class="fac-desc">Complete post-treatment medications & premium dental supplies on-site</p></div></div>
+    <div class="fac-card reveal rd1"><img class="fac-img" src="/mnt/user-data/uploads/pleace_place.webp" alt="Eye Care"><div class="fac-overlay"></div><div class="fac-content"><div class="fac-tag">Eye Care</div><div class="fac-name">Optical & Contact Lens Clinic</div><p class="fac-desc">ZEISS branded optical dispensing · All contact lens brands · Myovision lenses</p></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label reveal">Find Us</div>
+  <h2 class="sec-title reveal">Visit Our <em>Centre</em></h2>
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div><div class="ci-label">Address</div><div class="ci-val">24, Singaravelar Salai,<br>Karaikal – 609 602, Tamil Nadu</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📞</div>
+        <div><div class="ci-label">Telephone</div><div class="ci-val"><a href="tel:04368224097" style="color:inherit;text-decoration:none">04368-224097</a> / <a href="tel:04368224141" style="color:inherit;text-decoration:none">224141</a></div></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📱</div>
+        <div><div class="ci-label">Mobile (24×7)</div><div class="ci-val"><a href="tel:8438224097" style="color:var(--orange);font-weight:700;text-decoration:none">84382 24097</a></div></div>
+      </div>
+      <div class="hours-grid">
+        <div class="hi"><div class="hi-day">Mon – Sat</div><div class="hi-time">9:00 AM – 8:00 PM</div></div>
+        <div class="hi"><div class="hi-day">Sunday</div><div class="hi-time">10:00 AM – 4:00 PM</div></div>
+        <div class="emergency-strip">
+          <span style="font-size:1.8rem">🚨</span>
+          <div><strong>24×7 Emergency Available</strong><span>Dental & Eye emergencies attended around the clock every day of the year</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="map-wrap reveal rd1">
+      <iframe src="https://maps.google.com/maps?q=11.9338,79.8271&z=16&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="flogo" href="#hero">
+        <img src="/mnt/user-data/uploads/1779685739167_WhatsApp_Image_2026-05-24_at_9_31_26_PM.jpeg" alt="Logo">
+        <span class="flogo-text">Dr. Reddy's Dental & Eye Care</span>
+      </a>
+      <p class="footer-desc">Super Speciality Dental & Eye Care Centre in Karaikal, Tamil Nadu. 30+ years of trust, precision, and compassionate care.</p>
+    </div>
+    <div>
+      <div class="footer-head">Dental</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="openSvcModal('implants')">Dental Implants</a></li>
+        <li><a href="#" onclick="openSvcModal('rct')">Root Canal</a></li>
+        <li><a href="#" onclick="openSvcModal('ortho')">Orthodontics</a></li>
+        <li><a href="#" onclick="openSvcModal('smile')">Smile Designing</a></li>
+        <li><a href="#" onclick="openSvcModal('pediatric')">Pediatric Care</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-head">Eye Care</div>
+      <ul class="footer-links">
+        <li><a href="#" onclick="openSvcModal('cataract')">Cataract Surgery</a></li>
+        <li><a href="#" onclick="openSvcModal('glaucoma')">Glaucoma</a></li>
+        <li><a href="#" onclick="openSvcModal('retina')">Retina Care</a></li>
+        <li><a href="#" onclick="openSvcModal('contactlens')">Contact Lenses</a></li>
+        <li><a href="#" onclick="openSvcModal('squint')">Squint & Amblyopia</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-head">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#doctors">Our Doctors</a></li>
+        <li><a href="#consultants">Consultants</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#prevent">Prevention</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Dr. Reddy's Dental & Eye Care Centre · Karaikal</div>
+    <div class="footer-emergency">🚨 Emergency 24×7: 84382 24097</div>
+  </div>
+</footer>
+
+<!-- DOCTOR MODAL -->
+<div class="dmodal-overlay" id="dmodal" onclick="closeOnOverlay(event,'dmodal')">
+  <div class="dmodal" id="dmodalContent">
+    <button class="dmodal-close" onclick="closeModal('dmodal')">✕</button>
+    <div id="dmodalBody"></div>
+  </div>
+</div>
+
+<!-- SERVICE MODAL -->
+<div class="smodal-overlay" id="smodal" onclick="closeOnOverlay(event,'smodal')">
+  <div class="smodal" id="smodalContent">
+    <button class="smodal-close" onclick="closeModal('smodal')">✕</button>
+    <div id="smodalBody"></div>
+  </div>
+</div>
+
+<!-- APPOINTMENT MODAL -->
+<div class="amodal-overlay" id="amodal" onclick="closeOnOverlay(event,'amodal')">
+  <div class="amodal">
+    <button class="amodal-close" onclick="closeModal('amodal')">✕</button>
+    <div class="amodal-header">
+      <h2>Book an Appointment</h2>
+      <p>Fill in your details and we'll confirm your slot within 30 minutes.</p>
+      <div class="amodal-steps">
+        <div class="astep"><div class="astep-num active" id="astep1">1</div><span class="astep-label">Your Details</span><div class="astep-line"></div></div>
+        <div class="astep"><div class="astep-num" id="astep2">2</div><span class="astep-label">Choose Service</span><div class="astep-line"></div></div>
+        <div class="astep"><div class="astep-num" id="astep3">3</div><span class="astep-label">Confirm</span></div>
+      </div>
+    </div>
+    <div class="amodal-body">
+
+      <!-- STEP 1 -->
+      <div class="aform-step active" id="step1">
+        <div class="aform-grid">
+          <div><label class="aform-label">Full Name *</label><input class="aform-input" id="aName" placeholder="e.g. Ravi Kumar" type="text"></div>
+          <div><label class="aform-label">Phone Number *</label><input class="aform-input" id="aPhone" placeholder="10-digit mobile" type="tel" maxlength="10"></div>
+        </div>
+        <div class="aform-grid">
+          <div><label class="aform-label">Age</label><input class="aform-input" id="aAge" placeholder="Your age" type="number" min="1" max="120"></div>
+          <div><label class="aform-label">Gender</label>
+            <select class="aform-select" id="aGender">
+              <option value="">Select</option>
+              <option>Male</option><option>Female</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="aform-full"><label class="aform-label">Email (optional)</label><input class="aform-input" id="aEmail" placeholder="your@email.com" type="email"></div>
+        <div class="aform-nav">
+          <span style="font-size:.78rem;color:var(--text3)">Step 1 of 3</span>
+          <button class="aform-next" onclick="goStep(2)">Next: Choose Service →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="aform-step" id="step2">
+        <div class="aform-full"><label class="aform-label">Type of Care *</label>
+          <div class="aform-radio-group">
+            <div class="aform-radio"><input type="radio" name="acare" id="care-dental" value="Dental"><label for="care-dental"><span class="aform-radio-icon">🦷</span> Dental Care</label></div>
+            <div class="aform-radio"><input type="radio" name="acare" id="care-eye" value="Eye Care"><label for="care-eye"><span class="aform-radio-icon">👁️</span> Eye Care</label></div>
+          </div>
+        </div>
+        <div class="aform-full"><label class="aform-label">Specific Service *</label>
+          <select class="aform-select" id="aService">
+            <option value="">— Select a Service —</option>
+            <optgroup label="🦷 Dental">
+              <option>Dental Consultation</option>
+              <option>Dental Implants</option>
+              <option>Root Canal Treatment</option>
+              <option>Orthodontics / Braces / Invisalign</option>
+              <option>Smile Designing</option>
+              <option>Dental Veneers</option>
+              <option>Teeth Whitening</option>
+              <option>Pediatric Dentistry</option>
+              <option>Gum Treatment (Periodontics)</option>
+              <option>Maxillofacial Surgery</option>
+              <option>Dental Emergency</option>
+            </optgroup>
+            <optgroup label="👁️ Eye Care">
+              <option>Eye Consultation</option>
+              <option>Cataract Surgery Consultation</option>
+              <option>Glaucoma Screening</option>
+              <option>Diabetic Retinopathy Screening</option>
+              <option>Squint / Amblyopia Management</option>
+              <option>Contact Lens Fitting</option>
+              <option>Refraction / Spectacle Prescription</option>
+              <option>Eye Emergency</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="aform-grid">
+          <div><label class="aform-label">Preferred Date *</label><input class="aform-input" id="aDate" type="date"></div>
+          <div><label class="aform-label">Preferred Time</label>
+            <select class="aform-select" id="aTime">
+              <option>Morning (9 – 12 PM)</option>
+              <option>Afternoon (12 – 4 PM)</option>
+              <option>Evening (4 – 8 PM)</option>
+            </select>
+          </div>
+        </div>
+        <div class="aform-full"><label class="aform-label">Describe Your Concern (optional)</label><textarea class="aform-textarea" id="aConcern" placeholder="E.g. tooth pain since 3 days, blurry vision, need braces check..."></textarea></div>
+        <div class="aform-nav">
+          <button class="aform-back" onclick="goStep(1)">← Back</button>
+          <button class="aform-next" onclick="goStep(3)">Next: Confirm →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="aform-step" id="step3">
+        <p style="font-size:.82rem;color:var(--text2);margin-bottom:16px">Please review your appointment details before confirming.</p>
+        <div class="confirm-card" id="confirmCard"></div>
+        <div class="sm-trust">
+          <span class="sm-trust-icon">🔒</span>
+          <div class="sm-trust-text">
+            <strong>Your information is safe with us</strong>
+            <span>We use your details only to confirm and manage your appointment. We never share patient data.</span>
+          </div>
+        </div>
+        <div class="aform-nav">
+          <button class="aform-back" onclick="goStep(2)">← Edit Details</button>
+          <button class="aform-submit" onclick="submitAppt()">✓ Confirm Appointment</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="aform-step" id="step4">
+        <div class="success-screen">
+          <span class="success-icon">✅</span>
+          <div class="success-title">Appointment Requested!</div>
+          <p class="success-text">Thank you! Our team will call you on <strong id="successPhone"></strong> within 30 minutes to confirm your slot.</p>
+          <div class="success-ref" id="successRef"></div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            <button class="aform-next" onclick="closeModal('amodal')">Close</button>
+            <a href="tel:8438224097" style="background:var(--offwhite);border:1.5px solid var(--border2);color:var(--text);padding:13px 24px;border-radius:12px;font-size:.86rem;font-weight:600;text-decoration:none">📞 Call Us Now</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- POPUP -->
+<div class="appt-popup" id="apptPopup">
+  <button class="popup-close" onclick="document.getElementById('apptPopup').classList.remove('show')">✕</button>
+  <div class="popup-title"><span class="popup-pulse"></span>Quick Appointment</div>
+  <p class="popup-sub">Ready to visit us? Book your slot in under 2 minutes.</p>
+  <button class="popup-btn" onclick="document.getElementById('apptPopup').classList.remove('show');openAppt()">Book Appointment Now →</button>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),curRing=document.getElementById('curRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+setInterval(()=>{rx+=(mx-rx)*.13;ry+=(my-ry)*.13;curRing.style.left=rx+'px';curRing.style.top=ry+'px'},16);
+document.querySelectorAll('button,a,.doc-card,.svc-card,.prev-card,.cons-card,.fac-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(2.5)';curRing.style.transform='translate(-50%,-50%) scale(1.4)'});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%)';curRing.style.transform='translate(-50%,-50%)'});
+});
+
+// NAV SCROLL
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',scrollY>60)});
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// POPUP
+setTimeout(()=>document.getElementById('apptPopup').classList.add('show'),5000);
+
+// TOAST
+function showToast(msg,dur=3800){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),dur)}
+
+// MODAL HELPERS
+function closeOnOverlay(e,id){if(e.target===document.getElementById(id))closeModal(id)}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+
+// SERVICE FILTER
+function filterSvc(cat,btn){
+  document.querySelectorAll('.sfilter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.svc-card').forEach(c=>{c.style.display=cat==='all'||c.dataset.cat===cat?'block':'none'});
+}
+
+// DOCTORS DATA
+const doctors={
+  sudhakar:{
+    init:'SR',name:'Dr. M. V. Sudhakar Reddy',qual:'BDS · FICOI',role:'Founder · Chief Dental Surgeon · Experienced Dental Implantologist',
+    exp:'30+',cases:'5000+',quals:'BDS, FICOI',
+    quote:'"Every patient deserves a smile they are proud of — and a dental experience that is completely free of fear."',
+    bio:`Dr. M. V. Sudhakar Reddy is the founder and driving force behind Dr. Reddy's Dental & Eye Care Centre in Karaikal. With over 30 years of dedicated practice, he has transformed thousands of smiles and set the benchmark for dental care in the region.\n\nHis journey began with a Bachelor of Dental Surgery (BDS) and continued to the international level with a prestigious Fellowship in Implantology from Malaysia (FICOI). This fellowship introduced him to the world's most advanced implant techniques and materials — knowledge he brought back to serve patients in Karaikal.\n\nDr. Reddy's philosophy is centred on zero-pressure, patient-first care. His clinic is built around making every patient feel heard, respected, and comfortable — from the air-sterilised consulting cabins to the gentle, unhurried consultations.`,
+    expertise:['Full-mouth dental rehabilitation','Advanced implantology using world-renowned Osstem implants','Aesthetic smile designing with digital impressions','Complex root canal & endodontic treatments','Geriatric dentistry for senior citizens','Paediatric dental care & early orthodontics'],
+    training:['BDS – Bachelor of Dental Surgery','FICOI – Fellowship in Implantology, Malaysia','30+ years of continuing education in advanced dentistry','Certified Osstem Implant practitioner'],
+    specialties:['🦷 Osstem Implants','✨ Smile Design','🔬 Endodontics','👴 Geriatric Dentistry','👶 Paediatric Dentistry','🦾 Full-Mouth Rehabilitation'],
+    stats:[{n:'30+',l:'Years'},{n:'5000+',l:'Patients'},{n:'FICOI',l:'Fellowship'}]
+  },
+  kamalapriya:{
+    init:'KR',name:'Dr. G. V. Kamalapriya Sudhakar Reddy',qual:'MBBS · DO · DNB',role:'Consultant Ophthalmic Surgeon · 23+ Years Experience',
+    exp:'23+',cases:'4000+',quals:'MBBS, DO, DNB',
+    quote:'"Clear vision is a gift — and it is our privilege to help you preserve it, restore it, or protect it for life."',
+    bio:`Dr. G. V. Kamalapriya Sudhakar Reddy is a highly accomplished Consultant Ophthalmic Surgeon with over 23 years of experience in comprehensive eye care and surgery.\n\nShe received her MBBS degree followed by a Diploma in Ophthalmology (DO) and a Diplomate of the National Board (DNB), making her one of the most qualified eye surgeons in the region.\n\nHer career includes prestigious postings at Aravind Eye Hospital, Puducherry — one of India's finest eye care institutions — and Lions Eye Hospital, Vandampalai, Tiruvarur. She completed a highly competitive Phacoemulsification (Laser Cataract Surgery) Fellowship at Narayana Nethralaya, Bangalore — a world-class ophthalmic centre.\n\nDr. Kamalapriya handles the complete spectrum of ophthalmic care, from routine refraction and contact lens fitting to complex surgeries including cataract, corneal, orbit, and anterior segment procedures. She also leads the 24×7 ocular emergency service and the Eye Donation Desk at the centre.`,
+    expertise:['Phacoemulsification (laser cataract) surgery with premium IOLs','Glaucoma screening, YAG laser & long-term management','Diabetic retinopathy screening & grading','Retinal imaging & disorder management','Squint (strabismus) surgery & amblyopia management','Neuro-ophthalmology & uveal disorder management','ROP (Retinopathy of Prematurity) screening','Corneal, orbit & anterior segment surgery'],
+    training:['MBBS – Bachelor of Medicine and Surgery','DO – Diploma in Ophthalmology','DNB – Diplomate of National Board','Phaco Fellowship – Narayana Nethralaya, Bangalore','Aravind Eye Hospital, Puducherry','Lions Eye Hospital, Vandampalai, Tiruvarur'],
+    specialties:['👁️ Cataract Surgery','🔭 Glaucoma','🌐 Retina Imaging','👁️‍🗨️ Corneal Surgery','🧠 Neuro-Ophthalmology','👶 ROP Screening'],
+    stats:[{n:'23+',l:'Years'},{n:'DNB',l:'Qualification'},{n:'24×7',l:'Emergency'}]
+  }
+};
+
+function openDocModal(id){
+  const d=doctors[id];
+  document.getElementById('dmodalBody').innerHTML=`
+    <div class="dmodal-hero">
+      <div class="dmodal-avatar">${d.init}</div>
+      <div>
+        <div class="dmodal-name">${d.name}</div>
+        <div class="dmodal-qual">${d.qual}</div>
+        <div class="dmodal-role">${d.role}</div>
+        <div class="dmodal-stats">${d.stats.map(s=>`<div class="dms"><div class="dms-n">${s.n}</div><div class="dms-l">${s.l}</div></div>`).join('')}</div>
+      </div>
+    </div>
+    <div class="dmodal-body">
+      <div class="dmodal-quote">${d.quote}</div>
+      <div class="dmodal-section">
+        <div class="dmodal-sec-title">About Dr. ${d.name.split(' ').slice(-1)[0]}</div>
+        <div class="dmodal-bio">${d.bio.replace(/\n\n/g,'</div><div class="dmodal-bio" style="margin-top:14px">')}</div>
+      </div>
+      <div class="dmodal-section">
+        <div class="dmodal-sec-title">Areas of Expertise</div>
+        <ul class="dmodal-list">${d.expertise.map(e=>`<li>${e}</li>`).join('')}</ul>
+      </div>
+      <div class="dmodal-section">
+        <div class="dmodal-sec-title">Training & Qualifications</div>
+        <ul class="dmodal-list">${d.training.map(t=>`<li>${t}</li>`).join('')}</ul>
+      </div>
+      <div class="dmodal-section">
+        <div class="dmodal-sec-title">Specialties</div>
+        <div class="dmodal-tags-row">${d.specialties.map(s=>`<span class="dmodal-tag">${s}</span>`).join('')}</div>
+      </div>
+      <button class="dmodal-book" onclick="closeModal('dmodal');openAppt()">Book a Consultation with ${d.name.split(' ').slice(-1)[0]}</button>
+    </div>
+  `;
+  openModal('dmodal');
+}
+
+// SERVICES DATA
+const svcs={
+  implants:{
+    cat:'Dental',title:'Dental Implants',img:'/mnt/user-data/uploads/treating_place.webp',
+    cause:'Missing teeth result from untreated decay, advanced gum disease, traumatic injury, or natural ageing. A single gap causes surrounding teeth to shift, leads to bone loss in the jaw, and makes chewing and speaking difficult. Over time, the face structure itself changes, making people look older.',
+    what:'A dental implant is a small titanium screw surgically placed into the jawbone where the tooth root used to be. Over 3–6 months, the implant fuses with the bone (osseointegration). A custom-made ceramic crown is then attached on top — indistinguishable from a natural tooth.',
+    why:'Dr. Reddy uses world-renowned Osstem implants — tested in millions of cases globally with over 98% success rates. With 30+ years of implant experience and a Fellowship in Implantology (Malaysia), he provides a level of expertise rarely available outside major cities.',
+    steps:['3D CT Scan & Assessment','Implant Placement Surgery','Osseointegration Period (3–6 months)','Crown Fitting & Final Smile'],
+    before:['Missing teeth or gaps','Bone loss in jaw','Difficulty chewing / speaking','Shifting of adjacent teeth','Low self-confidence'],
+    after:['Permanent, natural-looking tooth','Jawbone preserved & stimulated','Full chewing function restored','Adjacent teeth unaffected','Confidence fully restored'],
+    benefits:['Osstem World-Class Implants','Immediate loading options available','30+ years implant expertise','FICOI Fellowship certified','Lifetime success with proper care','Single to full-mouth rehabilitation'],
+    trust:'Dr. Reddy holds a Fellowship in Implantology from Malaysia (FICOI) and uses Osstem implants — one of the world\'s most trusted implant brands with a clinical success rate of over 98%.'
+  },
+  rct:{
+    cat:'Dental',title:'Root Canal Treatment (RCT)',img:'/mnt/user-data/uploads/equipments.jpg',
+    cause:'When a cavity is left untreated, bacteria penetrate through the enamel and dentine into the pulp chamber containing nerves and blood vessels. This causes severe pain, sensitivity, swelling, and eventually abscess formation. Without RCT, the infection spreads to the jawbone and the tooth must be extracted.',
+    what:'Root Canal Treatment (RCT) involves removing the infected pulp tissue, thoroughly cleaning and shaping the root canals with fine instruments, and sealing them with a biocompatible material (gutta-percha). A crown is placed to restore the tooth\'s strength and appearance.',
+    why:'Modern RCT is completely pain-free with local anaesthesia and is completed in 1–2 visits. Saving your natural tooth is always better than extraction — natural teeth maintain jawbone density and surrounding tooth alignment in ways no replacement can fully replicate.',
+    steps:['Digital X-ray & Diagnosis','Painless Pulp Removal','Canal Cleaning & Shaping','Crown Placement & Seal'],
+    before:['Severe toothache — especially at night','Sensitivity to hot and cold','Swelling of gums or face','Darkening of the tooth','Abscess or pus near root'],
+    after:['Complete pain relief','Tooth fully functional','Natural appearance restored','Infection eliminated','Tooth preserved for decades'],
+    benefits:['Pain-free modern technique','Digital RVG X-ray guided precision','Failed RCT rescue & re-treatment','Calcified canal specialists','1–2 visit completion','Endocrown option available'],
+    trust:'Our clinic uses digital RVG X-rays and the latest rotary endodontic systems to ensure the highest precision and success rates in root canal treatment — including complex calcified and re-treatment cases.'
+  },
+  ortho:{
+    cat:'Dental',title:'Orthodontics',img:null,
+    cause:'Crowded, spaced, or misaligned teeth are caused by genetics, mouth-breathing habits, thumb-sucking, premature milk tooth loss, or jaw growth discrepancies. Misalignment not only affects aesthetics but also makes brushing difficult, leading to cavities and gum disease.',
+    what:'Orthodontic treatment uses fixed or removable appliances to move teeth and correct jaw relationships. Options include traditional metal braces, ceramic self-ligating braces (faster & more comfortable), Invisalign clear aligners, and functional jaw appliances for growing children.',
+    why:'Straight teeth are healthier teeth — easier to clean, less prone to decay and gum disease. Correcting the bite prevents jaw pain (TMJ disorders), uneven wear, and chewing difficulties. A straight, confident smile has a documented positive impact on social and professional life.',
+    steps:['Digital Scan & Smile Simulation','Brace / Aligner Fitting','Monthly Adjustment Visits','Retainer for Lasting Results'],
+    before:['Crowded or misaligned teeth','Gaps between teeth','Overbite / underbite / crossbite','Difficulty cleaning between teeth','Self-consciousness about smile'],
+    after:['Perfectly aligned teeth','Balanced bite & jaw position','Easy oral hygiene','Reduced cavity risk','Transformed, confident smile'],
+    benefits:['Invisalign certified provider','Self-ligating braces – fewer visits, faster treatment','Early intervention for children (age 7+)','Digital treatment simulation before you start','Consultant Prof. Dr. Chidambaram – 25 years','Functional appliances for jaw growth guidance'],
+    trust:'We offer a full spectrum of orthodontic options backed by Consultant Prof. Dr. Chidambaram with 25 years of specialised orthodontic experience — from simple cases to complex jaw corrections.'
+  },
+  smile:{
+    cat:'Dental',title:'Smile Designing & Aesthetic Dentistry',img:'/mnt/user-data/uploads/tooth.jpg',
+    cause:'Stained, chipped, worn, uneven, or discoloured teeth can result from aging, dietary habits (coffee, tea, tobacco), trauma, grinding, old restorations, or simply genetics. These imperfections affect your first impression, professional image, and day-to-day self-confidence significantly.',
+    what:'A comprehensive smile makeover combines multiple aesthetic procedures — including porcelain veneers, ceramic crowns, composite bonding, professional whitening, gum contouring, and digital smile design — tailored uniquely to your face shape, skin tone, and personality.',
+    why:'Modern digital smile design allows you to preview your new smile on a screen before any procedure begins. Treatments are minimally invasive, long-lasting, and look completely natural. A confident smile is one of the most powerful personal assets you can have.',
+    steps:['Digital Facial & Smile Analysis','Custom Treatment Planning & Preview','Preparation, Mockup & Approval','Final Porcelain Placement'],
+    before:['Stained or discoloured teeth','Chipped or cracked teeth','Uneven or misshapen teeth','Visible gaps','Gummy smile or short teeth'],
+    after:['Bright, uniform, natural-looking smile','Proportional to your face','Long-lasting porcelain restorations','Boosted confidence & appearance','Celebrity-level results'],
+    benefits:['Intraoral digital scanner for precision','Porcelain veneers that last 15+ years','Digital mockup — see results before treatment','Minimally invasive preparation','CEREC same-day options','Gum contouring for perfect proportions'],
+    trust:'Dr. Reddy combines 30 years of aesthetic expertise with digital smile design technology — ensuring results that are not only beautiful but biologically correct and long-lasting.'
+  },
+  pediatric:{
+    cat:'Paediatric',title:'Pediatric Dentistry',img:null,
+    cause:'Children are especially vulnerable to tooth decay due to frequent sugary snacks, developing enamel that is softer than adult enamel, and inconsistent brushing habits. Early dental problems affect speech development, nutrition, and the proper eruption of adult teeth.',
+    what:'Our exclusive Paediatric Dental Unit provides comprehensive dental care for children from infancy through adolescence — in a specially designed, child-friendly environment with a dedicated play zone. Treatments include fillings, pulpotomy, extractions, fluoride, sealants, and early orthodontic intervention.',
+    why:'Establishing a positive dental experience in childhood creates lifelong oral health habits. Our play zone and specially trained staff ensure children associate dental visits with fun rather than fear. Early treatment of misalignment (age 7+) is far simpler and more effective than treating adults.',
+    steps:['Child-Friendly Consultation & Play','Gentle Cleaning & Fluoride Treatment','Preventive Sealants Applied','Early Orthodontic Assessment'],
+    before:['Fear of dental visits','Untreated cavities causing pain','Baby teeth with infections','Crowded or early/late erupting teeth','Poor brushing habits'],
+    after:['Positive dental experience for life','Healthy baby & adult teeth','Early problems corrected simply','Proper speech & chewing development','Lifelong oral health habits'],
+    benefits:['Dedicated kids\' play zone reduces anxiety','Specially trained paediatric dental staff','Fluoride application & pit-fissure sealants','Pulpotomy (baby root canal) to save teeth','Early orthodontic screening & intervention','Parent education & diet counselling'],
+    trust:'Our paediatric unit is designed entirely around the child\'s comfort. The play zone, gentle approach, and experienced team make Dr. Reddy\'s the most trusted choice for children\'s dental care in Karaikal.'
+  },
+  perio:{
+    cat:'Dental',title:'Periodontics – Gum Disease Treatment',img:null,
+    cause:'Gum disease (periodontal disease) is caused by plaque buildup at and below the gumline due to inadequate brushing and flossing. It progresses from gingivitis (red, bleeding gums) to periodontitis (bone and tooth loss) if left untreated. Diabetes, smoking, and hormonal changes accelerate progression.',
+    what:'Periodontal treatment includes professional deep scaling and root planning to remove calculus below the gumline, antibiotic therapy, and if needed, surgical procedures like soft tissue grafting, gingivectomy (gum reshaping), and frenectomy (frenum removal).',
+    why:'Gum disease is the leading cause of tooth loss in adults — and it is entirely preventable and treatable when caught early. Research also links untreated gum disease to heart disease, diabetes complications, and adverse pregnancy outcomes, making periodontal health a systemic health priority.',
+    steps:['Periodontal Probing & Assessment','Deep Scaling & Root Planning','Antibiotic & Irrigation Therapy','Surgical Intervention if Required'],
+    before:['Bleeding when brushing or flossing','Red, swollen, or receding gums','Persistent bad breath','Loose teeth or teeth shifting','Pain while chewing'],
+    after:['Healthy pink, firm gums','Bleeding eliminated','Fresh breath restored','Teeth stabilised','Bone loss halted'],
+    benefits:['Digital periapical X-rays for bone assessment','Ultrasonic piezo scaler for deep cleaning','Soft tissue grafting for recession','Gingivectomy for gummy smile correction','Laser-assisted gum treatment','Linked to overall systemic health'],
+    trust:'Gum disease affects 85% of adults in India. Our comprehensive periodontal programme identifies and treats all stages — from simple deep cleaning to advanced surgical correction.'
+  },
+  cataract:{
+    cat:'Eye Care',title:'Cataract Surgery – Phacoemulsification',img:'/mnt/user-data/uploads/wrong_lens_in_cataract_op.jpg',
+    cause:'A cataract develops when proteins in the eye\'s natural lens clump together, causing the lens to become cloudy. This happens most commonly due to aging, but is accelerated by UV exposure, diabetes, steroid use, smoking, or eye injury. Vision becomes blurry, foggy, and glare-sensitive.',
+    what:'Phacoemulsification is the gold standard cataract surgery. Through a micro-incision (2–3mm), an ultrasonic probe breaks up the clouded lens into tiny fragments which are gently suctioned out. A foldable premium intraocular lens (IOL) is then inserted to restore clear vision permanently.',
+    why:'Modern cataract surgery takes just 15–20 minutes, requires no stitches, and patients go home the same day. With premium IOLs (multifocal or toric), many patients achieve better vision than they had even before cataracts — and often no longer need glasses for distance or reading.',
+    steps:['Pre-operative Eye Examination','Biometry & IOL Power Calculation','Laser-Assisted Phacoemulsification (20 min)','Same-Day Discharge & Recovery'],
+    before:['Blurry or cloudy vision','Glare and halos around lights','Faded colour perception','Frequent prescription changes','Difficulty driving at night'],
+    after:['Crystal-clear, vibrant vision','Glare and halos eliminated','Vivid colour perception restored','Often independent of glasses','Permanent, lifelong results'],
+    benefits:['Dr. Kamalapriya trained at Narayana Nethralaya, Bangalore','Premium multifocal & toric IOL options','Micro-incision — no stitch surgery','Same-day discharge','Phaco Fellowship certified surgeon','Expert handling of complex & mature cataracts'],
+    trust:'Dr. Kamalapriya completed her Phacoemulsification Fellowship at Narayana Nethralaya, Bangalore — one of India\'s most prestigious eye institutes. Thousands of successful cataract surgeries performed over 23 years.'
+  },
+  glaucoma:{
+    cat:'Eye Care',title:'Glaucoma Management',img:'/mnt/user-data/uploads/lens_2.jpg',
+    cause:'Glaucoma is a group of eye conditions that damage the optic nerve — the vital link between your eye and brain — typically due to elevated intraocular pressure (IOP). It is called the "silent thief of sight" because it causes no pain and no visual symptoms until irreversible damage is done.',
+    what:'Glaucoma management at our centre includes IOP measurement, visual field testing, OCT (optic nerve imaging), corneal thickness assessment, angle evaluation, and treatment through eye drops, selective laser trabeculoplasty (SLT), or YAG laser iridotomy for acute angle closure glaucoma.',
+    why:'Glaucoma is India\'s second leading cause of irreversible blindness. Over 12 million Indians have it — and 90% are undiagnosed. Regular screening, especially for those over 40, diabetics, and those with a family history, is the only way to catch it before vision is permanently lost.',
+    steps:['IOP Measurement & Risk Assessment','Visual Field Test & OCT Scan','Initiate Medical or Laser Treatment','Lifelong 6-monthly Monitoring'],
+    before:['Elevated eye pressure (often asymptomatic)','Gradual loss of peripheral vision','Tunnel vision in advanced stages','Halos around lights','Headaches & eye pain (acute type)'],
+    after:['IOP controlled & stabilised','Optic nerve damage halted','Remaining vision preserved','Risk of blindness dramatically reduced','Lifelong monitoring plan in place'],
+    benefits:['Comprehensive glaucoma screening camps','YAG laser iridotomy for acute cases','Selective laser trabeculoplasty (SLT)','OCT optic nerve imaging','Family screening programmes','24×7 emergency for acute angle-closure'],
+    trust:'Glaucoma cannot be cured, but it can be completely controlled when detected early. Dr. Kamalapriya\'s training at Aravind Eye Hospital — India\'s glaucoma centre of excellence — ensures the highest standard of glaucoma care.'
+  },
+  retina:{
+    cat:'Eye Care',title:'Retina & Diabetic Eye Care',img:'/mnt/user-data/uploads/eye_img1.jpg',
+    cause:'The retina is the light-sensitive lining at the back of the eye that sends visual signals to the brain. Diabetes damages the tiny blood vessels supplying the retina, causing diabetic retinopathy — the leading cause of blindness in working-age adults. ROP affects premature infants. Myopia causes retinal thinning and tears.',
+    what:'Our retinal services include dilated fundus examination, digital fundus photography, OCT imaging, fluorescein angiography, diabetic retinopathy grading, retinal tear detection and laser sealing, ROP screening for premature babies, and myopia management with ZEISS Myovision lenses.',
+    why:'Diabetic retinopathy has absolutely no symptoms in its early stages — yet by the time vision changes are noticed, significant irreversible damage may have already occurred. Annual retinal examination for every diabetic patient is not optional; it is medically essential.',
+    steps:['Dilated Retinal Examination','Digital Fundus Photography & OCT','Risk Classification & Counselling','Laser Treatment or Urgent Referral'],
+    before:['No symptoms in early diabetic retinopathy','Blurry or distorted central vision (advanced)','Floaters & flashes (retinal tears)','Sudden vision loss (detachment)','Gradual peripheral vision loss (myopia)'],
+    after:['Early problems detected & treated','Progression halted before vision loss','Retinal tears sealed with laser','Myopia progression slowed in children','Regular monitoring schedule established'],
+    benefits:['Digital retinal photography','Annual diabetic screening programme','ROP screening for premature babies','ZEISS Myovision myopia control lenses','Referral network for vitreoretinal surgery','Eye donation desk & 24×7 collection'],
+    trust:'With training at Aravind Eye Hospital and Lions Eye Hospital, Dr. Kamalapriya brings rare expertise in diabetic eye disease management to Karaikal — a region with a high prevalence of diabetes-related blindness.'
+  },
+  maxillo:{
+    cat:'Surgery',title:'Oral & Maxillofacial Surgery',img:null,
+    cause:'Impacted wisdom teeth cause pain, infection, cysts, and damage to adjacent teeth when they cannot fully erupt. Facial fractures from accidents require expert reduction and fixation. Oral tumours, cysts, and pathology require surgical removal. TMJ disorders cause chronic jaw pain and dysfunction.',
+    what:'Our panel of maxillofacial surgeons perform the full spectrum of oral and facial surgery: wisdom tooth and complex impaction removal, minor and major oral surgeries, open and closed reduction of fractured maxilla and mandible (jaw bones), cyst and tumour excision, and pre-implant bone grafting procedures.',
+    why:'Maxillofacial surgery requires the unique dual qualification of both dental and medical surgery. Our consulting surgeons — Dr. Karthigean (45 years), Dr. Janarthanan (10 years), and Prof. Dr. Jothikumar — bring a combined century of surgical experience to complex cases that others cannot manage.',
+    steps:['3D CBCT Imaging & Surgical Planning','Pre-operative Assessment & Preparation','Expert Surgical Procedure','Comprehensive Post-op Care & Review'],
+    before:['Pain from impacted wisdom teeth','Jaw injury or fracture','Facial swelling or abscess','Difficulty opening mouth','Oral growths or lesions'],
+    after:['Impaction safely removed','Jaw fracture correctly aligned & healed','Infection eliminated','Full oral function restored','Pathology confirmed & managed'],
+    benefits:['Dr. Karthigean – 45 years surgical experience','Prof. Jothikumar – FISOI, FICOI qualified','3D CBCT pre-surgical imaging','Minor & major surgery under the same roof','Conscious sedation options available','Comprehensive post-operative care protocol'],
+    trust:'Our maxillofacial panel brings a combined 85+ years of surgical experience. Complex cases that would require a trip to a major city can now be managed with the same standard of care right here in Karaikal.'
+  },
+  contactlens:{
+    cat:'Eye Care',title:'Contact Lens Clinic',img:'/mnt/user-data/uploads/lens_2.jpg',
+    cause:'Contact lenses offer an alternative to glasses for those with myopia, hyperopia, astigmatism, or presbyopia. Poor fitting or incorrect lens selection leads to discomfort, dry eyes, infections, and even corneal damage — making professional fitting essential.',
+    what:'Our contact lens clinic provides professional fitting for all major brands — daily disposables, monthly lenses, toric lenses for astigmatism, and multifocal lenses for presbyopia. We specialise in ZEISS Myovision lenses — clinically proven to slow myopia progression in children by up to 37%.',
+    why:'Incorrectly fitted contact lenses are a leading cause of preventable eye infections and corneal ulcers. Professional fitting at a specialist clinic ensures correct oxygen transmission, fit, and moisture retention — protecting your long-term ocular health.',
+    steps:['Comprehensive Refraction & Ocular Health Check','Contact Lens Fitting Assessment','Trial Lens Fitting & Comfort Evaluation','Prescription & Aftercare Programme'],
+    before:['Dependence on glasses','Difficulty with sports or outdoor activities','Existing poorly fitted lenses causing discomfort','Myopia progressing rapidly in children'],
+    after:['Comfortable, clear vision without glasses','Correct lens matched to eye shape','ZEISS Myovision slowing myopia in children','Professional aftercare plan'],
+    benefits:['All major branded lenses available','ZEISS Myovision for myopia control (children)','Multifocal contact lenses for presbyopia','Toric lenses for astigmatism','Keratoconus management lenses','Branded optical dispensing with ZEISS lenses'],
+    trust:'ZEISS Myovision lenses — exclusively fitted by qualified professionals — have clinical evidence showing up to 37% reduction in myopia progression in children aged 6–16, protecting their vision long-term.'
+  },
+  squint:{
+    cat:'Eye Care',title:'Squint & Amblyopia (Lazy Eye)',img:null,
+    cause:'Squint (strabismus) occurs when the eyes fail to align properly — one eye turns in, out, up, or down. Amblyopia (lazy eye) develops when one eye sends weaker signals to the brain, which then begins to ignore that eye. Both are most common in children and become harder to treat the longer they are left.',
+    what:'Treatment includes corrective glasses, patching therapy (covering the good eye to force the lazy eye to work), Orthoptek vision therapy, and squint surgery to adjust the eye muscles when non-surgical methods are insufficient. Early intervention before age 7 gives the best results.',
+    why:'The visual system develops until age 7–9. Amblyopia treated after this critical window may leave permanent vision impairment in the affected eye. Early detection through school eye screenings and prompt treatment can completely reverse amblyopia and restore binocular vision.',
+    steps:['Visual Acuity Testing & Orthoptic Evaluation','Glasses Prescription & Patching Protocol','Orthoptek Vision Therapy Sessions','Surgical Correction if Required'],
+    before:['One eye turning inward/outward','Poor depth perception','Head tilting to see clearly','Child failing school vision tests','Eye strain & double vision'],
+    after:['Eyes properly aligned','Full vision restored in lazy eye','Normal depth perception','Binocular vision achieved','Surgical correction if needed — high success'],
+    benefits:['Orthoptek — advanced vision therapy system','Early detection programme for schools','Non-surgical first-line approach','Experienced amblyopia management protocol','Preschool eye screening available','Family counselling & parent training'],
+    trust:'Treating amblyopia before the critical window of 7–9 years can completely restore normal vision. Dr. Kamalapriya\'s experience with hundreds of squint and amblyopia cases ensures the best possible outcome for your child.'
+  }
+};
+
+function openSvcModal(id){
+  const s=svcs[id];if(!s)return;
+  const imgHtml=s.img?`<img src="${s.img}" alt="${s.title}">`:`<div style="width:100%;height:100%;background:linear-gradient(135deg,var(--orange-bg),var(--orange-soft));display:flex;align-items:center;justify-content:center;font-size:4rem">🏥</div>`;
+  document.getElementById('smodalBody').innerHTML=`
+    <div class="smodal-hero">
+      ${imgHtml}
+      <div class="smodal-hero-overlay"></div>
+      <div class="smodal-hero-content">
+        <span class="smodal-cat">${s.cat}</span>
+        <div class="smodal-title">${s.title}</div>
+      </div>
+    </div>
+    <div class="smodal-body">
+      <div class="sm-row">
+        <div>
+          <div class="sm-sec-label">Why Does This Problem Occur?</div>
+          <p class="sm-text">${s.cause}</p>
+        </div>
+        <div>
+          <div class="sm-sec-label">What Is the Procedure?</div>
+          <p class="sm-text">${s.what}</p>
+        </div>
+      </div>
+      <div class="sm-full">
+        <div class="sm-sec-label">Your Treatment Journey</div>
+        <div class="sm-steps">${s.steps.map((st,i)=>`<div class="sm-step"><div class="sm-step-n">0${i+1}</div><div class="sm-step-t">${st}</div></div>`).join('')}</div>
+      </div>
+      <div class="sm-full">
+        <div class="sm-sec-label">Before & After Treatment</div>
+        <div class="sm-before-after">
+          <div class="sm-ba before"><div class="sm-ba-label">Before Treatment</div><ul>${s.before.map(b=>`<li>${b}</li>`).join('')}</ul></div>
+          <div class="sm-ba after"><div class="sm-ba-label">After Treatment</div><ul>${s.after.map(a=>`<li>${a}</li>`).join('')}</ul></div>
+        </div>
+      </div>
+      <div class="sm-row">
+        <div>
+          <div class="sm-sec-label">Why Choose Dr. Reddy's?</div>
+          <p class="sm-text">${s.why}</p>
+        </div>
+        <div>
+          <div class="sm-sec-label">Key Benefits</div>
+          <ul class="sm-list">${s.benefits.map(b=>`<li>${b}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="sm-trust">
+        <span class="sm-trust-icon">🏆</span>
+        <div class="sm-trust-text"><strong>Why Trust Us for This Treatment</strong><span>${s.trust}</span></div>
+      </div>
+      <button class="sm-book-btn" onclick="closeModal('smodal');openAppt()">Book This Treatment Now</button>
+    </div>
+  `;
+  openModal('smodal');
+}
+
+// APPOINTMENT
+let curStep=1;
+function openAppt(){
+  curStep=1;showStep(1);
+  document.getElementById('aDate').min=new Date().toISOString().split('T')[0];
+  openModal('amodal');
+}
+function showStep(n){
+  [1,2,3,4].forEach(i=>{
+    document.getElementById('step'+i).classList.toggle('active',i===n);
+    const el=document.getElementById('astep'+i);
+    if(!el)return;
+    el.classList.toggle('active',i===n);
+    el.classList.toggle('done',i<n);
+  });
+  curStep=n;
+}
+function goStep(n){
+  if(n===2){
+    const nm=document.getElementById('aName').value.trim();
+    const ph=document.getElementById('aPhone').value.trim();
+    if(!nm){alert('Please enter your full name.');return}
+    if(!ph||ph.length<10){alert('Please enter a valid 10-digit phone number.');return}
+  }
+  if(n===3){
+    const svc=document.getElementById('aService').value;
+    const dt=document.getElementById('aDate').value;
+    if(!svc){alert('Please select a service.');return}
+    if(!dt){alert('Please choose a preferred date.');return}
+    buildConfirm();
+  }
+  showStep(n);
+}
+function buildConfirm(){
+  const rows=[
+    ['Name',document.getElementById('aName').value],
+    ['Phone',document.getElementById('aPhone').value],
+    ['Age/Gender',(document.getElementById('aAge').value||'—')+' / '+(document.getElementById('aGender').value||'—')],
+    ['Service',document.getElementById('aService').value],
+    ['Date',new Date(document.getElementById('aDate').value).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})],
+    ['Time',document.getElementById('aTime').value],
+    ['Concern',document.getElementById('aConcern').value||'Not specified']
+  ];
+  document.getElementById('confirmCard').innerHTML=rows.map(r=>`<div class="confirm-row"><span class="confirm-key">${r[0]}</span><span class="confirm-val">${r[1]}</span></div>`).join('');
+}
+function submitAppt(){
+  const ref='DRK-'+Date.now().toString().slice(-6);
+  document.getElementById('successPhone').textContent=document.getElementById('aPhone').value;
+  document.getElementById('successRef').textContent='Reference: '+ref;
+  showStep(4);
+  showToast('✅ Appointment requested! We\'ll call you shortly.');
+}
+</script>
+</body>
+</html>
