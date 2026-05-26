@@ -393,6 +393,157 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
   .trust-grid{grid-template-columns:1fr 1fr}
   .hero-stats{gap:20px}
 }
+
+/* ===== RUNNING SERVICES SECTION — INFINITE AUTO MARQUEE ===== */
+#running-services{padding:80px 0;background:var(--white);overflow:hidden}
+.rs-header{padding:0 5%;margin-bottom:52px}
+.rs-lane-label{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.rs-lane-tag{background:var(--orange);color:var(--white);padding:5px 16px;border-radius:50px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.rs-lane-line{flex:1;height:1px;background:var(--border2)}
+.rs-marquee-wrap{overflow:hidden;padding:8px 0;margin-bottom:20px;-webkit-mask:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%);mask:linear-gradient(90deg,transparent 0%,#000 8%,#000 92%,transparent 100%)}
+.rs-marquee-wrap:hover .rs-marquee-track{animation-play-state:paused}
+.rs-marquee-track{display:flex;gap:20px;width:max-content;animation:rsRun 38s linear infinite}
+.rs-marquee-track.rev{animation:rsRun 42s linear infinite reverse}
+@keyframes rsRun{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.rs-card{width:230px;flex-shrink:0;background:var(--white);border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;cursor:none;transition:border-color .3s,box-shadow .3s,transform .3s}
+.rs-card:hover{border-color:var(--orange);box-shadow:0 12px 36px rgba(232,88,10,.16);transform:translateY(-5px)}
+.rs-card-img{height:138px;overflow:hidden;position:relative}
+.rs-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .55s}
+.rs-card:hover .rs-card-img img{transform:scale(1.09)}
+.rs-card-icon{width:100%;height:100%;background:linear-gradient(135deg,var(--orange-bg),var(--orange-soft));display:flex;align-items:center;justify-content:center;font-size:2.8rem}
+.rs-card-body{padding:14px 16px 16px}
+.rs-card-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--slate);margin-bottom:4px}
+.rs-card-desc{font-size:.7rem;color:var(--text2);line-height:1.6}
+.rs-card-badge{position:absolute;top:10px;left:10px;background:var(--orange);color:var(--white);padding:3px 10px;border-radius:50px;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+
+/* ===== COMMON PROBLEMS ===== */
+#dental-problems,#eye-problems{padding:80px 5%}
+#dental-problems{background:var(--offwhite)}
+#eye-problems{background:var(--white)}
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;margin-top:44px}
+.prob-card{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;cursor:none;transition:all .35s cubic-bezier(.23,1,.32,1)}
+#eye-problems .prob-card{background:var(--offwhite)}
+.prob-card:hover{border-color:var(--orange);box-shadow:0 10px 32px rgba(232,88,10,.12);transform:translateY(-3px)}
+.prob-card-head{display:flex;align-items:center;gap:14px;padding:20px 20px 0}
+.prob-icon{width:48px;height:48px;background:var(--orange-bg);border:1.5px solid var(--orange3);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;flex-shrink:0}
+.prob-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--slate)}
+.prob-body{padding:14px 20px 20px}
+.prob-img{width:100%;height:110px;object-fit:cover;border-radius:12px;margin-bottom:12px}
+.prob-img-placeholder{width:100%;height:110px;border-radius:12px;background:linear-gradient(135deg,var(--orange-bg),var(--cream));display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:12px}
+.prob-text{font-size:.78rem;color:var(--text2);line-height:1.75;margin-bottom:12px}
+.prob-symptoms{display:flex;flex-wrap:wrap;gap:6px}
+.prob-sym{background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:3px 10px;border-radius:50px;font-size:.63rem;font-weight:600}
+.prob-cta{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;color:var(--orange);font-weight:700;margin-top:12px;transition:gap .25s}
+.prob-card:hover .prob-cta{gap:10px}
+
+/* ===== ENHANCED CONSULTANTS ===== */
+.cons-card-enhanced{background:var(--white);border:1.5px solid var(--border2);border-radius:24px;overflow:hidden;transition:all .4s cubic-bezier(.23,1,.32,1);cursor:none}
+.cons-card-enhanced:hover{border-color:var(--orange);box-shadow:0 16px 48px rgba(232,88,10,.14);transform:translateY(-4px)}
+.cons-card-top{background:linear-gradient(135deg,var(--orange-bg),var(--cream));padding:28px 24px 20px;text-align:center;position:relative}
+.cons-avatar-lg{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--white);margin:0 auto 12px;border:3px solid var(--white);box-shadow:0 6px 20px var(--shadow)}
+.cons-exp-pill{position:absolute;top:14px;right:14px;background:var(--orange);color:var(--white);padding:4px 12px;border-radius:50px;font-size:.65rem;font-weight:700}
+.cons-card-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--slate);margin-bottom:3px}
+.cons-card-qual{font-size:.68rem;color:var(--orange);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.cons-card-spec{font-size:.78rem;color:var(--text2)}
+.cons-card-body{padding:18px 22px}
+.cons-expertise{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.cons-exp-tag{background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:4px 11px;border-radius:50px;font-size:.66rem;font-weight:600}
+.cons-about{font-size:.78rem;color:var(--text2);line-height:1.72;margin-bottom:14px}
+.cons-view-btn{width:100%;background:var(--orange-bg);border:1.5px solid var(--orange3);color:var(--orange);padding:10px;border-radius:10px;font-size:.78rem;font-weight:700;cursor:none;transition:all .3s}
+.cons-view-btn:hover{background:var(--orange);color:var(--white);border-color:var(--orange)}
+.cons-grid-enhanced{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px}
+
+/* CONSULTANT MODAL */
+.cmodal-overlay{position:fixed;inset:0;z-index:2500;background:rgba(26,26,46,.72);backdrop-filter:blur(14px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .35s}
+.cmodal-overlay.open{opacity:1;pointer-events:all}
+.cmodal{background:var(--white);border-radius:28px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.93) translateY(30px);transition:all .4s cubic-bezier(.23,1,.32,1)}
+.cmodal-overlay.open .cmodal{transform:none}
+.cmodal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;background:var(--offwhite);border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:none;color:var(--text2);z-index:10;transition:all .25s}
+.cmodal-close:hover{background:var(--orange);color:var(--white)}
+.cmodal-header{background:linear-gradient(135deg,var(--orange-bg),var(--cream));padding:36px 36px 28px;border-radius:28px 28px 0 0;display:flex;gap:22px;align-items:center}
+.cmodal-av{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--white);flex-shrink:0;border:3px solid var(--white);box-shadow:0 8px 24px var(--shadow)}
+.cmodal-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--slate);margin-bottom:4px}
+.cmodal-qual{font-size:.72rem;color:var(--orange);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.cmodal-role{font-size:.84rem;color:var(--text2);margin-bottom:12px}
+.cmodal-stat-row{display:flex;gap:14px}
+.cmodal-stat{background:var(--white);border-radius:10px;padding:8px 14px;text-align:center;box-shadow:0 2px 10px var(--shadow2)}
+.cmodal-stat-n{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--orange);line-height:1}
+.cmodal-stat-l{font-size:.58rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3)}
+.cmodal-body{padding:28px 36px}
+.cmodal-sec{margin-bottom:24px}
+.cmodal-sec-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.16em;color:var(--orange);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.cmodal-sec-label::after{content:'';flex:1;height:1px;background:var(--border2)}
+.cmodal-text{font-size:.86rem;color:var(--text2);line-height:1.85}
+.cmodal-tags{display:flex;flex-wrap:wrap;gap:8px}
+.cmodal-tag{background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:5px 13px;border-radius:50px;font-size:.7rem;font-weight:600}
+.cmodal-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.cmodal-list li{display:flex;gap:10px;font-size:.84rem;color:var(--text2);line-height:1.65}
+.cmodal-list li::before{content:'';width:8px;height:8px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:6px}
+.cmodal-book{width:100%;background:linear-gradient(135deg,var(--orange),var(--orange2));color:var(--white);border:none;padding:14px;border-radius:14px;font-size:.88rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.03em;margin-top:8px}
+.cmodal-book:hover{transform:scale(1.02);box-shadow:0 10px 30px var(--shadow)}
+
+/* ===== LOCATION SECTION ===== */
+#location{padding:80px 5%;background:var(--cream)}
+.loc-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;margin-top:48px;align-items:start}
+.loc-info{}
+.loc-address-card{background:var(--white);border:1.5px solid var(--border2);border-radius:20px;padding:28px;margin-bottom:20px;box-shadow:0 4px 20px var(--shadow2)}
+.loc-address-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--slate);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.loc-row{display:flex;gap:14px;margin-bottom:16px;align-items:flex-start}
+.loc-icon{width:40px;height:40px;background:var(--orange-bg);border:1.5px solid var(--orange3);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.loc-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);font-weight:700;margin-bottom:2px}
+.loc-val{font-size:.86rem;color:var(--text);line-height:1.6}
+.loc-directions-btn{width:100%;background:var(--orange);color:var(--white);border:none;padding:14px;border-radius:14px;font-size:.86rem;font-weight:700;cursor:none;transition:all .3s;letter-spacing:.03em;display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;margin-top:4px}
+.loc-directions-btn:hover{background:var(--orange2);transform:translateY(-2px);box-shadow:0 8px 24px var(--shadow)}
+.loc-landmarks{background:var(--orange-bg);border:1.5px solid var(--orange3);border-radius:16px;padding:18px 22px}
+.loc-landmark-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);font-weight:700;margin-bottom:12px}
+.loc-landmark-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.loc-landmark-list li{display:flex;gap:8px;font-size:.8rem;color:var(--text2);align-items:center}
+.loc-landmark-list li::before{content:'📍';font-size:.85rem}
+.loc-map-wrap{border-radius:24px;overflow:hidden;height:420px;border:2px solid var(--border2);box-shadow:0 12px 48px var(--shadow2)}
+.loc-map-wrap iframe{width:100%;height:100%;border:none}
+
+/* ===== GOOGLE REVIEWS SECTION — INFINITE AUTO MARQUEE ===== */
+#reviews{padding:80px 0;background:var(--offwhite);overflow:hidden}
+.reviews-top{padding:0 5%;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:52px}
+.reviews-rating-block{display:flex;align-items:center;gap:24px;background:var(--white);border:1.5px solid var(--border2);border-radius:20px;padding:20px 28px;box-shadow:0 4px 20px var(--shadow2)}
+.rating-big{font-family:'Bebas Neue',sans-serif;font-size:4rem;color:var(--orange);line-height:1}
+.rating-detail{}
+.rating-stars{color:#F59E0B;font-size:1.2rem;letter-spacing:2px;margin-bottom:4px}
+.rating-count{font-size:.75rem;color:var(--text3);font-weight:600}
+.rating-google{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:.72rem;color:var(--text3);font-weight:600}
+.google-g{width:16px;height:16px;border-radius:50%;background:#4285F4;display:inline-flex;align-items:center;justify-content:center;color:var(--white);font-size:.55rem;font-weight:700}
+/* Marquee rows */
+.rev-marquee-wrap{overflow:hidden;padding:10px 0;margin-bottom:18px;-webkit-mask:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%);mask:linear-gradient(90deg,transparent 0%,#000 6%,#000 94%,transparent 100%)}
+.rev-marquee-wrap:hover .rev-track{animation-play-state:paused}
+.rev-track{display:flex;gap:18px;width:max-content;animation:revRun 50s linear infinite}
+.rev-track.rev{animation:revRun 55s linear infinite reverse}
+@keyframes revRun{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.review-card{width:300px;flex-shrink:0;background:var(--white);border:1.5px solid var(--border2);border-radius:20px;padding:22px;transition:border-color .3s,box-shadow .3s,transform .3s;cursor:default}
+.review-card:hover{border-color:var(--orange);box-shadow:0 10px 32px rgba(232,88,10,.1);transform:translateY(-4px)}
+.review-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.review-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--white);flex-shrink:0}
+.review-name{font-size:.86rem;font-weight:700;color:var(--slate);margin-bottom:2px}
+.review-date{font-size:.65rem;color:var(--text3)}
+.review-stars{color:#F59E0B;font-size:.9rem;letter-spacing:1px;margin-bottom:10px}
+.review-text{font-size:.78rem;color:var(--text2);line-height:1.75;font-style:italic}
+.review-service{display:inline-block;background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:3px 10px;border-radius:50px;font-size:.62rem;font-weight:600;margin-top:10px}
+.rev-lane-label{padding:0 5%;display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.rev-lane-tag{background:var(--orange-bg);border:1px solid var(--orange3);color:var(--orange);padding:4px 14px;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.rev-lane-line{flex:1;height:1px;background:var(--border2)}
+
+/* RESPONSIVE ADDITIONS */
+@media(max-width:1024px){
+  .loc-grid{grid-template-columns:1fr}
+  .loc-map-wrap{height:300px}
+  .cons-grid-enhanced{grid-template-columns:1fr 1fr}
+  .prob-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .cons-grid-enhanced{grid-template-columns:1fr}
+  .prob-grid{grid-template-columns:1fr}
+  .reviews-rating-block{flex-direction:column;text-align:center}
+  .rs-card{min-width:200px}
+}
 </style>
 </head>
 <body>
@@ -402,6 +553,7 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
 
 <!-- FLOATING BOOK -->
 <button class="float-book" onclick="openAppt()">📅 Book Appointment</button>
+<a href="https://wa.me/919488551465" target="_blank" class="float-wa" style="position:fixed;bottom:80px;right:24px;z-index:998;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;font-size:1.5rem;transition:transform .3s" onmouseover="this.style.transform='scale(1.12)'" onmouseout="this.style.transform='scale(1)'">💬</a>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -415,9 +567,11 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
   <ul class="nav-links">
     <li><a href="#doctors">Doctors</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#dental-problems">Problems</a></li>
     <li><a href="#prevent">Prevention</a></li>
     <li><a href="#facilities">Facilities</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#location">Location</a></li>
   </ul>
   <div class="nav-right">
     <a href="tel:8438224097" class="nav-phone">📞 84382 24097</a>
@@ -492,6 +646,71 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
     <div class="trust-item reveal rd2"><span class="trust-icon">🦷</span><div class="trust-label">Treatments</div><div class="trust-val">50+</div></div>
     <div class="trust-item reveal rd3"><span class="trust-icon">🌡️</span><div class="trust-label">Sterilization</div><div class="trust-val">ISO</div></div>
     <div class="trust-item reveal rd4"><span class="trust-icon">⏰</span><div class="trust-label">Emergency</div><div class="trust-val">24×7</div></div>
+  </div>
+</section>
+
+<!-- RUNNING SERVICES SECTION -->
+<section id="running-services">
+  <div class="rs-header">
+    <div class="sec-label reveal">What We Offer</div>
+    <h2 class="sec-title reveal">Our <em>Speciality</em> Services</h2>
+    <p class="sec-sub reveal">World-class dental and eye care under one roof — hover to pause and explore.</p>
+  </div>
+
+  <!-- DENTAL ROW -->
+  <div class="rs-lane-label reveal">
+    <span class="rs-lane-tag">🦷 Dental Care</span>
+    <div class="rs-lane-line"></div>
+  </div>
+  <div class="rs-marquee-wrap">
+    <div class="rs-marquee-track">
+      <!-- set 1 -->
+      <div class="rs-card"><div class="rs-card-img"><img src="images/treating_place.webp" alt="Implants"><div class="rs-card-badge">Implants</div></div><div class="rs-card-body"><div class="rs-card-name">Dental Implants</div><p class="rs-card-desc">Permanent Osstem implants — look & feel like natural teeth forever.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/equipments.jpg" alt="RCT"><div class="rs-card-badge">Endodontics</div></div><div class="rs-card-body"><div class="rs-card-name">Root Canal</div><p class="rs-card-desc">Painless precision RCT with advanced rotary instruments & apex locators.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/tooth.jpg" alt="Smile"><div class="rs-card-badge">Cosmetic</div></div><div class="rs-card-body"><div class="rs-card-name">Smile Designing</div><p class="rs-card-desc">Digital smile design, veneers, crowns & whitening for a perfect smile.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">😁</div><div class="rs-card-badge">Orthodontics</div></div><div class="rs-card-body"><div class="rs-card-name">Braces & Invisalign</div><p class="rs-card-desc">Self-ligating braces & clear aligners for all ages.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/original_image.jpg" alt="Kids"><div class="rs-card-badge">Paediatric</div></div><div class="rs-card-body"><div class="rs-card-name">Pediatric Dentistry</div><p class="rs-card-desc">Gentle anxiety-free care with a dedicated children's play zone.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">🦷</div><div class="rs-card-badge">Periodontics</div></div><div class="rs-card-body"><div class="rs-card-name">Gum Treatment</div><p class="rs-card-desc">Scaling, root planing, soft-tissue grafting & gingivectomy.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/doctor_with_patient.jpg" alt="Surgery"><div class="rs-card-badge">Surgery</div></div><div class="rs-card-body"><div class="rs-card-name">Maxillofacial Surgery</div><p class="rs-card-desc">Complex impaction, jaw fractures & oral-facial procedures.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/original_waiting_area.jpg" alt="Dental"><div class="rs-card-badge">General</div></div><div class="rs-card-body"><div class="rs-card-name">General Dentistry</div><p class="rs-card-desc">Routine check-ups, fillings & preventive care for the family.</p></div></div>
+      <!-- set 2 (duplicate for seamless loop) -->
+      <div class="rs-card"><div class="rs-card-img"><img src="images/treating_place.webp" alt="Implants"><div class="rs-card-badge">Implants</div></div><div class="rs-card-body"><div class="rs-card-name">Dental Implants</div><p class="rs-card-desc">Permanent Osstem implants — look & feel like natural teeth forever.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/equipments.jpg" alt="RCT"><div class="rs-card-badge">Endodontics</div></div><div class="rs-card-body"><div class="rs-card-name">Root Canal</div><p class="rs-card-desc">Painless precision RCT with advanced rotary instruments & apex locators.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/tooth.jpg" alt="Smile"><div class="rs-card-badge">Cosmetic</div></div><div class="rs-card-body"><div class="rs-card-name">Smile Designing</div><p class="rs-card-desc">Digital smile design, veneers, crowns & whitening for a perfect smile.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">😁</div><div class="rs-card-badge">Orthodontics</div></div><div class="rs-card-body"><div class="rs-card-name">Braces & Invisalign</div><p class="rs-card-desc">Self-ligating braces & clear aligners for all ages.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/original_image.jpg" alt="Kids"><div class="rs-card-badge">Paediatric</div></div><div class="rs-card-body"><div class="rs-card-name">Pediatric Dentistry</div><p class="rs-card-desc">Gentle anxiety-free care with a dedicated children's play zone.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">🦷</div><div class="rs-card-badge">Periodontics</div></div><div class="rs-card-body"><div class="rs-card-name">Gum Treatment</div><p class="rs-card-desc">Scaling, root planing, soft-tissue grafting & gingivectomy.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/doctor_with_patient.jpg" alt="Surgery"><div class="rs-card-badge">Surgery</div></div><div class="rs-card-body"><div class="rs-card-name">Maxillofacial Surgery</div><p class="rs-card-desc">Complex impaction, jaw fractures & oral-facial procedures.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/original_waiting_area.jpg" alt="Dental"><div class="rs-card-badge">General</div></div><div class="rs-card-body"><div class="rs-card-name">General Dentistry</div><p class="rs-card-desc">Routine check-ups, fillings & preventive care for the family.</p></div></div>
+    </div>
+  </div>
+
+  <!-- EYE ROW -->
+  <div class="rs-lane-label reveal" style="margin-top:32px">
+    <span class="rs-lane-tag">👁️ Eye Care</span>
+    <div class="rs-lane-line"></div>
+  </div>
+  <div class="rs-marquee-wrap">
+    <div class="rs-marquee-track rev">
+      <!-- set 1 -->
+      <div class="rs-card"><div class="rs-card-img"><img src="images/wrong_lens_in_cataract_op.jpg" alt="Cataract"><div class="rs-card-badge">Surgery</div></div><div class="rs-card-body"><div class="rs-card-name">Cataract Surgery</div><p class="rs-card-desc">Advanced phacoemulsification with premium IOLs for crystal-clear vision.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/eye_img1.jpg" alt="Retina"><div class="rs-card-badge">Retina</div></div><div class="rs-card-body"><div class="rs-card-name">Retina & Diabetic Care</div><p class="rs-card-desc">Advanced retinal imaging, diabetic retinopathy grading & ROP screening.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/lens_place.jpg" alt="Lenses"><div class="rs-card-badge">Optical</div></div><div class="rs-card-body"><div class="rs-card-name">Contact Lens Clinic</div><p class="rs-card-desc">All brands including ZEISS Myovision for myopia control in children.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">👁️</div><div class="rs-card-badge">Glaucoma</div></div><div class="rs-card-body"><div class="rs-card-name">Glaucoma Management</div><p class="rs-card-desc">Comprehensive screening, YAG laser & long-term optic nerve protection.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/pleace_place.webp" alt="Optical"><div class="rs-card-badge">Optical</div></div><div class="rs-card-body"><div class="rs-card-name">Optical Dispensing</div><p class="rs-card-desc">ZEISS-certified eyewear with full range of branded frames & lenses.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">🔭</div><div class="rs-card-badge">Squint</div></div><div class="rs-card-body"><div class="rs-card-name">Squint & Amblyopia</div><p class="rs-card-desc">Orthoptek vision therapy & surgical correction for squint & lazy eye.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/doctor_with_patient.jpg" alt="Eye Exam"><div class="rs-card-badge">Consultation</div></div><div class="rs-card-body"><div class="rs-card-name">Comprehensive Eye Exam</div><p class="rs-card-desc">Detailed refraction, slit lamp examination & full health evaluation.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">👶</div><div class="rs-card-badge">Paediatric</div></div><div class="rs-card-body"><div class="rs-card-name">Paediatric Ophthalmology</div><p class="rs-card-desc">School screening, myopia control & early intervention for children.</p></div></div>
+      <!-- set 2 duplicate -->
+      <div class="rs-card"><div class="rs-card-img"><img src="images/wrong_lens_in_cataract_op.jpg" alt="Cataract"><div class="rs-card-badge">Surgery</div></div><div class="rs-card-body"><div class="rs-card-name">Cataract Surgery</div><p class="rs-card-desc">Advanced phacoemulsification with premium IOLs for crystal-clear vision.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/eye_img1.jpg" alt="Retina"><div class="rs-card-badge">Retina</div></div><div class="rs-card-body"><div class="rs-card-name">Retina & Diabetic Care</div><p class="rs-card-desc">Advanced retinal imaging, diabetic retinopathy grading & ROP screening.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/lens_place.jpg" alt="Lenses"><div class="rs-card-badge">Optical</div></div><div class="rs-card-body"><div class="rs-card-name">Contact Lens Clinic</div><p class="rs-card-desc">All brands including ZEISS Myovision for myopia control in children.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">👁️</div><div class="rs-card-badge">Glaucoma</div></div><div class="rs-card-body"><div class="rs-card-name">Glaucoma Management</div><p class="rs-card-desc">Comprehensive screening, YAG laser & long-term optic nerve protection.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/pleace_place.webp" alt="Optical"><div class="rs-card-badge">Optical</div></div><div class="rs-card-body"><div class="rs-card-name">Optical Dispensing</div><p class="rs-card-desc">ZEISS-certified eyewear with full range of branded frames & lenses.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">🔭</div><div class="rs-card-badge">Squint</div></div><div class="rs-card-body"><div class="rs-card-name">Squint & Amblyopia</div><p class="rs-card-desc">Orthoptek vision therapy & surgical correction for squint & lazy eye.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><img src="images/doctor_with_patient.jpg" alt="Eye Exam"><div class="rs-card-badge">Consultation</div></div><div class="rs-card-body"><div class="rs-card-name">Comprehensive Eye Exam</div><p class="rs-card-desc">Detailed refraction, slit lamp examination & full health evaluation.</p></div></div>
+      <div class="rs-card"><div class="rs-card-img"><div class="rs-card-icon">👶</div><div class="rs-card-badge">Paediatric</div></div><div class="rs-card-body"><div class="rs-card-name">Paediatric Ophthalmology</div><p class="rs-card-desc">School screening, myopia control & early intervention for children.</p></div></div>
+    </div>
   </div>
 </section>
 
@@ -642,6 +861,206 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
   </div>
 </section>
 
+<!-- DENTAL COMMON PROBLEMS -->
+<section id="dental-problems">
+  <div class="sec-label reveal">Dental Care</div>
+  <h2 class="sec-title reveal">Common <em>Dental</em> Problems</h2>
+  <p class="sec-sub reveal">Recognise these conditions early and get expert treatment before they worsen — saving your teeth and your smile.</p>
+  <div class="prob-grid">
+
+    <div class="prob-card reveal" onclick="openSvcModal('rct')">
+      <div class="prob-card-head">
+        <div class="prob-icon">🦷</div>
+        <div class="prob-name">Toothache & Decay</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/tooth.jpg" alt="Tooth Decay">
+        <p class="prob-text">Cavities and tooth decay are the most common dental issue — caused by plaque bacteria that break down tooth enamel. Left untreated, they progress to the pulp causing severe pain.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Sharp Pain</span><span class="prob-sym">Sensitivity to Hot/Cold</span><span class="prob-sym">Dark Spots</span><span class="prob-sym">Bad Breath</span>
+        </div>
+        <span class="prob-cta">Get Treatment →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd1" onclick="openSvcModal('perio')">
+      <div class="prob-card-head">
+        <div class="prob-icon">😬</div>
+        <div class="prob-name">Gum Disease</div>
+      </div>
+      <div class="prob-body">
+        <div class="prob-img-placeholder">🦠</div>
+        <p class="prob-text">Gingivitis and periodontitis affect gum health, causing bleeding, swelling, and eventual tooth loss. India has an alarmingly high prevalence of gum disease due to poor oral hygiene awareness.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Bleeding Gums</span><span class="prob-sym">Swollen Gums</span><span class="prob-sym">Loose Teeth</span><span class="prob-sym">Bad Odour</span>
+        </div>
+        <span class="prob-cta">Get Treatment →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd2" onclick="openSvcModal('implants')">
+      <div class="prob-card-head">
+        <div class="prob-icon">🕳️</div>
+        <div class="prob-name">Missing Teeth</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/treating_place.webp" alt="Implants">
+        <p class="prob-text">Tooth loss affects chewing, speech, facial structure, and self-confidence. Modern dental implants restore full function with a permanent, natural-looking replacement that lasts a lifetime.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Difficulty Chewing</span><span class="prob-sym">Shifting Teeth</span><span class="prob-sym">Bone Loss</span><span class="prob-sym">Facial Sagging</span>
+        </div>
+        <span class="prob-cta">Get Implants →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal" onclick="openSvcModal('ortho')">
+      <div class="prob-card-head">
+        <div class="prob-icon">↔️</div>
+        <div class="prob-name">Crooked & Misaligned Teeth</div>
+      </div>
+      <div class="prob-body">
+        <div class="prob-img-placeholder">😁</div>
+        <p class="prob-text">Crowded, gapped, or misaligned teeth cause bite problems, difficulty cleaning, and affect appearance. Orthodontic treatment straightens teeth and corrects jaw relationships at any age.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Crowding</span><span class="prob-sym">Gaps</span><span class="prob-sym">Overbite/Underbite</span><span class="prob-sym">Jaw Pain</span>
+        </div>
+        <span class="prob-cta">Straighten Now →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd1" onclick="openSvcModal('smile')">
+      <div class="prob-card-head">
+        <div class="prob-icon">✨</div>
+        <div class="prob-name">Stained & Discoloured Teeth</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/equipments.jpg" alt="Whitening">
+        <p class="prob-text">Tea, coffee, tobacco, and certain medications cause stubborn staining. Professional whitening and veneers can dramatically brighten your smile in a single visit.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Yellow Teeth</span><span class="prob-sym">Brown Stains</span><span class="prob-sym">Uneven Colour</span><span class="prob-sym">Loss of Brightness</span>
+        </div>
+        <span class="prob-cta">Brighten Smile →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd2" onclick="openSvcModal('pediatric')">
+      <div class="prob-card-head">
+        <div class="prob-icon">👶</div>
+        <div class="prob-name">Children's Dental Issues</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/original_image.jpg" alt="Kids Dental">
+        <p class="prob-text">Early childhood caries, delayed eruption, thumb-sucking habits, and early orthodontic issues need prompt attention. Our children's dental unit ensures anxiety-free care for kids from age 2 onwards.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Milk Tooth Cavities</span><span class="prob-sym">Delayed Teeth</span><span class="prob-sym">Habit Control</span><span class="prob-sym">Space Maintenance</span>
+        </div>
+        <span class="prob-cta">Kids' Dental Care →</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EYE COMMON PROBLEMS -->
+<section id="eye-problems">
+  <div class="sec-label reveal">Eye Care</div>
+  <h2 class="sec-title reveal">Common <em>Eye</em> Problems</h2>
+  <p class="sec-sub reveal">From blurry vision to complex eye conditions — early detection and expert treatment preserve your sight for life.</p>
+  <div class="prob-grid">
+
+    <div class="prob-card reveal" onclick="openSvcModal('cataract')">
+      <div class="prob-card-head">
+        <div class="prob-icon">☁️</div>
+        <div class="prob-name">Cataracts</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/wrong_lens_in_cataract_op.jpg" alt="Cataract">
+        <p class="prob-text">The most common cause of blindness worldwide — cataracts cloud the eye's lens over time, making vision blurry and colours dull. Modern phacoemulsification surgery restores vision in minutes.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Cloudy Vision</span><span class="prob-sym">Glare at Night</span><span class="prob-sym">Faded Colours</span><span class="prob-sym">Frequent Prescription Change</span>
+        </div>
+        <span class="prob-cta">Get Treatment →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd1" onclick="openSvcModal('glaucoma')">
+      <div class="prob-card-head">
+        <div class="prob-icon">👁️</div>
+        <div class="prob-name">Glaucoma</div>
+      </div>
+      <div class="prob-body">
+        <div class="prob-img-placeholder">🔬</div>
+        <p class="prob-text">The "silent thief of sight" — glaucoma damages the optic nerve slowly with no pain or early warning. If left undetected, it causes irreversible blindness. Annual screening saves vision.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">No Early Symptoms</span><span class="prob-sym">Tunnel Vision</span><span class="prob-sym">Eye Pressure</span><span class="prob-sym">Halos Around Lights</span>
+        </div>
+        <span class="prob-cta">Get Screened →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd2" onclick="openSvcModal('retina')">
+      <div class="prob-card-head">
+        <div class="prob-icon">🩸</div>
+        <div class="prob-name">Diabetic Eye Disease</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/eye_img1.jpg" alt="Diabetic Eye">
+        <p class="prob-text">Diabetes damages the tiny blood vessels of the retina, causing diabetic retinopathy — a leading cause of preventable blindness. All diabetic patients need annual retinal screening.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Blurry Vision</span><span class="prob-sym">Dark Spots</span><span class="prob-sym">Floaters</span><span class="prob-sym">Vision Loss</span>
+        </div>
+        <span class="prob-cta">Retinal Screening →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal" onclick="openSvcModal('squint')">
+      <div class="prob-card-head">
+        <div class="prob-icon">🧒</div>
+        <div class="prob-name">Squint & Lazy Eye</div>
+      </div>
+      <div class="prob-body">
+        <div class="prob-img-placeholder">👁️</div>
+        <p class="prob-text">Squint (strabismus) and amblyopia (lazy eye) in children must be treated before age 7 for full visual recovery. Our Orthoptek vision therapy and surgical correction give outstanding results.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Eye Misalignment</span><span class="prob-sym">Poor Depth Perception</span><span class="prob-sym">Head Tilting</span><span class="prob-sym">Vision Failure in School</span>
+        </div>
+        <span class="prob-cta">Paediatric Eye Care →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd1" onclick="openSvcModal('contactlens')">
+      <div class="prob-card-head">
+        <div class="prob-icon">🔍</div>
+        <div class="prob-name">Myopia & Refractive Errors</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/lens_place.jpg" alt="Myopia">
+        <p class="prob-text">Short-sightedness (myopia) is growing rapidly, especially in children. ZEISS Myovision lenses at our clinic actively slow myopia progression, protecting your child's vision long-term.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Blurry Distance Vision</span><span class="prob-sym">Squinting</span><span class="prob-sym">Eye Strain</span><span class="prob-sym">Headaches</span>
+        </div>
+        <span class="prob-cta">Vision Correction →</span>
+      </div>
+    </div>
+
+    <div class="prob-card reveal rd2" onclick="openSvcModal('cataract')">
+      <div class="prob-card-head">
+        <div class="prob-icon">💧</div>
+        <div class="prob-name">Dry Eyes & Eye Infections</div>
+      </div>
+      <div class="prob-body">
+        <img class="prob-img" src="/mnt/user-data/uploads/pleace_place.webp" alt="Eye Care">
+        <p class="prob-text">Dry eye syndrome and eye infections are increasingly common due to screen use, pollution, and contact lens wear. Our comprehensive eye clinic offers complete diagnostic and treatment protocols.</p>
+        <div class="prob-symptoms">
+          <span class="prob-sym">Burning/Stinging</span><span class="prob-sym">Redness</span><span class="prob-sym">Excessive Tearing</span><span class="prob-sym">Discharge</span>
+        </div>
+        <span class="prob-cta">Consult Now →</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- PREVENT -->
 <section id="prevent">
   <div class="sec-label reveal">Stay Healthy</div>
@@ -663,14 +1082,99 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
 <section id="consultants">
   <div class="sec-label reveal">Our Panel</div>
   <h2 class="sec-title reveal">Expert <em>Consultants</em></h2>
-  <p class="sec-sub reveal">Senior specialists who bring decades of sub-specialty expertise to complex cases.</p>
-  <div class="cons-grid">
-    <div class="cons-card reveal"><div class="cons-av">C</div><div class="cons-name">Prof. Dr. Chidambaram</div><div class="cons-spec">Orthodontist · MDS</div><div class="cons-exp"><span>25</span> Years Experience</div></div>
-    <div class="cons-card reveal rd1"><div class="cons-av">J</div><div class="cons-name">Prof. Dr. Jothikumar K.</div><div class="cons-spec">Prosthodontist & Implantologist · MDS, FISOI, FICOI</div><div class="cons-exp"><span>30</span> Years Experience</div></div>
-    <div class="cons-card reveal rd2"><div class="cons-av">K</div><div class="cons-name">Dr. Karthigean</div><div class="cons-spec">Oral & Maxillofacial Surgeon · MDS</div><div class="cons-exp"><span>45</span> Years Experience</div></div>
-    <div class="cons-card reveal rd3"><div class="cons-av">J</div><div class="cons-name">Prof. Dr. Janarthanan</div><div class="cons-spec">Oral & Maxillofacial Surgeon</div><div class="cons-exp"><span>10</span> Years Experience</div></div>
+  <p class="sec-sub reveal">Senior specialists with decades of sub-specialty expertise — available for complex case consultations at Dr. Reddy's.</p>
+  <div class="cons-grid-enhanced">
+
+    <div class="cons-card-enhanced reveal" onclick="openConsModal('chidambaram')">
+      <div class="cons-card-top">
+        <div class="cons-exp-pill">25 Yrs Exp.</div>
+        <div class="cons-avatar-lg">C</div>
+        <div class="cons-card-name">Prof. Dr. Chidambaram</div>
+        <div class="cons-card-qual">MDS · Orthodontics</div>
+        <div class="cons-card-spec">Consultant Orthodontist</div>
+      </div>
+      <div class="cons-card-body">
+        <div class="cons-expertise">
+          <span class="cons-exp-tag">Braces</span>
+          <span class="cons-exp-tag">Invisalign</span>
+          <span class="cons-exp-tag">Jaw Correction</span>
+          <span class="cons-exp-tag">Functional Appliances</span>
+        </div>
+        <p class="cons-about">Professor-level expertise in orthodontics with 25 years of complex case management. Renowned for handling difficult bite corrections and surgical orthodontics.</p>
+        <button class="cons-view-btn">View Full Profile →</button>
+      </div>
+    </div>
+
+    <div class="cons-card-enhanced reveal rd1" onclick="openConsModal('jothikumar')">
+      <div class="cons-card-top">
+        <div class="cons-exp-pill">30 Yrs Exp.</div>
+        <div class="cons-avatar-lg">J</div>
+        <div class="cons-card-name">Prof. Dr. Jothikumar K.</div>
+        <div class="cons-card-qual">MDS · FISOI · FICOI</div>
+        <div class="cons-card-spec">Prosthodontist & Implantologist</div>
+      </div>
+      <div class="cons-card-body">
+        <div class="cons-expertise">
+          <span class="cons-exp-tag">Full Mouth Rehab</span>
+          <span class="cons-exp-tag">Implants</span>
+          <span class="cons-exp-tag">Crowns & Bridges</span>
+          <span class="cons-exp-tag">All-on-4</span>
+        </div>
+        <p class="cons-about">International Fellowship holder (FISOI, FICOI) with 30 years expertise in full mouth rehabilitation and complex implant cases. Handles cases other clinics cannot.</p>
+        <button class="cons-view-btn">View Full Profile →</button>
+      </div>
+    </div>
+
+    <div class="cons-card-enhanced reveal rd2" onclick="openConsModal('karthigean')">
+      <div class="cons-card-top">
+        <div class="cons-exp-pill">45 Yrs Exp.</div>
+        <div class="cons-avatar-lg">K</div>
+        <div class="cons-card-name">Dr. Karthigean</div>
+        <div class="cons-card-qual">MDS · Oral Surgery</div>
+        <div class="cons-card-spec">Oral & Maxillofacial Surgeon</div>
+      </div>
+      <div class="cons-card-body">
+        <div class="cons-expertise">
+          <span class="cons-exp-tag">Wisdom Teeth</span>
+          <span class="cons-exp-tag">Jaw Fractures</span>
+          <span class="cons-exp-tag">Tumour Excision</span>
+          <span class="cons-exp-tag">Facial Trauma</span>
+        </div>
+        <p class="cons-about">45 years of unmatched experience in oral and maxillofacial surgery. India's most experienced oral surgeons for complex impaction and jaw fracture management.</p>
+        <button class="cons-view-btn">View Full Profile →</button>
+      </div>
+    </div>
+
+    <div class="cons-card-enhanced reveal rd3" onclick="openConsModal('janarthanan')">
+      <div class="cons-card-top">
+        <div class="cons-exp-pill">10 Yrs Exp.</div>
+        <div class="cons-avatar-lg">J</div>
+        <div class="cons-card-name">Prof. Dr. Janarthanan</div>
+        <div class="cons-card-qual">MDS · Oral Surgery</div>
+        <div class="cons-card-spec">Oral & Maxillofacial Surgeon</div>
+      </div>
+      <div class="cons-card-body">
+        <div class="cons-expertise">
+          <span class="cons-exp-tag">Cyst Removal</span>
+          <span class="cons-exp-tag">Oral Biopsy</span>
+          <span class="cons-exp-tag">Corrective Surgery</span>
+          <span class="cons-exp-tag">Reconstructive</span>
+        </div>
+        <p class="cons-about">Specialised in oral & maxillofacial reconstructive surgery with academic and clinical expertise. Manages complex oral pathology and corrective jaw surgeries.</p>
+        <button class="cons-view-btn">View Full Profile →</button>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- CONSULTANT MODAL -->
+<div class="cmodal-overlay" id="cmodal" onclick="closeOnOverlay(event,'cmodal')">
+  <div class="cmodal" id="cmodalContent">
+    <button class="cmodal-close" onclick="closeModal('cmodal')">✕</button>
+    <div id="cmodalBody"></div>
+  </div>
+</div>
 
 <!-- FACILITIES -->
 <section id="facilities">
@@ -712,8 +1216,243 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
       </div>
     </div>
     <div class="map-wrap reveal rd1">
-      <iframe src="https://maps.google.com/maps?q=11.9338,79.8271&z=16&output=embed" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://maps.google.com/maps?q=Dr+Reddys+Dental+Eye+Care+Centre+Karaikal&z=16&output=embed" allowfullscreen loading="lazy"></iframe>
     </div>
+  </div>
+</section>
+
+<!-- LOCATION SECTION -->
+<section id="location">
+  <div class="sec-label reveal">Find Us</div>
+  <h2 class="sec-title reveal">Our <em>Location</em></h2>
+  <p class="sec-sub reveal">Conveniently located in the heart of Karaikal — easy to reach from all parts of the city.</p>
+  <div class="loc-grid">
+    <div class="loc-info reveal">
+      <div class="loc-address-card">
+        <div class="loc-address-title">📍 Dr. Reddy's Dental & Eye Care Centre</div>
+        <div class="loc-row">
+          <div class="loc-icon">🏥</div>
+          <div>
+            <div class="loc-label">Full Address</div>
+            <div class="loc-val">24, Singaravelar Salai,<br>Karaikal – 609 602, Tamil Nadu, India</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-icon">📞</div>
+          <div>
+            <div class="loc-label">Phone Numbers</div>
+            <div class="loc-val"><a href="tel:04368224097" style="color:var(--orange);font-weight:700;text-decoration:none">04368-224097</a> / <a href="tel:04368224141" style="color:var(--orange);font-weight:700;text-decoration:none">224141</a></div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-icon">📱</div>
+          <div>
+            <div class="loc-label">24×7 Emergency Mobile</div>
+            <div class="loc-val"><a href="tel:8438224097" style="color:var(--orange);font-weight:700;text-decoration:none">84382 24097</a></div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-icon">🕐</div>
+          <div>
+            <div class="loc-label">Working Hours</div>
+            <div class="loc-val">Mon – Sat: 9:00 AM – 8:00 PM<br>Sunday: 10:00 AM – 4:00 PM<br><strong style="color:var(--orange)">24×7 Emergency Available</strong></div>
+          </div>
+        </div>
+        <a href="https://maps.app.goo.gl/yzZ7tqwR8RxWWFUPA" target="_blank" class="loc-directions-btn">
+          🗺️ Get Directions on Google Maps
+        </a>
+      </div>
+      <div class="loc-landmarks">
+        <div class="loc-landmark-title">Nearby Landmarks</div>
+        <ul class="loc-landmark-list">
+          <li>Karaikal Government Hospital – 5 min drive</li>
+          <li>Karaikal Bus Stand – 3 min drive</li>
+          <li>Karaikal Town Centre – 4 min walk</li>
+          <li>Nearest Pharmacy – In-house at clinic</li>
+          <li>Free parking available at premises</li>
+        </ul>
+      </div>
+    </div>
+    <div class="loc-map-wrap reveal rd1">
+      <iframe src="https://maps.google.com/maps?q=11.9338,79.8271&z=17&output=embed&hl=en" allowfullscreen loading="lazy" title="Dr. Reddy's Dental & Eye Care Centre Location"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEWS SECTION -->
+<section id="reviews">
+  <div class="sec-label reveal">Patient Voices</div>
+  <h2 class="sec-title reveal">What Our <em>Patients</em> Say</h2>
+  <div class="reviews-header reveal">
+    <p class="sec-sub">Trusted by thousands of patients in Karaikal and beyond — their words mean everything to us.</p>
+    <div class="reviews-rating-block">
+      <div class="rating-big">4.9</div>
+      <div class="rating-detail">
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count">Based on 15+ Google Reviews</div>
+        <div class="rating-google"><span class="google-g">G</span> Verified on Google</div>
+      </div>
+    </div>
+  </div>
+  <div class="reviews-scroll reveal">
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#E8580A,#F47B35)">R</div>
+        <div><div class="review-name">Ravi Kumar</div><div class="review-date">2 weeks ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Dr. Sudhakar is exceptional. My dental implant procedure was completely painless and the result looks absolutely natural. The clinic is very clean and modern."</p>
+      <span class="review-service">Dental Implants</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#1A73E8,#4285F4)">P</div>
+        <div><div class="review-name">Priya Subramaniam</div><div class="review-date">1 month ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Dr. Kamalapriya treated my mother's cataracts with such skill. Her vision is now perfect without glasses. The entire team was warm and caring throughout."</p>
+      <span class="review-service">Cataract Surgery</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#0F9D58,#34A853)">M</div>
+        <div><div class="review-name">Muthu Selvam</div><div class="review-date">3 weeks ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Best dental clinic in Karaikal without doubt. I had severe toothache and they saw me on emergency that same night. Root canal was done perfectly with zero pain."</p>
+      <span class="review-service">Emergency RCT</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#DB4437,#EA4335)">L</div>
+        <div><div class="review-name">Lakshmi Devi</div><div class="review-date">1 month ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My daughter's squint was completely corrected by Dr. Kamalapriya. She is so patient with children. We are extremely grateful — her eyes are perfectly aligned now."</p>
+      <span class="review-service">Squint Treatment</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#F9AB00,#FBBC04)">S</div>
+        <div><div class="review-name">Senthil Nathan</div><div class="review-date">2 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Had Invisalign here and the result is beyond what I expected. Dr. Reddy takes the time to explain everything. Professional clinic with a warm family feel."</p>
+      <span class="review-service">Invisalign</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#9C27B0,#673AB7)">A</div>
+        <div><div class="review-name">Anitha Krishnaswamy</div><div class="review-date">3 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The pharmacy inside is very convenient — picked up all post-treatment medicines right there. Waiting area is peaceful with beautiful plants. Felt like a luxury experience."</p>
+      <span class="review-service">Dental Consultation</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#00BCD4,#009688)">V</div>
+        <div><div class="review-name">Velmurugan K.</div><div class="review-date">2 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Came for glaucoma screening as my father has it. The eye pressure check, retinal imaging all done in one visit. Very thorough examination. Highly recommend for eye care."</p>
+      <span class="review-service">Glaucoma Screening</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#FF5722,#FF7043)">K</div>
+        <div><div class="review-name">Kavitha Ramalingam</div><div class="review-date">1 month ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My smile has completely transformed after the veneers. Dr. Sudhakar did a digital preview before starting — I could see the result before treatment began. Incredible!"</p>
+      <span class="review-service">Smile Designing</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#607D8B,#455A64)">T</div>
+        <div><div class="review-name">Thirumal Selvaraj</div><div class="review-date">6 weeks ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My diabetic retinopathy was caught early here. The doctor explained everything clearly and gave a detailed management plan. This clinic likely saved my vision."</p>
+      <span class="review-service">Diabetic Eye Care</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#4CAF50,#388E3C)">N</div>
+        <div><div class="review-name">Nirmala Sundaram</div><div class="review-date">2 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"My son got ZEISS Myovision glasses here. In just 6 months his power hasn't increased at all. The contact lens clinic has the best selection in Karaikal."</p>
+      <span class="review-service">ZEISS Myovision</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#E91E63,#C2185B)">B</div>
+        <div><div class="review-name">Balachandran V.</div><div class="review-date">3 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"After years of wearing uncomfortable dentures, I got implants here. The quality of life improvement is immense. Thank you Dr. Sudhakar for giving back my smile."</p>
+      <span class="review-service">Full Mouth Implants</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#FF9800,#F57C00)">J</div>
+        <div><div class="review-name">Jayalakshmi P.</div><div class="review-date">5 weeks ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Brought my 4-year-old here for a dental check. The children's play zone made her completely relaxed — she didn't cry at all! The paediatric dentist was wonderful with her."</p>
+      <span class="review-service">Pediatric Dentistry</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#3F51B5,#1A237E)">D</div>
+        <div><div class="review-name">Dinesh Mohan</div><div class="review-date">7 weeks ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Visited for a wisdom tooth extraction. Dr. Karthigean handled it with 45 years of expertise — I barely felt anything. Recovery was smooth. This is the best clinic in the region."</p>
+      <span class="review-service">Oral Surgery</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#795548,#5D4037)">G</div>
+        <div><div class="review-name">Gomathi Arumugam</div><div class="review-date">4 months ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"I've been coming here for 10 years and won't go anywhere else. The sterilization standards are visibly excellent. You can trust this clinic completely for your family's care."</p>
+      <span class="review-service">Long-time Patient</span>
+    </div>
+
+    <div class="review-card">
+      <div class="review-top">
+        <div class="review-av" style="background:linear-gradient(135deg,#009688,#00796B)">U</div>
+        <div><div class="review-name">Umamaheswari S.</div><div class="review-date">1 month ago</div></div>
+      </div>
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The braces treatment was thorough and worth every rupee. My bite is now perfect. The consultant Dr. Chidambaram is a true expert. Very happy with the outcome."</p>
+      <span class="review-service">Orthodontics</span>
+    </div>
+
+  </div>
+
+  <div class="reviews-cta reveal">
+    <a href="https://maps.app.goo.gl/yzZ7tqwR8RxWWFUPA" target="_blank" class="reviews-cta-link">
+      <span class="google-g" style="width:20px;height:20px;font-size:.7rem">G</span>
+      See All Reviews on Google Maps
+    </a>
   </div>
 </section>
 
@@ -892,10 +1631,11 @@ footer{background:var(--slate);color:rgba(255,255,255,.85);padding:60px 5% 28px}
         <div class="success-screen">
           <span class="success-icon">✅</span>
           <div class="success-title">Appointment Requested!</div>
-          <p class="success-text">Thank you! Our team will call you on <strong id="successPhone"></strong> within 30 minutes to confirm your slot.</p>
+          <p class="success-text">Thank you! Your details have been sent to our WhatsApp. Our team will call you on <strong id="successPhone"></strong> within 30 minutes to confirm your slot.</p>
           <div class="success-ref" id="successRef"></div>
           <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
             <button class="aform-next" onclick="closeModal('amodal')">Close</button>
+            <a href="https://wa.me/919488551465" target="_blank" style="background:#25D366;color:white;padding:13px 24px;border-radius:12px;font-size:.86rem;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:7px">💬 Chat on WhatsApp</a>
             <a href="tel:8438224097" style="background:var(--offwhite);border:1.5px solid var(--border2);color:var(--text);padding:13px 24px;border-radius:12px;font-size:.86rem;font-weight:600;text-decoration:none">📞 Call Us Now</a>
           </div>
         </div>
@@ -1248,12 +1988,97 @@ function buildConfirm(){
   document.getElementById('confirmCard').innerHTML=rows.map(r=>`<div class="confirm-row"><span class="confirm-key">${r[0]}</span><span class="confirm-val">${r[1]}</span></div>`).join('');
 }
 function submitAppt(){
+  const name=document.getElementById('aName').value;
+  const phone=document.getElementById('aPhone').value;
+  const age=document.getElementById('aAge').value||'Not specified';
+  const gender=document.getElementById('aGender').value||'Not specified';
+  const service=document.getElementById('aService').value;
+  const date=document.getElementById('aDate').value?new Date(document.getElementById('aDate').value).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}):'Not specified';
+  const time=document.getElementById('aTime').value;
+  const concern=document.getElementById('aConcern').value||'Not specified';
   const ref='DRK-'+Date.now().toString().slice(-6);
-  document.getElementById('successPhone').textContent=document.getElementById('aPhone').value;
+
+  const msg=`🏥 *New Appointment Request — Dr. Reddy's*\n\n👤 *Name:* ${name}\n📱 *Phone:* ${phone}\n🎂 *Age/Gender:* ${age} / ${gender}\n🦷 *Service:* ${service}\n📅 *Date:* ${date}\n🕐 *Time:* ${time}\n📋 *Concern:* ${concern}\n\n🔖 *Reference:* ${ref}`;
+  const waUrl='https://wa.me/919488551465?text='+encodeURIComponent(msg);
+
+  document.getElementById('successPhone').textContent=phone;
   document.getElementById('successRef').textContent='Reference: '+ref;
   showStep(4);
-  showToast('✅ Appointment requested! We\'ll call you shortly.');
+  showToast('✅ Appointment requested! Redirecting to WhatsApp...');
+  setTimeout(()=>window.open(waUrl,'_blank'),1200);
 }
+
+// RUNNING SERVICES TAB SWITCH
+function switchRsTab(tab,btn){
+  document.querySelectorAll('.rs-tab').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.rs-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('rs-'+tab).classList.add('active');
+}
+
+// CONSULTANT MODAL DATA
+const consData={
+  chidambaram:{
+    init:'C',name:'Prof. Dr. Chidambaram',qual:'MDS · Orthodontics',role:'Visiting Consultant Orthodontist',yrs:'25',cases:'2000+',patients:'High Complexity',
+    about:'Prof. Dr. Chidambaram is a distinguished academic and clinical orthodontist with 25 years of experience managing the most complex orthodontic cases. His professor-level academic background combined with extensive private practice ensures patients receive both evidence-based treatment planning and the most advanced orthodontic techniques.',
+    expertise:['Fixed Orthodontics – Metal & Ceramic Braces','Self-Ligating Bracket Systems','Clear Aligner Therapy (Invisalign)','Functional Appliances for Growing Children','Orthognathic (Jaw) Surgery Co-ordination','Myofunctional Therapy','Cleft Lip & Palate Orthodontics','Surgical Orthodontics'],
+    tags:['MDS Orthodontics','Professor Level','Invisalign','Surgical Ortho','Jaw Correction']
+  },
+  jothikumar:{
+    init:'J',name:'Prof. Dr. Jothikumar K.',qual:'MDS · FISOI · FICOI',role:'Visiting Consultant Prosthodontist & Implantologist',yrs:'30',cases:'5000+',patients:'Complex Rehab',
+    about:'Prof. Dr. Jothikumar holds international Fellowships from the Society of Oral Implantologists (FISOI) and the College of Oral Implantologists (FICOI). With 30 years of experience, he is one of South India\'s leading authorities on full mouth rehabilitation and complex implant reconstruction. His expertise handles cases that most other clinics cannot — including failed implants, bone deficiency cases, and complete full-arch rehabilitation.',
+    expertise:['Full Mouth Rehabilitation','All-on-4 & All-on-6 Implants','Bone Augmentation & Grafting','Sinus Lift Procedures','Failed Implant Revision','Complete Denture Implant Overdentures','Ceramic & Zirconia Crown & Bridge Work','Aesthetic Smile Rehabilitation'],
+    tags:['FISOI','FICOI','Full Mouth Rehab','All-on-4','Bone Grafting','International Fellow']
+  },
+  karthigean:{
+    init:'K',name:'Dr. Karthigean',qual:'MDS · Oral & Maxillofacial Surgery',role:'Visiting Consultant Oral & Maxillofacial Surgeon',yrs:'45',cases:'10000+',patients:'Trauma & Complex',
+    about:'With an extraordinary 45 years of surgical experience, Dr. Karthigean is one of the most experienced oral and maxillofacial surgeons in Tamil Nadu. His breadth of experience spans complex wisdom tooth impactions, jaw fracture repair, tumour excisions, and facial reconstruction. Patients travel from across the region to benefit from his rare combination of wisdom and technical precision.',
+    expertise:['Complex Wisdom Tooth Impactions (All Types)','Jaw Fracture Repair & Fixation','Oral Cancer Excision & Biopsy','Temporomandibular Joint (TMJ) Surgery','Facial Trauma Management','Orthognathic Corrective Jaw Surgery','Salivary Gland Surgery','Pre-prosthetic Surgery for Implants'],
+    tags:['45 Yrs Exp.','Jaw Surgery','Oral Cancer','Facial Trauma','TMJ','Impactions']
+  },
+  janarthanan:{
+    init:'J',name:'Prof. Dr. Janarthanan',qual:'MDS · Oral & Maxillofacial Surgery',role:'Visiting Consultant Oral & Maxillofacial Surgeon',yrs:'10',cases:'1500+',patients:'Reconstructive',
+    about:'Prof. Dr. Janarthanan brings strong academic expertise in oral and maxillofacial surgery to Dr. Reddy\'s consultant panel. His specialty lies in reconstructive and corrective procedures, oral pathology management, and complex cyst/tumour cases. His academic background ensures that treatment planning follows the most current evidence-based protocols.',
+    expertise:['Cyst Enucleation & Marsupialisation','Oral Pathology Biopsy & Management','Corrective Jaw Surgery (Orthognathic)','Cleft Palate Surgical Repair','Oral Cancer Screening & Biopsy','Ridge Augmentation for Implants','Reconstructive Oral Surgery','Dental Implant Surgical Placement'],
+    tags:['MDS Surgery','Reconstructive','Cyst Removal','Corrective Jaw','Oral Pathology']
+  }
+};
+
+function openConsModal(id){
+  const c=consData[id];if(!c)return;
+  document.getElementById('cmodalBody').innerHTML=`
+    <div class="cmodal-header">
+      <div class="cmodal-av">${c.init}</div>
+      <div>
+        <div class="cmodal-title">${c.name}</div>
+        <div class="cmodal-qual">${c.qual}</div>
+        <div class="cmodal-role">${c.role}</div>
+        <div class="cmodal-stat-row">
+          <div class="cmodal-stat"><div class="cmodal-stat-n">${c.yrs}</div><div class="cmodal-stat-l">Years Exp.</div></div>
+          <div class="cmodal-stat"><div class="cmodal-stat-n">${c.cases}</div><div class="cmodal-stat-l">Cases</div></div>
+          <div class="cmodal-stat"><div class="cmodal-stat-n" style="font-size:.9rem">${c.patients}</div><div class="cmodal-stat-l">Specialty</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cmodal-body">
+      <div class="cmodal-sec">
+        <div class="cmodal-sec-label">About</div>
+        <p class="cmodal-text">${c.about}</p>
+      </div>
+      <div class="cmodal-sec">
+        <div class="cmodal-sec-label">Areas of Expertise</div>
+        <ul class="cmodal-list">${c.expertise.map(e=>`<li>${e}</li>`).join('')}</ul>
+      </div>
+      <div class="cmodal-sec">
+        <div class="cmodal-sec-label">Specialisations</div>
+        <div class="cmodal-tags">${c.tags.map(t=>`<span class="cmodal-tag">${t}</span>`).join('')}</div>
+      </div>
+      <button class="cmodal-book" onclick="closeModal('cmodal');openAppt()">Book a Consultation with this Expert</button>
+    </div>
+  `;
+  openModal('cmodal');
+}
+
 </script>
 </body>
 </html>
