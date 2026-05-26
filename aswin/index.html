@@ -809,6 +809,221 @@ section { padding: 90px 5%; }
 .phase-section.active { display: block; }
 
 /* ========================================
+   MODE SWITCHING — BODY CLASS APPROACH
+======================================== */
+#dental-services, #eye-services,
+#dental-doctor, #eye-doctor,
+#consultants {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* DENTAL-ONLY MODE */
+body.mode-dental #eye-services       { display: none !important; }
+body.mode-dental #eye-doctor         { display: none !important; }
+body.mode-dental .marquee-item.eye-item { display: none !important; }
+body.mode-dental .service-pill.eye-pill { display: none !important; }
+
+/* EYE-ONLY MODE */
+body.mode-eye #dental-services             { display: none !important; }
+body.mode-eye #dental-doctor               { display: none !important; }
+body.mode-eye #consultants                 { display: none !important; }
+body.mode-eye .marquee-item:not(.eye-item) { display: none !important; }
+body.mode-eye .service-pill:not(.eye-pill) { display: none !important; }
+
+/* ---- MODE INDICATOR BANNER ---- */
+.mode-indicator {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-18px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 22px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  transition: all 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+}
+.mode-indicator.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: all;
+}
+.mode-indicator.dental-mode {
+  background: linear-gradient(135deg, var(--dental-orange), var(--dental-gold));
+  color: white;
+  box-shadow: 0 10px 30px rgba(232,108,44,0.4);
+}
+.mode-indicator.eye-mode {
+  background: linear-gradient(135deg, var(--eye-cyan), var(--eye-teal));
+  color: white;
+  box-shadow: 0 10px 30px rgba(0,184,217,0.4);
+}
+.mode-indicator-text { letter-spacing: 1px; }
+.mode-indicator-close {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  border: none;
+  color: white;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: none;
+  transition: background 0.2s, transform 0.2s;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+.mode-indicator-close:hover {
+  background: rgba(255,255,255,0.45);
+  transform: scale(1.15);
+}
+
+/* ---- MODE TRANSITION SWEEP OVERLAY ---- */
+.mode-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 0;
+}
+@keyframes modeSweepIn {
+  0%   { opacity: 0; clip-path: circle(0% at 50% 10%); }
+  50%  { opacity: 0.18; clip-path: circle(70% at 50% 10%); }
+  100% { opacity: 0; clip-path: circle(150% at 50% 10%); }
+}
+.mode-transition-overlay.sweep-dental {
+  background: linear-gradient(135deg, var(--dental-orange), var(--dental-gold));
+  animation: modeSweepIn 0.55s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.mode-transition-overlay.sweep-eye {
+  background: linear-gradient(135deg, var(--eye-cyan), var(--eye-teal));
+  animation: modeSweepIn 0.55s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.mode-transition-overlay.sweep-both {
+  background: linear-gradient(135deg, var(--blue), var(--eye-cyan));
+  animation: modeSweepIn 0.55s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* ---- COMBINED MODE DIVIDER ---- */
+.mode-divider {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 28px 5%;
+  background: linear-gradient(135deg, #fff8f4 0%, #f0f8ff 100%);
+  border-top: 1px solid rgba(184,223,245,0.3);
+  border-bottom: 1px solid rgba(184,223,245,0.3);
+  position: relative;
+  overflow: hidden;
+}
+.mode-divider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(232,108,44,0.06) 30%, rgba(0,184,217,0.06) 70%, transparent 100%);
+}
+body.mode-both .mode-divider { display: flex; }
+.divider-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+.divider-pill.dental {
+  background: linear-gradient(135deg, var(--dental-orange), var(--dental-gold));
+  color: white;
+  box-shadow: 0 6px 20px rgba(232,108,44,0.3);
+}
+.divider-pill.eye {
+  background: linear-gradient(135deg, var(--eye-cyan), var(--eye-teal));
+  color: white;
+  box-shadow: 0 6px 20px rgba(0,184,217,0.3);
+}
+.divider-arrow {
+  font-size: 1.2rem;
+  color: var(--text-light);
+  opacity: 0.5;
+  position: relative;
+  z-index: 1;
+}
+.divider-line {
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(184,223,245,0.5), transparent);
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- 3-BUTTON TOGGLE STYLES ---- */
+.phase-btn.all {
+  padding: 6px 16px;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.3px;
+  transition: var(--transition-fast);
+  background: transparent;
+  color: var(--text-light);
+}
+.phase-btn.all.active {
+  background: linear-gradient(135deg, var(--blue), var(--eye-cyan));
+  color: white;
+  box-shadow: 0 3px 12px rgba(30,127,196,0.35);
+}
+
+/* ---- ACTIVE LINK HIGHLIGHTS ---- */
+body.mode-dental .nav-links .dental-link {
+  color: var(--dental-orange) !important;
+  background: rgba(232,108,44,0.1) !important;
+  font-weight: 700;
+}
+body.mode-eye .nav-links .eye-link {
+  color: var(--eye-teal) !important;
+  background: rgba(0,143,163,0.1) !important;
+  font-weight: 700;
+}
+
+/* ---- SCROLLBAR MODE THEMING ---- */
+body.mode-dental ::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--dental-orange), var(--dental-gold));
+}
+body.mode-eye ::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--eye-cyan), var(--eye-teal));
+}
+
+/* ---- HERO SECTION MODE COLORS ---- */
+body.mode-dental #hero {
+  background: linear-gradient(135deg, #fff8f4 0%, #ffe0cc 40%, #ffd4b0 100%);
+}
+body.mode-eye #hero {
+  background: linear-gradient(135deg, #e8f8ff 0%, #d0f0ff 40%, #b8e8ff 100%);
+}
+
+/* ========================================
    SERVICES MARQUEE
 ======================================== */
 #services-marquee {
@@ -1817,6 +2032,85 @@ footer {
 .stagger-children.visible > *:nth-child(8) { opacity: 1; transform: none; transition-delay: 0.7s; }
 
 /* ========================================
+   FLOATING MODE SWITCHER
+======================================== */
+.float-mode-switcher {
+  position: fixed;
+  bottom: 110px;
+  left: 30px;
+  z-index: 499;
+  opacity: 0;
+  transform: translateX(-20px);
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.float-mode-switcher.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: all;
+}
+.fms-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  text-align: center;
+}
+.fms-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fms-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 2px solid transparent;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  white-space: nowrap;
+  cursor: none;
+  background: white;
+}
+.fms-btn.f-all {
+  color: var(--blue);
+  border-color: var(--sky);
+}
+.fms-btn.f-all:hover, .fms-btn.f-all.active {
+  background: linear-gradient(135deg, var(--blue), var(--eye-cyan));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(30,127,196,0.35);
+}
+.fms-btn.f-dental {
+  color: var(--dental-orange);
+  border-color: rgba(232,108,44,0.3);
+}
+.fms-btn.f-dental:hover, .fms-btn.f-dental.active {
+  background: linear-gradient(135deg, var(--dental-orange), var(--dental-gold));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(232,108,44,0.4);
+}
+.fms-btn.f-eye {
+  color: var(--eye-teal);
+  border-color: rgba(0,184,217,0.3);
+}
+.fms-btn.f-eye:hover, .fms-btn.f-eye.active {
+  background: linear-gradient(135deg, var(--eye-cyan), var(--eye-teal));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(0,184,217,0.4);
+}
+
+/* ========================================
    RESPONSIVE
 ======================================== */
 @media (max-width: 1024px) {
@@ -1844,6 +2138,8 @@ footer {
   .emer-btn { padding: 10px 16px; font-size: 0.75rem; }
   .modal-body { padding: 20px; }
   .modal-header { padding: 20px; }
+  .float-mode-switcher { display: none; }
+  .mode-indicator { font-size: 0.68rem; padding: 7px 14px; }
 }
 @media (max-width: 480px) {
   .hero-title { font-size: 2rem; }
@@ -1868,14 +2164,24 @@ footer {
 <div class="mobile-nav" id="mobileNav">
   <a href="#hero">🏠 Home</a>
   <a href="#about">👨‍⚕️ Our Doctors</a>
-  <a href="#dental-services" onclick="switchPhase('dental');closeMobileNav()">🦷 Dental Services</a>
-  <a href="#eye-services" onclick="switchPhase('eye');closeMobileNav()">👁 Eye Services</a>
+  <a href="#dental-services" onclick="switchPhase('dental');closeMobileNav()">🦷 Dental Services Only</a>
+  <a href="#eye-services" onclick="switchPhase('eye');closeMobileNav()">👁 Eye Services Only</a>
+  <a href="#about" onclick="switchPhase('both');closeMobileNav()">✦ View All Services</a>
   <a href="#consultants">🩺 Consultants</a>
   <a href="#prevention">💡 Prevention Tips</a>
   <a href="#why-us">⭐ Why Choose Us</a>
   <a href="#gallery">🖼 Gallery</a>
   <a href="#appointment">📅 Book Appointment</a>
   <a href="tel:+919894591195" style="color:#27ae60;font-weight:700;margin-top:10px;">📞 +91 98945 91195</a>
+  <!-- Mobile Mode Toggle -->
+  <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--sky-light);">
+    <div style="font-size:0.65rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text-light);margin-bottom:10px;">View Mode</div>
+    <div style="display:flex;gap:8px;">
+      <button onclick="switchPhase('dental');closeMobileNav()" style="flex:1;padding:9px;border-radius:50px;background:linear-gradient(135deg,var(--dental-orange),var(--dental-gold));color:white;border:none;font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;">🦷 Dental</button>
+      <button onclick="switchPhase('both');closeMobileNav()" style="flex:1;padding:9px;border-radius:50px;background:linear-gradient(135deg,var(--blue),var(--eye-cyan));color:white;border:none;font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;">✦ All</button>
+      <button onclick="switchPhase('eye');closeMobileNav()" style="flex:1;padding:9px;border-radius:50px;background:linear-gradient(135deg,var(--eye-cyan),var(--eye-teal));color:white;border:none;font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:700;">👁 Eye</button>
+    </div>
+  </div>
 </div>
 
 <!-- NAVBAR -->
@@ -1898,7 +2204,8 @@ footer {
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
     <div class="nav-phase-toggle">
-      <button class="phase-btn dental active" onclick="switchPhase('dental')">🦷 Dental</button>
+      <button class="phase-btn dental" onclick="switchPhase('dental')">🦷 Dental</button>
+      <button class="phase-btn all active" onclick="switchPhase('both')">✦ All</button>
       <button class="phase-btn eye" onclick="switchPhase('eye')">👁 Eye</button>
     </div>
     <a href="#appointment" class="nav-cta">Book Now</a>
@@ -1907,6 +2214,15 @@ footer {
     </button>
   </div>
 </nav>
+
+<!-- MODE INDICATOR BANNER -->
+<div class="mode-indicator" id="modeIndicator">
+  <span class="mode-indicator-text" id="modeIndicatorText">🦷 DENTAL MODE</span>
+  <button class="mode-indicator-close" onclick="switchPhase('both')" title="Show All">✕</button>
+</div>
+
+<!-- MODE TRANSITION OVERLAY -->
+<div class="mode-transition-overlay" id="modeOverlay"></div>
 
 <!-- ============================
      HERO SECTION
@@ -2029,7 +2345,7 @@ footer {
     </div>
     <div class="about-grid stagger-children">
       <!-- Dr. Sudhakar Reddy -->
-      <div class="doctor-card dental fade-up">
+      <div class="doctor-card dental fade-up" id="dental-doctor">
         <div class="doctor-card-stripe"></div>
         <div class="doctor-card-header">
           <div class="doctor-avatar-wrap">
@@ -2054,7 +2370,7 @@ footer {
         </div>
       </div>
       <!-- Dr. Kamalapriya -->
-      <div class="doctor-card eye fade-up">
+      <div class="doctor-card eye fade-up" id="eye-doctor">
         <div class="doctor-card-stripe"></div>
         <div class="doctor-card-header">
           <div class="doctor-avatar-wrap">
@@ -2218,6 +2534,17 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ============================
+     MODE DIVIDER (visible in All mode)
+============================ -->
+<div class="mode-divider">
+  <div class="divider-line"></div>
+  <div class="divider-pill dental">🦷 Dental Department ↑</div>
+  <div class="divider-arrow">⟡</div>
+  <div class="divider-pill eye">👁 Eye Care Department ↓</div>
+  <div class="divider-line"></div>
+</div>
 
 <!-- ============================
      EYE CARE SERVICES
@@ -2668,6 +2995,18 @@ footer {
 <!-- ============================
      FLOATING EMERGENCY BTNS
 ============================ -->
+<!-- ============================
+     FLOATING MODE SWITCHER
+============================ -->
+<div class="float-mode-switcher" id="floatModeSwitcher">
+  <div class="fms-label">View Mode</div>
+  <div class="fms-btns">
+    <button class="fms-btn f-dental" onclick="switchPhase('dental')">🦷 Dental Only</button>
+    <button class="fms-btn f-all active" onclick="switchPhase('both')">✦ All Services</button>
+    <button class="fms-btn f-eye" onclick="switchPhase('eye')">👁 Eye Care Only</button>
+  </div>
+</div>
+
 <div class="emergency-float">
   <a href="https://wa.me/919894591195" target="_blank" class="emer-btn call">
     <span>💬</span> WhatsApp
@@ -2722,10 +3061,7 @@ document.addEventListener('mouseup', () => {
 });
 
 // ---- NAVBAR SCROLL ----
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
-  nav.classList.toggle('scrolled', window.scrollY > 60);
-});
+// (handled in switchPhase scroll listener above)
 
 // ---- MOBILE NAV ----
 function openMobileNav() {
@@ -2740,17 +3076,81 @@ function closeMobileNav() {
 }
 
 // ---- PHASE TOGGLE ----
+let currentMode = 'both';
+
 function switchPhase(phase) {
+  if (phase === currentMode) return;
+  currentMode = phase;
+
   const dentalBtn = document.querySelector('.phase-btn.dental');
-  const eyeBtn = document.querySelector('.phase-btn.eye');
+  const eyeBtn    = document.querySelector('.phase-btn.eye');
+  const allBtn    = document.querySelector('.phase-btn.all');
+
+  // Update nav button active states
+  dentalBtn.classList.remove('active');
+  eyeBtn.classList.remove('active');
+  allBtn.classList.remove('active');
+  if (phase === 'dental') dentalBtn.classList.add('active');
+  else if (phase === 'eye') eyeBtn.classList.add('active');
+  else allBtn.classList.add('active');
+
+  // Update floating switcher buttons
+  document.querySelectorAll('.fms-btn').forEach(b => b.classList.remove('active'));
+  if (phase === 'dental') document.querySelector('.fms-btn.f-dental').classList.add('active');
+  else if (phase === 'eye') document.querySelector('.fms-btn.f-eye').classList.add('active');
+  else document.querySelector('.fms-btn.f-all').classList.add('active');
+
+  // Trigger sweep animation
+  const overlay = document.getElementById('modeOverlay');
+  overlay.className = 'mode-transition-overlay';
+  void overlay.offsetWidth; // reflow
+  if (phase === 'dental') overlay.classList.add('sweep-dental');
+  else if (phase === 'eye') overlay.classList.add('sweep-eye');
+  else overlay.classList.add('sweep-both');
+
+  // Apply body class
+  document.body.classList.remove('mode-dental', 'mode-eye', 'mode-both');
+  if (phase === 'dental') document.body.classList.add('mode-dental');
+  else if (phase === 'eye') document.body.classList.add('mode-eye');
+  else document.body.classList.add('mode-both');
+
+  // Update mode indicator banner
+  const indicator = document.getElementById('modeIndicator');
+  const indicatorText = document.getElementById('modeIndicatorText');
   if (phase === 'dental') {
-    dentalBtn.classList.add('active');
-    eyeBtn.classList.remove('active');
+    indicatorText.textContent = '🦷 DENTAL MODE ACTIVE — Click ✕ to view all';
+    indicator.className = 'mode-indicator dental-mode show';
+  } else if (phase === 'eye') {
+    indicatorText.textContent = '👁 EYE CARE MODE ACTIVE — Click ✕ to view all';
+    indicator.className = 'mode-indicator eye-mode show';
   } else {
-    eyeBtn.classList.add('active');
-    dentalBtn.classList.remove('active');
+    indicator.className = 'mode-indicator';
+  }
+
+  // Scroll to relevant section
+  if (phase === 'dental') {
+    setTimeout(() => {
+      document.getElementById('dental-services').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 220);
+  } else if (phase === 'eye') {
+    setTimeout(() => {
+      document.getElementById('eye-services').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 220);
   }
 }
+
+// Initialize with both mode on load
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('mode-both');
+});
+
+// Show float switcher on scroll past hero
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  const fms = document.getElementById('floatModeSwitcher');
+  if (fms) fms.classList.toggle('visible', window.scrollY > 400);
+});
 
 // ---- PREVENTION TABS ----
 function switchPrevTab(type, btn) {
